@@ -1,0 +1,12 @@
+﻿<!ELEMENT CompanyName (#PCDATA)>
+<!ELEMENT ContactName (#PCDATA)>
+<!ELEMENT CustomerID (#PCDATA)>
+<!ELEMENT CustomerIDs (CustomerID | CompanyName | ContactName | OrderIDs)+>
+<!ELEMENT Item (OrderDate, ShipAddress)>
+<!ATTLIST Item
+    orderID ID #REQUIRED
+>
+<!ELEMENT OrderDate (#PCDATA)>
+<!ELEMENT OrderIDs (Item+)>
+<!ELEMENT ROOT (CustomerIDs)>
+<!ELEMENT ShipAddress (#PCDATA)>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<div xmlns:xi="http://www.w3.org/2003/XInclude">
+  <xi:include href="no-such-file.txt" parse="text">
+    <xi:fallback>
+      <xi:include href="and-no-such-one.txt" parse="text">
+        <xi:fallback><a href="mailto:bob@example.org">Report error</a></xi:fallback>
+      </xi:include>
+    </xi:fallback>
+  </xi:include>
+</div>

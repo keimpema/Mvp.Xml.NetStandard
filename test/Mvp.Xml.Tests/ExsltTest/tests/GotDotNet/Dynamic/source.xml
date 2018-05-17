@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="evaluate.xslt"?>
+<data xmlns:o="http://orders.com">
+  <orders>
+    <order id="o234">T-Shirt</order>
+    <order id="o12">Polo Shirt</order>
+    <order id="o332">Shoes</order>
+  </orders>
+  <orders xmlns="http://orders.com">
+    <order id="o11">Foo</order>
+    <order id="o22">Bar</order>
+    <order id="o44">Baz</order>
+  </orders>
+  <path>/data/orders/order[@id='o12']</path>
+  <path2>orders/order[@id='o12']</path2>
+  <path3>o:orders/o:order[@id='o44']</path3>
+  <path4>/data</path4>
+  <path5>/orders/order</path5>
+  <path6>[@id='o332']</path6>
+  <path7>foo:orders/foo:order[@id='o11']</path7>
+</data>

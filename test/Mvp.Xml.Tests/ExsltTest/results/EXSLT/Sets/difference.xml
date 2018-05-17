@@ -1,0 +1,8 @@
+﻿<out>
+  <test1>
+    <foo>2</foo>
+    <foo>4</foo>
+  </test1>
+  <test2 />
+  <test3 />
+</out>

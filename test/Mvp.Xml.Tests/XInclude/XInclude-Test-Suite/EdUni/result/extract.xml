@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extract [
+<!ELEMENT include (#PCDATA)>
+<!ATTLIST include xmlns    CDATA #FIXED "http://www.w3.org/2001/XInclude">
+]>
+<extract>
+<intro id="intro" xml:base="book.xml">
+You will enjoy this book.
+</intro>
+<chapter id="chap1" xml:base="chap1.xml">
+It was a dark and stormy night.
+</chapter>
+</extract>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<myXml xmlns:xi="http://www.w3.org/2001/XInclude">>
+
+<otherStuff>
+</otherStuff>
+
+
+<!--WORKS (found node)-->
+  <xi:include href="table.xml" xpointer="xpointer(//HTML/BODY/TABLE[starts-with(CAPTION,'M')] )">
+<xi:fallback>
+node not found
+</xi:fallback>
+</xi:include>
+
+<!--WORKS CORRECTLY (found node)-->
+  <xi:include href="table.xml" xpointer="xpointer(//HTML/BODY/TABLE)">
+<xi:fallback>
+node not found
+</xi:fallback>
+</xi:include>
+
+<!--WORKS CORRECTLY(fallback, node not found)-->
+  <xi:include href="table.xml" xpointer="xpointer(//HTML/BODY/STUFF)">
+<xi:fallback>
+node not found
+</xi:fallback>
+</xi:include>
+
+<!--DOES NOT WORK CORRECTLY (node does not exist, should do fallback but throws CircularReferenceException-->
+  <xi:include href="table.xml" xpointer="xpointer(//HTML/BODY/TABLE[starts-with(STUFF,'M')] )">
+<xi:fallback>
+node not found
+</xi:fallback>
+</xi:include>
+
+<!--DOES NOT WORK CORRECTLY (node does not exist, should do fallback but throws CircularReferenceException-->
+  <xi:include href="table.xml" xpointer="xpointer(//HTML/BODY/STUFF[starts-with(CAPTION,'M')] )">
+<xi:fallback>
+node not found
+</xi:fallback>
+</xi:include>
+
+<moreXML/>
+
+</myXml>

@@ -1,0 +1,3817 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE ROOT SYSTEM "northwind.dtd">
+<ROOT>
+    <CustomerIDs>
+        <CustomerID> ALFKI</CustomerID>
+        <CompanyName> Alfreds Futterkiste</CompanyName>
+        <ContactName> Maria Anders</ContactName>
+        <OrderIDs>
+            <Item orderID="o10952">
+                <OrderDate> 4/15/96</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10643">
+                <OrderDate> 9/25/95</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10702">
+                <OrderDate> 11/13/95</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10692">
+                <OrderDate> 11/3/95</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10835">
+                <OrderDate> 2/15/96</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+            <Item orderID="o11011">
+                <OrderDate> 5/9/96</OrderDate>
+                <ShipAddress> Obere Str. 57</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> ANATR</CustomerID>
+        <CompanyName> Ana Trujillo Emparedados y helados</CompanyName>
+        <ContactName> Ana Trujillo</ContactName>
+        <OrderIDs>
+            <Item orderID="o10625">
+                <OrderDate> 9/8/95</OrderDate>
+                <ShipAddress> Avda. de la Constitución 2222</ShipAddress>
+            </Item>
+            <Item orderID="o10308">
+                <OrderDate> 10/19/94</OrderDate>
+                <ShipAddress> Avda. de la Constitución 2222</ShipAddress>
+            </Item>
+            <Item orderID="o10759">
+                <OrderDate> 12/29/95</OrderDate>
+                <ShipAddress> Avda. de la Constitución 2222</ShipAddress>
+            </Item>
+            <Item orderID="o10926">
+                <OrderDate> 4/3/96</OrderDate>
+                <ShipAddress> Avda. de la Constitución 2222</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> ANTON</CustomerID>
+        <CompanyName> Antonio Moreno Taquería</CompanyName>
+        <ContactName> Antonio Moreno</ContactName>
+        <OrderIDs>
+            <Item orderID="o10535">
+                <OrderDate> 6/13/95</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10677">
+                <OrderDate> 10/23/95</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10365">
+                <OrderDate> 12/28/94</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10856">
+                <OrderDate> 2/28/96</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10507">
+                <OrderDate> 5/16/95</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10573">
+                <OrderDate> 7/20/95</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+            <Item orderID="o10682">
+                <OrderDate> 10/26/95</OrderDate>
+                <ShipAddress> Mataderos  2312</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> AROUT</CustomerID>
+        <CompanyName> Around the Horn</CompanyName>
+        <ContactName> Thomas Hardy</ContactName>
+        <OrderIDs>
+            <Item orderID="o10864">
+                <OrderDate> 3/4/96</OrderDate>
+                <ShipAddress> Brook Farm Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10793">
+                <OrderDate> 1/24/96</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10383">
+                <OrderDate> 1/16/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10558">
+                <OrderDate> 7/5/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10355">
+                <OrderDate> 12/16/94</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10743">
+                <OrderDate> 12/18/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10707">
+                <OrderDate> 11/16/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10920">
+                <OrderDate> 4/2/96</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10453">
+                <OrderDate> 3/24/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10741">
+                <OrderDate> 12/15/95</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o11016">
+                <OrderDate> 5/10/96</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10953">
+                <OrderDate> 4/15/96</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+            <Item orderID="o10768">
+                <OrderDate> 1/8/96</OrderDate>
+                <ShipAddress> Brook Farm
+Stratford St. Mary</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BERGS</CustomerID>
+        <CompanyName> Berglunds snabbköp</CompanyName>
+        <ContactName> Christina Berglund</ContactName>
+        <OrderIDs>
+            <Item orderID="o10654">
+                <OrderDate> 10/3/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10672">
+                <OrderDate> 10/18/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10866">
+                <OrderDate> 3/5/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10572">
+                <OrderDate> 7/19/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10857">
+                <OrderDate> 2/28/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10837">
+                <OrderDate> 2/16/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10626">
+                <OrderDate> 9/11/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10778">
+                <OrderDate> 1/16/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10444">
+                <OrderDate> 3/15/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10733">
+                <OrderDate> 12/8/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10445">
+                <OrderDate> 3/16/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10278">
+                <OrderDate> 9/12/94</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10924">
+                <OrderDate> 4/3/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10875">
+                <OrderDate> 3/8/96</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10280">
+                <OrderDate> 9/14/94</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10689">
+                <OrderDate> 11/1/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10524">
+                <OrderDate> 6/1/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+            <Item orderID="o10384">
+                <OrderDate> 1/16/95</OrderDate>
+                <ShipAddress> Berguvsvägen  8</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BLAUS</CustomerID>
+        <CompanyName> Blauer See Delikatessen</CompanyName>
+        <ContactName> Hanna Moos</ContactName>
+        <OrderIDs>
+            <Item orderID="o10853">
+                <OrderDate> 2/27/96</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10582">
+                <OrderDate> 7/28/95</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10956">
+                <OrderDate> 4/16/96</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10614">
+                <OrderDate> 8/29/95</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10509">
+                <OrderDate> 5/18/95</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o11058">
+                <OrderDate> 5/29/96</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+            <Item orderID="o10501">
+                <OrderDate> 5/10/95</OrderDate>
+                <ShipAddress> Forsterstr. 57</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BLONP</CustomerID>
+        <CompanyName> Blondel père et fils</CompanyName>
+        <ContactName> Frédérique Citeaux</ContactName>
+        <OrderIDs>
+            <Item orderID="o10449">
+                <OrderDate> 3/21/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10436">
+                <OrderDate> 3/8/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10360">
+                <OrderDate> 12/23/94</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10566">
+                <OrderDate> 7/13/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10559">
+                <OrderDate> 7/6/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10826">
+                <OrderDate> 2/12/96</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10584">
+                <OrderDate> 7/31/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10679">
+                <OrderDate> 10/24/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10628">
+                <OrderDate> 9/12/95</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10265">
+                <OrderDate> 8/25/94</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+            <Item orderID="o10297">
+                <OrderDate> 10/5/94</OrderDate>
+                <ShipAddress> 24, place Kléber</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BOLID</CustomerID>
+        <CompanyName> Bólido Comidas preparadas</CompanyName>
+        <ContactName> Martín Sommer</ContactName>
+        <OrderIDs>
+            <Item orderID="o10326">
+                <OrderDate> 11/10/94</OrderDate>
+                <ShipAddress> C/ Araquil, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10801">
+                <OrderDate> 1/29/96</OrderDate>
+                <ShipAddress> C/ Araquil, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10970">
+                <OrderDate> 4/23/96</OrderDate>
+                <ShipAddress> C/ Araquil, 67</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BONAP</CustomerID>
+        <CompanyName> Bon app'</CompanyName>
+        <ContactName> Laurence Lebihan</ContactName>
+        <OrderIDs>
+            <Item orderID="o10525">
+                <OrderDate> 6/2/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10511">
+                <OrderDate> 5/19/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10715">
+                <OrderDate> 11/23/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10362">
+                <OrderDate> 12/26/94</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10663">
+                <OrderDate> 10/11/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10730">
+                <OrderDate> 12/6/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10932">
+                <OrderDate> 4/5/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10755">
+                <OrderDate> 12/27/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10732">
+                <OrderDate> 12/7/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10940">
+                <OrderDate> 4/10/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10340">
+                <OrderDate> 11/29/94</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10331">
+                <OrderDate> 11/16/94</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o11076">
+                <OrderDate> 6/5/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10470">
+                <OrderDate> 4/11/95</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10827">
+                <OrderDate> 2/12/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10871">
+                <OrderDate> 3/7/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+            <Item orderID="o10876">
+                <OrderDate> 3/11/96</OrderDate>
+                <ShipAddress> 12, rue des Bouchers</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BOTTM</CustomerID>
+        <CompanyName> Bottom-Dollar Markets</CompanyName>
+        <ContactName> Elizabeth Lincoln</ContactName>
+        <OrderIDs>
+            <Item orderID="o10410">
+                <OrderDate> 2/10/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10492">
+                <OrderDate> 5/2/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10949">
+                <OrderDate> 4/12/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10742">
+                <OrderDate> 12/15/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10944">
+                <OrderDate> 4/11/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10431">
+                <OrderDate> 3/2/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11027">
+                <OrderDate> 5/16/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10411">
+                <OrderDate> 2/10/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10975">
+                <OrderDate> 4/24/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10918">
+                <OrderDate> 4/1/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11048">
+                <OrderDate> 5/24/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10982">
+                <OrderDate> 4/26/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11045">
+                <OrderDate> 5/23/96</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10389">
+                <OrderDate> 1/20/95</OrderDate>
+                <ShipAddress> 23 Tsawassen Blvd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> BSBEV</CustomerID>
+        <CompanyName> B's Beverages</CompanyName>
+        <ContactName> Victoria Ashworth</ContactName>
+        <OrderIDs>
+            <Item orderID="o10599">
+                <OrderDate> 8/15/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10484">
+                <OrderDate> 4/24/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o11023">
+                <OrderDate> 5/14/96</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10471">
+                <OrderDate> 4/11/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10289">
+                <OrderDate> 9/26/94</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10578">
+                <OrderDate> 7/25/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10538">
+                <OrderDate> 6/15/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10943">
+                <OrderDate> 4/10/96</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10539">
+                <OrderDate> 6/16/95</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+            <Item orderID="o10947">
+                <OrderDate> 4/12/96</OrderDate>
+                <ShipAddress> Fauntleroy Circus</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> CACTU</CustomerID>
+        <CompanyName> Cactus Comidas para llevar</CompanyName>
+        <ContactName> Patricio Simpson</ContactName>
+        <OrderIDs>
+            <Item orderID="o10937">
+                <OrderDate> 4/9/96</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+            <Item orderID="o10521">
+                <OrderDate> 5/30/95</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+            <Item orderID="o10782">
+                <OrderDate> 1/17/96</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+            <Item orderID="o10881">
+                <OrderDate> 3/13/96</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+            <Item orderID="o11054">
+                <OrderDate> 5/28/96</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+            <Item orderID="o10819">
+                <OrderDate> 2/7/96</OrderDate>
+                <ShipAddress> Cerrito 333</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> CENTC</CustomerID>
+        <CompanyName> Centro comercial Moctezuma</CompanyName>
+        <ContactName> Francisco Chang</ContactName>
+        <OrderIDs>
+            <Item orderID="o10259">
+                <OrderDate> 8/18/94</OrderDate>
+                <ShipAddress> Sierras de Granada 9993</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> CHOPS</CustomerID>
+        <CompanyName> Chop-suey Chinese</CompanyName>
+        <ContactName> Yang Wang</ContactName>
+        <OrderIDs>
+            <Item orderID="o10746">
+                <OrderDate> 12/20/95</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o10519">
+                <OrderDate> 5/29/95</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o10731">
+                <OrderDate> 12/7/95</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o10254">
+                <OrderDate> 8/11/94</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o10966">
+                <OrderDate> 4/19/96</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o10370">
+                <OrderDate> 1/3/95</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o11041">
+                <OrderDate> 5/22/96</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+            <Item orderID="o11029">
+                <OrderDate> 5/16/96</OrderDate>
+                <ShipAddress> Hauptstr. 31</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> COMMI</CustomerID>
+        <CompanyName> Comércio Mineiro</CompanyName>
+        <ContactName> Pedro Afonso</ContactName>
+        <OrderIDs>
+            <Item orderID="o10494">
+                <OrderDate> 5/3/95</OrderDate>
+                <ShipAddress> Av. dos Lusíadas, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10466">
+                <OrderDate> 4/6/95</OrderDate>
+                <ShipAddress> Av. dos Lusíadas, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10969">
+                <OrderDate> 4/22/96</OrderDate>
+                <ShipAddress> Av. dos Lusíadas, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10290">
+                <OrderDate> 9/27/94</OrderDate>
+                <ShipAddress> Av. dos Lusíadas, 23</ShipAddress>
+            </Item>
+            <Item orderID="o11042">
+                <OrderDate> 5/22/96</OrderDate>
+                <ShipAddress> Av. dos Lusíadas, 23</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> CONSH</CustomerID>
+        <CompanyName> Consolidated Holdings</CompanyName>
+        <ContactName> Elizabeth Brown</ContactName>
+        <OrderIDs>
+            <Item orderID="o10435">
+                <OrderDate> 3/7/95</OrderDate>
+                <ShipAddress> Berkeley Gardens
+12  Brewery </ShipAddress>
+            </Item>
+            <Item orderID="o10848">
+                <OrderDate> 2/23/96</OrderDate>
+                <ShipAddress> Berkeley Gardens
+12  Brewery </ShipAddress>
+            </Item>
+            <Item orderID="o10462">
+                <OrderDate> 4/3/95</OrderDate>
+                <ShipAddress> Berkeley Gardens
+12  Brewery </ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> DRACD</CustomerID>
+        <CompanyName> Drachenblut Delikatessen</CompanyName>
+        <ContactName> Sven Ottlieb</ContactName>
+        <OrderIDs>
+            <Item orderID="o10391">
+                <OrderDate> 1/23/95</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+            <Item orderID="o11067">
+                <OrderDate> 6/3/96</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+            <Item orderID="o10363">
+                <OrderDate> 12/27/94</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+            <Item orderID="o10825">
+                <OrderDate> 2/9/96</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+            <Item orderID="o11036">
+                <OrderDate> 5/20/96</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+            <Item orderID="o10797">
+                <OrderDate> 1/25/96</OrderDate>
+                <ShipAddress> Walserweg 21</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> DUMON</CustomerID>
+        <CompanyName> Du monde entier</CompanyName>
+        <ContactName> Janine Labrune</ContactName>
+        <OrderIDs>
+            <Item orderID="o10890">
+                <OrderDate> 3/18/96</OrderDate>
+                <ShipAddress> 67, rue des Cinquante Otages</ShipAddress>
+            </Item>
+            <Item orderID="o10609">
+                <OrderDate> 8/24/95</OrderDate>
+                <ShipAddress> 67, rue des Cinquante Otages</ShipAddress>
+            </Item>
+            <Item orderID="o10311">
+                <OrderDate> 10/21/94</OrderDate>
+                <ShipAddress> 67, rue des Cinquante Otages</ShipAddress>
+            </Item>
+            <Item orderID="o10683">
+                <OrderDate> 10/27/95</OrderDate>
+                <ShipAddress> 67, rue des Cinquante Otages</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> EASTC</CustomerID>
+        <CompanyName> Eastern Connection</CompanyName>
+        <ContactName> Ann Devon</ContactName>
+        <OrderIDs>
+            <Item orderID="o10400">
+                <OrderDate> 2/1/95</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o11024">
+                <OrderDate> 5/15/96</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o10726">
+                <OrderDate> 12/4/95</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o10364">
+                <OrderDate> 12/27/94</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o10532">
+                <OrderDate> 6/9/95</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o11056">
+                <OrderDate> 5/28/96</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o10987">
+                <OrderDate> 4/30/96</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+            <Item orderID="o11047">
+                <OrderDate> 5/24/96</OrderDate>
+                <ShipAddress> 35 King George</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> ERNSH</CustomerID>
+        <CompanyName> Ernst Handel</CompanyName>
+        <ContactName> Roland Mendel</ContactName>
+        <OrderIDs>
+            <Item orderID="o10895">
+                <OrderDate> 3/20/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10990">
+                <OrderDate> 5/1/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10351">
+                <OrderDate> 12/12/94</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o11072">
+                <OrderDate> 6/4/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10382">
+                <OrderDate> 1/13/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10368">
+                <OrderDate> 12/30/94</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o11008">
+                <OrderDate> 5/8/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10571">
+                <OrderDate> 7/18/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10390">
+                <OrderDate> 1/23/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10258">
+                <OrderDate> 8/17/94</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10633">
+                <OrderDate> 9/15/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o11017">
+                <OrderDate> 5/13/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10795">
+                <OrderDate> 1/24/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10595">
+                <OrderDate> 8/10/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10263">
+                <OrderDate> 8/23/94</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10836">
+                <OrderDate> 2/16/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10514">
+                <OrderDate> 5/23/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10764">
+                <OrderDate> 1/3/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10771">
+                <OrderDate> 1/10/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10773">
+                <OrderDate> 1/11/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10776">
+                <OrderDate> 1/15/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10667">
+                <OrderDate> 10/13/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10698">
+                <OrderDate> 11/9/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10854">
+                <OrderDate> 2/27/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10968">
+                <OrderDate> 4/22/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10430">
+                <OrderDate> 3/2/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10979">
+                <OrderDate> 4/25/96</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10403">
+                <OrderDate> 2/3/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10442">
+                <OrderDate> 3/14/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+            <Item orderID="o10402">
+                <OrderDate> 2/2/95</OrderDate>
+                <ShipAddress> Kirchgasse 6</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FAMIA</CustomerID>
+        <CompanyName> Familia Arquibaldo</CompanyName>
+        <ContactName> Aria Cruz</ContactName>
+        <OrderIDs>
+            <Item orderID="o10581">
+                <OrderDate> 7/27/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10347">
+                <OrderDate> 12/7/94</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10386">
+                <OrderDate> 1/18/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10650">
+                <OrderDate> 9/29/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10414">
+                <OrderDate> 2/14/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10512">
+                <OrderDate> 5/22/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+            <Item orderID="o10725">
+                <OrderDate> 12/1/95</OrderDate>
+                <ShipAddress> Rua Orós, 92</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FOLIG</CustomerID>
+        <CompanyName> Folies gourmandes</CompanyName>
+        <ContactName> Martine Rancé</ContactName>
+        <OrderIDs>
+            <Item orderID="o10408">
+                <OrderDate> 2/8/95</OrderDate>
+                <ShipAddress> 184, chaussée de Tournai</ShipAddress>
+            </Item>
+            <Item orderID="o10789">
+                <OrderDate> 1/22/96</OrderDate>
+                <ShipAddress> 184, chaussée de Tournai</ShipAddress>
+            </Item>
+            <Item orderID="o10634">
+                <OrderDate> 9/15/95</OrderDate>
+                <ShipAddress> 184, chaussée de Tournai</ShipAddress>
+            </Item>
+            <Item orderID="o10480">
+                <OrderDate> 4/20/95</OrderDate>
+                <ShipAddress> 184, chaussée de Tournai</ShipAddress>
+            </Item>
+            <Item orderID="o10763">
+                <OrderDate> 1/3/96</OrderDate>
+                <ShipAddress> 184, chaussée de Tournai</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FOLKO</CustomerID>
+        <CompanyName> Folk och fä HB</CompanyName>
+        <ContactName> Maria Larsson</ContactName>
+        <OrderIDs>
+            <Item orderID="o10955">
+                <OrderDate> 4/16/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10977">
+                <OrderDate> 4/25/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10762">
+                <OrderDate> 1/2/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10434">
+                <OrderDate> 3/6/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10460">
+                <OrderDate> 3/31/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10902">
+                <OrderDate> 3/25/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10264">
+                <OrderDate> 8/24/94</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10824">
+                <OrderDate> 2/9/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10774">
+                <OrderDate> 1/11/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10561">
+                <OrderDate> 7/7/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10703">
+                <OrderDate> 11/14/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o11050">
+                <OrderDate> 5/27/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10327">
+                <OrderDate> 11/11/94</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o11001">
+                <OrderDate> 5/6/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10880">
+                <OrderDate> 3/12/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10980">
+                <OrderDate> 4/26/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10993">
+                <OrderDate> 5/1/96</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10378">
+                <OrderDate> 1/10/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+            <Item orderID="o10533">
+                <OrderDate> 6/12/95</OrderDate>
+                <ShipAddress> Åkergatan 24</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FRANK</CustomerID>
+        <CompanyName> Frankenversand</CompanyName>
+        <ContactName> Peter Franken</ContactName>
+        <OrderIDs>
+            <Item orderID="o10623">
+                <OrderDate> 9/7/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10929">
+                <OrderDate> 4/4/96</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10653">
+                <OrderDate> 10/3/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10670">
+                <OrderDate> 10/17/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10675">
+                <OrderDate> 10/20/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o11012">
+                <OrderDate> 5/9/96</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10791">
+                <OrderDate> 1/23/96</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10859">
+                <OrderDate> 2/29/96</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10337">
+                <OrderDate> 11/24/94</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10488">
+                <OrderDate> 4/27/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10560">
+                <OrderDate> 7/7/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10396">
+                <OrderDate> 1/27/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10267">
+                <OrderDate> 8/29/94</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10342">
+                <OrderDate> 11/30/94</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+            <Item orderID="o10717">
+                <OrderDate> 11/24/95</OrderDate>
+                <ShipAddress> Berliner Platz 43</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FRANR</CustomerID>
+        <CompanyName> France restauration</CompanyName>
+        <ContactName> Carine Schmitt</ContactName>
+        <OrderIDs>
+            <Item orderID="o10860">
+                <OrderDate> 2/29/96</OrderDate>
+                <ShipAddress> 54, rue Royale</ShipAddress>
+            </Item>
+            <Item orderID="o10671">
+                <OrderDate> 10/18/95</OrderDate>
+                <ShipAddress> 54, rue Royale</ShipAddress>
+            </Item>
+            <Item orderID="o10971">
+                <OrderDate> 4/23/96</OrderDate>
+                <ShipAddress> 54, rue Royale</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FRANS</CustomerID>
+        <CompanyName> Franchi S.p.A.</CompanyName>
+        <ContactName> Paolo Accorti</ContactName>
+        <OrderIDs>
+            <Item orderID="o11060">
+                <OrderDate> 5/30/96</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+            <Item orderID="o11026">
+                <OrderDate> 5/15/96</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+            <Item orderID="o10753">
+                <OrderDate> 12/26/95</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+            <Item orderID="o10422">
+                <OrderDate> 2/22/95</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+            <Item orderID="o10710">
+                <OrderDate> 11/20/95</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+            <Item orderID="o10807">
+                <OrderDate> 1/31/96</OrderDate>
+                <ShipAddress> Via Monte Bianco 34</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> FURIB</CustomerID>
+        <CompanyName> Furia Bacalhau e Frutos do Mar</CompanyName>
+        <ContactName> Lino Rodriguez </ContactName>
+        <OrderIDs>
+            <Item orderID="o10963">
+                <OrderDate> 4/18/96</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10328">
+                <OrderDate> 11/14/94</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10664">
+                <OrderDate> 10/11/95</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10491">
+                <OrderDate> 5/1/95</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10551">
+                <OrderDate> 6/28/95</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10352">
+                <OrderDate> 12/13/94</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10604">
+                <OrderDate> 8/18/95</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+            <Item orderID="o10464">
+                <OrderDate> 4/4/95</OrderDate>
+                <ShipAddress> Jardim das rosas n. 32</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> GALED</CustomerID>
+        <CompanyName> Galería del gastrónomo</CompanyName>
+        <ContactName> Eduardo Saavedra</ContactName>
+        <OrderIDs>
+            <Item orderID="o10928">
+                <OrderDate> 4/4/96</OrderDate>
+                <ShipAddress> Rambla de Cataluña, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10887">
+                <OrderDate> 3/15/96</OrderDate>
+                <ShipAddress> Rambla de Cataluña, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10568">
+                <OrderDate> 7/14/95</OrderDate>
+                <ShipAddress> Rambla de Cataluña, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10426">
+                <OrderDate> 2/27/95</OrderDate>
+                <ShipAddress> Rambla de Cataluña, 23</ShipAddress>
+            </Item>
+            <Item orderID="o10366">
+                <OrderDate> 12/29/94</OrderDate>
+                <ShipAddress> Rambla de Cataluña, 23</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> GODOS</CustomerID>
+        <CompanyName> Godos Cocina Típica</CompanyName>
+        <ContactName> José Pedro Freyre</ContactName>
+        <OrderIDs>
+            <Item orderID="o10948">
+                <OrderDate> 4/12/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10872">
+                <OrderDate> 3/7/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10888">
+                <OrderDate> 3/18/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10911">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10874">
+                <OrderDate> 3/8/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o11037">
+                <OrderDate> 5/21/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10629">
+                <OrderDate> 9/12/95</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o11009">
+                <OrderDate> 5/8/96</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10550">
+                <OrderDate> 6/28/95</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+            <Item orderID="o10303">
+                <OrderDate> 10/12/94</OrderDate>
+                <ShipAddress> C/ Romero, 33</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> GOURL</CustomerID>
+        <CompanyName> Gourmet Lanchonetes</CompanyName>
+        <ContactName> André Fonseca</ContactName>
+        <OrderIDs>
+            <Item orderID="o10423">
+                <OrderDate> 2/23/95</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10959">
+                <OrderDate> 4/17/96</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10685">
+                <OrderDate> 10/30/95</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o11049">
+                <OrderDate> 5/24/96</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10777">
+                <OrderDate> 1/15/96</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10709">
+                <OrderDate> 11/17/95</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10734">
+                <OrderDate> 12/8/95</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10790">
+                <OrderDate> 1/22/96</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+            <Item orderID="o10652">
+                <OrderDate> 10/2/95</OrderDate>
+                <ShipAddress> Av. Brasil, 442</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> GREAL</CustomerID>
+        <CompanyName> Great Lakes Food Market</CompanyName>
+        <ContactName> Howard Snyder</ContactName>
+        <OrderIDs>
+            <Item orderID="o10616">
+                <OrderDate> 8/31/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11061">
+                <OrderDate> 5/30/96</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11006">
+                <OrderDate> 5/7/96</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10589">
+                <OrderDate> 8/4/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10656">
+                <OrderDate> 10/5/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o11040">
+                <OrderDate> 5/22/96</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10528">
+                <OrderDate> 6/6/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10816">
+                <OrderDate> 2/6/96</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10681">
+                <OrderDate> 10/26/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10617">
+                <OrderDate> 8/31/95</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10936">
+                <OrderDate> 4/8/96</OrderDate>
+                <ShipAddress> 2732 Baker Blvd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> GROSR</CustomerID>
+        <CompanyName> GROSELLA-Restaurante</CompanyName>
+        <ContactName> Manuel Pereira</ContactName>
+        <OrderIDs>
+            <Item orderID="o10785">
+                <OrderDate> 1/18/96</OrderDate>
+                <ShipAddress> 5ª Ave. Los Palos Grandes</ShipAddress>
+            </Item>
+            <Item orderID="o10268">
+                <OrderDate> 8/30/94</OrderDate>
+                <ShipAddress> 5ª Ave. Los Palos Grandes</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> HANAR</CustomerID>
+        <CompanyName> Hanari Carnes</CompanyName>
+        <ContactName> Mario Pontes</ContactName>
+        <OrderIDs>
+            <Item orderID="o10690">
+                <OrderDate> 11/2/95</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10770">
+                <OrderDate> 1/9/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10541">
+                <OrderDate> 6/19/95</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10925">
+                <OrderDate> 4/3/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10783">
+                <OrderDate> 1/18/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10645">
+                <OrderDate> 9/26/95</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10922">
+                <OrderDate> 4/2/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o11052">
+                <OrderDate> 5/27/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10981">
+                <OrderDate> 4/26/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o11022">
+                <OrderDate> 5/14/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10886">
+                <OrderDate> 3/15/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10250">
+                <OrderDate> 8/8/94</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10903">
+                <OrderDate> 3/26/96</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+            <Item orderID="o10253">
+                <OrderDate> 8/10/94</OrderDate>
+                <ShipAddress> Rua do Paço, 67</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> HILAA</CustomerID>
+        <CompanyName> HILARIÓN-Abastos</CompanyName>
+        <ContactName> Carlos Hernández</ContactName>
+        <OrderIDs>
+            <Item orderID="o10957">
+                <OrderDate> 4/17/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10257">
+                <OrderDate> 8/16/94</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10705">
+                <OrderDate> 11/15/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10901">
+                <OrderDate> 3/25/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10395">
+                <OrderDate> 1/26/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10976">
+                <OrderDate> 4/24/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10490">
+                <OrderDate> 5/1/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10863">
+                <OrderDate> 3/4/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10613">
+                <OrderDate> 8/29/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10641">
+                <OrderDate> 9/22/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10960">
+                <OrderDate> 4/18/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10476">
+                <OrderDate> 4/17/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10796">
+                <OrderDate> 1/25/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10552">
+                <OrderDate> 6/29/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o11055">
+                <OrderDate> 5/28/96</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10601">
+                <OrderDate> 8/16/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10486">
+                <OrderDate> 4/26/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+            <Item orderID="o10498">
+                <OrderDate> 5/8/95</OrderDate>
+                <ShipAddress> Carrera 22 con Ave. Carlos Soublette #8-35</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> HUNGC</CustomerID>
+        <CompanyName> Hungry Coyote Import Store</CompanyName>
+        <ContactName> Yoshi Latimer</ContactName>
+        <OrderIDs>
+            <Item orderID="o10660">
+                <OrderDate> 10/9/95</OrderDate>
+                <ShipAddress> City Center Plaza
+516 Main St.</ShipAddress>
+            </Item>
+            <Item orderID="o10394">
+                <OrderDate> 1/25/95</OrderDate>
+                <ShipAddress> City Center Plaza
+516 Main St.</ShipAddress>
+            </Item>
+            <Item orderID="o10375">
+                <OrderDate> 1/6/95</OrderDate>
+                <ShipAddress> City Center Plaza
+516 Main St.</ShipAddress>
+            </Item>
+            <Item orderID="o10415">
+                <OrderDate> 2/15/95</OrderDate>
+                <ShipAddress> City Center Plaza
+516 Main St.</ShipAddress>
+            </Item>
+            <Item orderID="o10600">
+                <OrderDate> 8/16/95</OrderDate>
+                <ShipAddress> City Center Plaza
+516 Main St.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> HUNGO</CustomerID>
+        <CompanyName> Hungry Owl All-Night Grocers</CompanyName>
+        <ContactName> Patricia McKenna</ContactName>
+        <OrderIDs>
+            <Item orderID="o10736">
+                <OrderDate> 12/12/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10373">
+                <OrderDate> 1/5/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10335">
+                <OrderDate> 11/22/94</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10380">
+                <OrderDate> 1/12/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10646">
+                <OrderDate> 9/27/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10298">
+                <OrderDate> 10/6/94</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10687">
+                <OrderDate> 10/31/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10429">
+                <OrderDate> 3/1/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10701">
+                <OrderDate> 11/13/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10712">
+                <OrderDate> 11/21/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10567">
+                <OrderDate> 7/13/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10309">
+                <OrderDate> 10/20/94</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10661">
+                <OrderDate> 10/10/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10503">
+                <OrderDate> 5/12/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10516">
+                <OrderDate> 5/25/95</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10912">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o11063">
+                <OrderDate> 5/30/96</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10897">
+                <OrderDate> 3/21/96</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+            <Item orderID="o10985">
+                <OrderDate> 4/29/96</OrderDate>
+                <ShipAddress> 8 Johnstown Road</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> ISLAT</CustomerID>
+        <CompanyName> Island Trading</CompanyName>
+        <ContactName> Helen Bennett</ContactName>
+        <OrderIDs>
+            <Item orderID="o10798">
+                <OrderDate> 1/26/96</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10829">
+                <OrderDate> 2/13/96</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10621">
+                <OrderDate> 9/5/95</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10674">
+                <OrderDate> 10/19/95</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10473">
+                <OrderDate> 4/13/95</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10933">
+                <OrderDate> 4/5/96</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10315">
+                <OrderDate> 10/27/94</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10749">
+                <OrderDate> 12/21/95</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10318">
+                <OrderDate> 11/1/94</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+            <Item orderID="o10321">
+                <OrderDate> 11/3/94</OrderDate>
+                <ShipAddress> Garden House
+Crowther Way</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> KOENE</CustomerID>
+        <CompanyName> Königlich Essen</CompanyName>
+        <ContactName> Philip Cramer</ContactName>
+        <OrderIDs>
+            <Item orderID="o10456">
+                <OrderDate> 3/28/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10893">
+                <OrderDate> 3/20/96</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10542">
+                <OrderDate> 6/20/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10849">
+                <OrderDate> 2/23/96</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10468">
+                <OrderDate> 4/7/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10718">
+                <OrderDate> 11/27/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10457">
+                <OrderDate> 3/28/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10506">
+                <OrderDate> 5/16/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10630">
+                <OrderDate> 9/13/95</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10817">
+                <OrderDate> 2/6/96</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10799">
+                <OrderDate> 1/26/96</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o11028">
+                <OrderDate> 5/16/96</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10325">
+                <OrderDate> 11/9/94</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+            <Item orderID="o10323">
+                <OrderDate> 11/7/94</OrderDate>
+                <ShipAddress> Maubelstr. 90</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LACOR</CustomerID>
+        <CompanyName> La corne d'abondance</CompanyName>
+        <ContactName> Daniel Tonini</ContactName>
+        <OrderIDs>
+            <Item orderID="o10972">
+                <OrderDate> 4/23/96</OrderDate>
+                <ShipAddress> 67, avenue de l'Europe</ShipAddress>
+            </Item>
+            <Item orderID="o10973">
+                <OrderDate> 4/23/96</OrderDate>
+                <ShipAddress> 67, avenue de l'Europe</ShipAddress>
+            </Item>
+            <Item orderID="o10927">
+                <OrderDate> 4/4/96</OrderDate>
+                <ShipAddress> 67, avenue de l'Europe</ShipAddress>
+            </Item>
+            <Item orderID="o10858">
+                <OrderDate> 2/29/96</OrderDate>
+                <ShipAddress> 67, avenue de l'Europe</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LAMAI</CustomerID>
+        <CompanyName> La maison d'Asie</CompanyName>
+        <ContactName> Annette Roulet</ContactName>
+        <OrderIDs>
+            <Item orderID="o10832">
+                <OrderDate> 2/14/96</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o11051">
+                <OrderDate> 5/27/96</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10631">
+                <OrderDate> 9/14/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10610">
+                <OrderDate> 8/25/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10787">
+                <OrderDate> 1/19/96</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10493">
+                <OrderDate> 5/3/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10454">
+                <OrderDate> 3/24/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10500">
+                <OrderDate> 5/10/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10425">
+                <OrderDate> 2/24/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10413">
+                <OrderDate> 2/14/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10923">
+                <OrderDate> 4/2/96</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10371">
+                <OrderDate> 1/3/95</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10358">
+                <OrderDate> 12/21/94</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+            <Item orderID="o10350">
+                <OrderDate> 12/12/94</OrderDate>
+                <ShipAddress> 1 rue Alsace-Lorraine</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LAUGB</CustomerID>
+        <CompanyName> Laughing Bacchus Wine Cellars</CompanyName>
+        <ContactName> Yoshi Tannamuri</ContactName>
+        <OrderIDs>
+            <Item orderID="o10810">
+                <OrderDate> 2/1/96</OrderDate>
+                <ShipAddress> 2319 Elm St.</ShipAddress>
+            </Item>
+            <Item orderID="o10620">
+                <OrderDate> 9/5/95</OrderDate>
+                <ShipAddress> 2319 Elm St.</ShipAddress>
+            </Item>
+            <Item orderID="o10495">
+                <OrderDate> 5/4/95</OrderDate>
+                <ShipAddress> 2319 Elm St.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LAZYK</CustomerID>
+        <CompanyName> Lazy K Kountry Store</CompanyName>
+        <ContactName> John Steel</ContactName>
+        <OrderIDs>
+            <Item orderID="o10482">
+                <OrderDate> 4/21/95</OrderDate>
+                <ShipAddress> 12 Orchestra Terrace</ShipAddress>
+            </Item>
+            <Item orderID="o10545">
+                <OrderDate> 6/22/95</OrderDate>
+                <ShipAddress> 12 Orchestra Terrace</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LEHMS</CustomerID>
+        <CompanyName> Lehmanns Marktstand</CompanyName>
+        <ContactName> Renate Messner</ContactName>
+        <OrderIDs>
+            <Item orderID="o10343">
+                <OrderDate> 12/1/94</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o11070">
+                <OrderDate> 6/4/96</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10934">
+                <OrderDate> 4/8/96</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10279">
+                <OrderDate> 9/13/94</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10592">
+                <OrderDate> 8/8/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10284">
+                <OrderDate> 9/19/94</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10862">
+                <OrderDate> 3/1/96</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10557">
+                <OrderDate> 7/4/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10536">
+                <OrderDate> 6/14/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10534">
+                <OrderDate> 6/12/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10891">
+                <OrderDate> 3/19/96</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10497">
+                <OrderDate> 5/5/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10522">
+                <OrderDate> 5/31/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10593">
+                <OrderDate> 8/9/95</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+            <Item orderID="o10772">
+                <OrderDate> 1/10/96</OrderDate>
+                <ShipAddress> Magazinweg 7</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LETSS</CustomerID>
+        <CompanyName> Let's Stop N Shop</CompanyName>
+        <ContactName> Jaime Yorres</ContactName>
+        <OrderIDs>
+            <Item orderID="o10735">
+                <OrderDate> 12/11/95</OrderDate>
+                <ShipAddress> 87 Polk St.
+Suite 5</ShipAddress>
+            </Item>
+            <Item orderID="o10719">
+                <OrderDate> 11/27/95</OrderDate>
+                <ShipAddress> 87 Polk St.
+Suite 5</ShipAddress>
+            </Item>
+            <Item orderID="o10884">
+                <OrderDate> 3/14/96</OrderDate>
+                <ShipAddress> 87 Polk St.
+Suite 5</ShipAddress>
+            </Item>
+            <Item orderID="o10579">
+                <OrderDate> 7/26/95</OrderDate>
+                <ShipAddress> 87 Polk St.
+Suite 5</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LILAS</CustomerID>
+        <CompanyName> LILA-Supermercado</CompanyName>
+        <ContactName> Carlos González</ContactName>
+        <OrderIDs>
+            <Item orderID="o10823">
+                <OrderDate> 2/9/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10357">
+                <OrderDate> 12/20/94</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10381">
+                <OrderDate> 1/12/95</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10997">
+                <OrderDate> 5/3/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10283">
+                <OrderDate> 9/16/94</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10499">
+                <OrderDate> 5/9/95</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10899">
+                <OrderDate> 3/22/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o11065">
+                <OrderDate> 5/31/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10330">
+                <OrderDate> 11/16/94</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10780">
+                <OrderDate> 1/16/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o11071">
+                <OrderDate> 6/4/96</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10296">
+                <OrderDate> 10/4/94</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10543">
+                <OrderDate> 6/21/95</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+            <Item orderID="o10461">
+                <OrderDate> 3/31/95</OrderDate>
+                <ShipAddress> Carrera 52 con Ave. Bolívar #65-98 Llano Largo</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LINOD</CustomerID>
+        <CompanyName> LINO-Delicateses</CompanyName>
+        <ContactName> Felipe Izquierdo</ContactName>
+        <OrderIDs>
+            <Item orderID="o11014">
+                <OrderDate> 5/10/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10697">
+                <OrderDate> 11/8/95</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10840">
+                <OrderDate> 2/19/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10638">
+                <OrderDate> 9/20/95</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10729">
+                <OrderDate> 12/5/95</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10811">
+                <OrderDate> 2/2/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10405">
+                <OrderDate> 2/6/95</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10485">
+                <OrderDate> 4/25/95</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10919">
+                <OrderDate> 4/1/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10954">
+                <OrderDate> 4/16/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o11039">
+                <OrderDate> 5/21/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+            <Item orderID="o10838">
+                <OrderDate> 2/19/96</OrderDate>
+                <ShipAddress> Ave. 5 de Mayo Porlamar</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> LONEP</CustomerID>
+        <CompanyName> Lonesome Pine Restaurant</CompanyName>
+        <ContactName> Fran Wilson</ContactName>
+        <OrderIDs>
+            <Item orderID="o10317">
+                <OrderDate> 10/31/94</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10307">
+                <OrderDate> 10/18/94</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10544">
+                <OrderDate> 6/21/95</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o11018">
+                <OrderDate> 5/13/96</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10867">
+                <OrderDate> 3/5/96</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10662">
+                <OrderDate> 10/10/95</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10665">
+                <OrderDate> 10/12/95</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10883">
+                <OrderDate> 3/14/96</OrderDate>
+                <ShipAddress> 89 Chiaroscuro Rd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> MAGAA</CustomerID>
+        <CompanyName> Magazzini Alimentari Riuniti</CompanyName>
+        <ContactName> Giovanni Rovelli</ContactName>
+        <OrderIDs>
+            <Item orderID="o10467">
+                <OrderDate> 4/6/95</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10300">
+                <OrderDate> 10/10/94</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10754">
+                <OrderDate> 12/26/95</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10818">
+                <OrderDate> 2/7/96</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10784">
+                <OrderDate> 1/18/96</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10950">
+                <OrderDate> 4/15/96</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10275">
+                <OrderDate> 9/7/94</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10404">
+                <OrderDate> 2/3/95</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10635">
+                <OrderDate> 9/18/95</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+            <Item orderID="o10939">
+                <OrderDate> 4/9/96</OrderDate>
+                <ShipAddress> Via Ludovico il Moro 22</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> MAISD</CustomerID>
+        <CompanyName> Maison Dewey</CompanyName>
+        <ContactName> Catherine Dewey</ContactName>
+        <OrderIDs>
+            <Item orderID="o10978">
+                <OrderDate> 4/25/96</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o10892">
+                <OrderDate> 3/19/96</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o10760">
+                <OrderDate> 1/1/96</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o10529">
+                <OrderDate> 6/7/95</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o10649">
+                <OrderDate> 9/28/95</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o11004">
+                <OrderDate> 5/7/96</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+            <Item orderID="o10896">
+                <OrderDate> 3/21/96</OrderDate>
+                <ShipAddress> Rue Joseph-Bens 532</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> MEREP</CustomerID>
+        <CompanyName> Mère Paillarde</CompanyName>
+        <ContactName> Jean Fresnière</ContactName>
+        <OrderIDs>
+            <Item orderID="o10439">
+                <OrderDate> 3/10/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10605">
+                <OrderDate> 8/21/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10424">
+                <OrderDate> 2/23/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10590">
+                <OrderDate> 8/7/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10505">
+                <OrderDate> 5/15/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10570">
+                <OrderDate> 7/18/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10565">
+                <OrderDate> 7/12/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10376">
+                <OrderDate> 1/9/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10724">
+                <OrderDate> 11/30/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10332">
+                <OrderDate> 11/17/94</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10618">
+                <OrderDate> 9/1/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10619">
+                <OrderDate> 9/4/95</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+            <Item orderID="o10339">
+                <OrderDate> 11/28/94</OrderDate>
+                <ShipAddress> 43 rue St. Laurent</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> MORGK</CustomerID>
+        <CompanyName> Morgenstern Gesundkost</CompanyName>
+        <ContactName> Alexander Feuer</ContactName>
+        <OrderIDs>
+            <Item orderID="o10945">
+                <OrderDate> 4/11/96</OrderDate>
+                <ShipAddress> Heerstr. 22</ShipAddress>
+            </Item>
+            <Item orderID="o10575">
+                <OrderDate> 7/21/95</OrderDate>
+                <ShipAddress> Heerstr. 22</ShipAddress>
+            </Item>
+            <Item orderID="o10277">
+                <OrderDate> 9/9/94</OrderDate>
+                <ShipAddress> Heerstr. 22</ShipAddress>
+            </Item>
+            <Item orderID="o10699">
+                <OrderDate> 11/9/95</OrderDate>
+                <ShipAddress> Heerstr. 22</ShipAddress>
+            </Item>
+            <Item orderID="o10779">
+                <OrderDate> 1/16/96</OrderDate>
+                <ShipAddress> Heerstr. 22</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> NORTS</CustomerID>
+        <CompanyName> North/South</CompanyName>
+        <ContactName> Simon Crowther</ContactName>
+        <OrderIDs>
+            <Item orderID="o11057">
+                <OrderDate> 5/29/96</OrderDate>
+                <ShipAddress> South House
+300 Queensbridge</ShipAddress>
+            </Item>
+            <Item orderID="o10517">
+                <OrderDate> 5/25/95</OrderDate>
+                <ShipAddress> South House
+300 Queensbridge</ShipAddress>
+            </Item>
+            <Item orderID="o10752">
+                <OrderDate> 12/25/95</OrderDate>
+                <ShipAddress> South House
+300 Queensbridge</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> OCEAN</CustomerID>
+        <CompanyName> Océano Atlántico Ltda.</CompanyName>
+        <ContactName> Yvonne Moncada</ContactName>
+        <OrderIDs>
+            <Item orderID="o10898">
+                <OrderDate> 3/22/96</OrderDate>
+                <ShipAddress> Ing. Gustavo Moncada 8585
+Piso 20-A</ShipAddress>
+            </Item>
+            <Item orderID="o10958">
+                <OrderDate> 4/17/96</OrderDate>
+                <ShipAddress> Ing. Gustavo Moncada 8585
+Piso 20-A</ShipAddress>
+            </Item>
+            <Item orderID="o10986">
+                <OrderDate> 4/29/96</OrderDate>
+                <ShipAddress> Ing. Gustavo Moncada 8585
+Piso 20-A</ShipAddress>
+            </Item>
+            <Item orderID="o10409">
+                <OrderDate> 2/9/95</OrderDate>
+                <ShipAddress> Ing. Gustavo Moncada 8585
+Piso 20-A</ShipAddress>
+            </Item>
+            <Item orderID="o10531">
+                <OrderDate> 6/8/95</OrderDate>
+                <ShipAddress> Ing. Gustavo Moncada 8585
+Piso 20-A</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> OLDWO</CustomerID>
+        <CompanyName> Old World Delicatessen</CompanyName>
+        <ContactName> Rene Phillips</ContactName>
+        <OrderIDs>
+            <Item orderID="o10855">
+                <OrderDate> 2/27/96</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10594">
+                <OrderDate> 8/9/95</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10706">
+                <OrderDate> 11/16/95</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10680">
+                <OrderDate> 10/25/95</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10441">
+                <OrderDate> 3/13/95</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o11034">
+                <OrderDate> 5/20/96</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10965">
+                <OrderDate> 4/19/96</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10808">
+                <OrderDate> 2/1/96</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10338">
+                <OrderDate> 11/25/94</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+            <Item orderID="o10305">
+                <OrderDate> 10/14/94</OrderDate>
+                <ShipAddress> 2743 Bering St.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> OTTIK</CustomerID>
+        <CompanyName> Ottilies Käseladen</CompanyName>
+        <ContactName> Henriette Pfalzheim</ContactName>
+        <OrderIDs>
+            <Item orderID="o10554">
+                <OrderDate> 6/30/95</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10999">
+                <OrderDate> 5/3/96</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10580">
+                <OrderDate> 7/27/95</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10684">
+                <OrderDate> 10/27/95</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10407">
+                <OrderDate> 2/7/95</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o11020">
+                <OrderDate> 5/14/96</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10833">
+                <OrderDate> 2/15/96</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10260">
+                <OrderDate> 8/19/94</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10766">
+                <OrderDate> 1/5/96</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+            <Item orderID="o10508">
+                <OrderDate> 5/17/95</OrderDate>
+                <ShipAddress> Mehrheimerstr. 369</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> PERIC</CustomerID>
+        <CompanyName> Pericles Comidas clásicas</CompanyName>
+        <ContactName> Guillermo Fernández</ContactName>
+        <OrderIDs>
+            <Item orderID="o10474">
+                <OrderDate> 4/13/95</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+            <Item orderID="o11073">
+                <OrderDate> 6/4/96</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+            <Item orderID="o10502">
+                <OrderDate> 5/11/95</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+            <Item orderID="o10995">
+                <OrderDate> 5/2/96</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+            <Item orderID="o10354">
+                <OrderDate> 12/15/94</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+            <Item orderID="o10322">
+                <OrderDate> 11/4/94</OrderDate>
+                <ShipAddress> Calle Dr. Jorge Cash 321</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> PICCO</CustomerID>
+        <CompanyName> Piccolo und mehr</CompanyName>
+        <ContactName> Georg Pipps</ContactName>
+        <OrderIDs>
+            <Item orderID="o10747">
+                <OrderDate> 12/20/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10489">
+                <OrderDate> 4/28/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10353">
+                <OrderDate> 12/14/94</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o11053">
+                <OrderDate> 5/27/96</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10427">
+                <OrderDate> 2/27/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10844">
+                <OrderDate> 2/21/96</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10392">
+                <OrderDate> 1/24/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10530">
+                <OrderDate> 6/8/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10686">
+                <OrderDate> 10/31/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+            <Item orderID="o10597">
+                <OrderDate> 8/11/95</OrderDate>
+                <ShipAddress> Geislweg 14</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> PRINI</CustomerID>
+        <CompanyName> Princesa Isabel Vinhos</CompanyName>
+        <ContactName> Isabel de Castro</ContactName>
+        <OrderIDs>
+            <Item orderID="o10477">
+                <OrderDate> 4/17/95</OrderDate>
+                <ShipAddress> Estrada da saúde n. 58</ShipAddress>
+            </Item>
+            <Item orderID="o10433">
+                <OrderDate> 3/6/95</OrderDate>
+                <ShipAddress> Estrada da saúde n. 58</ShipAddress>
+            </Item>
+            <Item orderID="o11007">
+                <OrderDate> 5/8/96</OrderDate>
+                <ShipAddress> Estrada da saúde n. 58</ShipAddress>
+            </Item>
+            <Item orderID="o10336">
+                <OrderDate> 11/23/94</OrderDate>
+                <ShipAddress> Estrada da saúde n. 58</ShipAddress>
+            </Item>
+            <Item orderID="o10397">
+                <OrderDate> 1/27/95</OrderDate>
+                <ShipAddress> Estrada da saúde n. 58</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> QUEDE</CustomerID>
+        <CompanyName> Que Delícia</CompanyName>
+        <ContactName> Bernardo Batista</ContactName>
+        <OrderIDs>
+            <Item orderID="o10379">
+                <OrderDate> 1/11/95</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10647">
+                <OrderDate> 9/27/95</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10989">
+                <OrderDate> 4/30/96</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10261">
+                <OrderDate> 8/19/94</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10587">
+                <OrderDate> 8/2/95</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10421">
+                <OrderDate> 2/21/95</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10794">
+                <OrderDate> 1/24/96</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10291">
+                <OrderDate> 9/27/94</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10720">
+                <OrderDate> 11/28/95</OrderDate>
+                <ShipAddress> Rua da Panificadora, 12</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> QUEEN</CustomerID>
+        <CompanyName> Queen Cozinha</CompanyName>
+        <ContactName> Lúcia Carvalho</ContactName>
+        <OrderIDs>
+            <Item orderID="o10487">
+                <OrderDate> 4/26/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10961">
+                <OrderDate> 4/18/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10704">
+                <OrderDate> 11/14/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10372">
+                <OrderDate> 1/4/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o11068">
+                <OrderDate> 6/3/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10637">
+                <OrderDate> 9/19/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10868">
+                <OrderDate> 3/6/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10913">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10728">
+                <OrderDate> 12/5/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10914">
+                <OrderDate> 3/29/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10786">
+                <OrderDate> 1/19/96</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10406">
+                <OrderDate> 2/7/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+            <Item orderID="o10659">
+                <OrderDate> 10/6/95</OrderDate>
+                <ShipAddress> Alameda dos Canàrios, 891</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> QUICK</CustomerID>
+        <CompanyName> QUICK-Stop</CompanyName>
+        <ContactName> Horst Kloss</ContactName>
+        <OrderIDs>
+            <Item orderID="o10345">
+                <OrderDate> 12/5/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10694">
+                <OrderDate> 11/6/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10515">
+                <OrderDate> 5/24/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10962">
+                <OrderDate> 4/18/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10788">
+                <OrderDate> 1/22/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10658">
+                <OrderDate> 10/6/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10845">
+                <OrderDate> 2/21/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10588">
+                <OrderDate> 8/3/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10313">
+                <OrderDate> 10/25/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10938">
+                <OrderDate> 4/9/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10273">
+                <OrderDate> 9/5/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10721">
+                <OrderDate> 11/29/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10451">
+                <OrderDate> 3/22/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10361">
+                <OrderDate> 12/23/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10691">
+                <OrderDate> 11/3/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10878">
+                <OrderDate> 3/12/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10549">
+                <OrderDate> 6/27/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10285">
+                <OrderDate> 9/20/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10527">
+                <OrderDate> 6/5/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o11021">
+                <OrderDate> 5/14/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10765">
+                <OrderDate> 1/4/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10745">
+                <OrderDate> 12/19/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10286">
+                <OrderDate> 9/21/94</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10991">
+                <OrderDate> 5/1/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10418">
+                <OrderDate> 2/17/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10540">
+                <OrderDate> 6/19/95</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10996">
+                <OrderDate> 5/2/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+            <Item orderID="o10865">
+                <OrderDate> 3/4/96</OrderDate>
+                <ShipAddress> Taucherstraße 10</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> RANCH</CustomerID>
+        <CompanyName> Rancho grande</CompanyName>
+        <ContactName> Sergio Gutiérrez</ContactName>
+        <OrderIDs>
+            <Item orderID="o10716">
+                <OrderDate> 11/24/95</OrderDate>
+                <ShipAddress> Av. del Libertador 900</ShipAddress>
+            </Item>
+            <Item orderID="o10916">
+                <OrderDate> 3/29/96</OrderDate>
+                <ShipAddress> Av. del Libertador 900</ShipAddress>
+            </Item>
+            <Item orderID="o10448">
+                <OrderDate> 3/20/95</OrderDate>
+                <ShipAddress> Av. del Libertador 900</ShipAddress>
+            </Item>
+            <Item orderID="o11019">
+                <OrderDate> 5/13/96</OrderDate>
+                <ShipAddress> Av. del Libertador 900</ShipAddress>
+            </Item>
+            <Item orderID="o10828">
+                <OrderDate> 2/13/96</OrderDate>
+                <ShipAddress> Av. del Libertador 900</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> RATTC</CustomerID>
+        <CompanyName> Rattlesnake Canyon Grocery</CompanyName>
+        <ContactName> Paula Wilson</ContactName>
+        <OrderIDs>
+            <Item orderID="o10761">
+                <OrderDate> 1/2/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10314">
+                <OrderDate> 10/26/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10479">
+                <OrderDate> 4/19/95</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10316">
+                <OrderDate> 10/28/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10820">
+                <OrderDate> 2/7/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10569">
+                <OrderDate> 7/17/95</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10272">
+                <OrderDate> 9/2/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10564">
+                <OrderDate> 7/11/95</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10852">
+                <OrderDate> 2/26/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o11000">
+                <OrderDate> 5/6/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10262">
+                <OrderDate> 8/22/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10598">
+                <OrderDate> 8/14/95</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10294">
+                <OrderDate> 9/30/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10988">
+                <OrderDate> 4/30/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10889">
+                <OrderDate> 3/18/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10346">
+                <OrderDate> 12/6/94</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o11077">
+                <OrderDate> 6/5/96</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+            <Item orderID="o10401">
+                <OrderDate> 2/1/95</OrderDate>
+                <ShipAddress> 2817 Milton Dr.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> REGGC</CustomerID>
+        <CompanyName> Reggiani Caseifici</CompanyName>
+        <ContactName> Maurizio Moroni</ContactName>
+        <OrderIDs>
+            <Item orderID="o11062">
+                <OrderDate> 5/30/96</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10942">
+                <OrderDate> 4/10/96</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10443">
+                <OrderDate> 3/15/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o11010">
+                <OrderDate> 5/9/96</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10562">
+                <OrderDate> 7/10/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10288">
+                <OrderDate> 9/23/94</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10428">
+                <OrderDate> 2/28/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10586">
+                <OrderDate> 8/2/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10908">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10655">
+                <OrderDate> 10/4/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10812">
+                <OrderDate> 2/2/96</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+            <Item orderID="o10727">
+                <OrderDate> 12/4/95</OrderDate>
+                <ShipAddress> Strada Provinciale 124</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> RICAR</CustomerID>
+        <CompanyName> Ricardo Adocicados</CompanyName>
+        <ContactName> Janete Limeira</ContactName>
+        <OrderIDs>
+            <Item orderID="o11059">
+                <OrderDate> 5/29/96</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10563">
+                <OrderDate> 7/11/95</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10299">
+                <OrderDate> 10/7/94</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10447">
+                <OrderDate> 3/17/95</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10877">
+                <OrderDate> 3/11/96</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10622">
+                <OrderDate> 9/6/95</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10287">
+                <OrderDate> 9/22/94</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10851">
+                <OrderDate> 2/26/96</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10648">
+                <OrderDate> 9/28/95</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10481">
+                <OrderDate> 4/20/95</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+            <Item orderID="o10813">
+                <OrderDate> 2/5/96</OrderDate>
+                <ShipAddress> Av. Copacabana, 267</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> RICSU</CustomerID>
+        <CompanyName> Richter Supermarkt</CompanyName>
+        <ContactName> Michael Holz</ContactName>
+        <OrderIDs>
+            <Item orderID="o10758">
+                <OrderDate> 12/29/95</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10951">
+                <OrderDate> 4/15/96</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10255">
+                <OrderDate> 8/12/94</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o11075">
+                <OrderDate> 6/5/96</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10751">
+                <OrderDate> 12/25/95</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10419">
+                <OrderDate> 2/20/95</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o11033">
+                <OrderDate> 5/17/96</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10931">
+                <OrderDate> 4/5/96</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10537">
+                <OrderDate> 6/14/95</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+            <Item orderID="o10666">
+                <OrderDate> 10/13/95</OrderDate>
+                <ShipAddress> Starenweg 5</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> ROMEY</CustomerID>
+        <CompanyName> Romero y tomillo</CompanyName>
+        <ContactName> Alejandra Camino</ContactName>
+        <OrderIDs>
+            <Item orderID="o10306">
+                <OrderDate> 10/17/94</OrderDate>
+                <ShipAddress> Gran Vía, 1</ShipAddress>
+            </Item>
+            <Item orderID="o10917">
+                <OrderDate> 4/1/96</OrderDate>
+                <ShipAddress> Gran Vía, 1</ShipAddress>
+            </Item>
+            <Item orderID="o10282">
+                <OrderDate> 9/15/94</OrderDate>
+                <ShipAddress> Gran Vía, 1</ShipAddress>
+            </Item>
+            <Item orderID="o10281">
+                <OrderDate> 9/14/94</OrderDate>
+                <ShipAddress> Gran Vía, 1</ShipAddress>
+            </Item>
+            <Item orderID="o11013">
+                <OrderDate> 5/9/96</OrderDate>
+                <ShipAddress> Gran Vía, 1</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SANTG</CustomerID>
+        <CompanyName> Santé Gourmet</CompanyName>
+        <ContactName> Jonas Bergulfsen</ContactName>
+        <OrderIDs>
+            <Item orderID="o10831">
+                <OrderDate> 2/14/96</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+            <Item orderID="o10909">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+            <Item orderID="o10520">
+                <OrderDate> 5/30/95</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+            <Item orderID="o11015">
+                <OrderDate> 5/10/96</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+            <Item orderID="o10387">
+                <OrderDate> 1/18/95</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+            <Item orderID="o10639">
+                <OrderDate> 9/20/95</OrderDate>
+                <ShipAddress> Erling Skakkes gate 78</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SAVEA</CustomerID>
+        <CompanyName> Save-a-lot Markets</CompanyName>
+        <ContactName> Jose Pavarotti</ContactName>
+        <OrderIDs>
+            <Item orderID="o10757">
+                <OrderDate> 12/28/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o11031">
+                <OrderDate> 5/17/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10603">
+                <OrderDate> 8/18/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10324">
+                <OrderDate> 11/8/94</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10607">
+                <OrderDate> 8/22/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10847">
+                <OrderDate> 2/22/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10510">
+                <OrderDate> 5/19/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10612">
+                <OrderDate> 8/28/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10983">
+                <OrderDate> 4/26/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10984">
+                <OrderDate> 4/29/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10398">
+                <OrderDate> 1/30/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10393">
+                <OrderDate> 1/25/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10894">
+                <OrderDate> 3/20/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10555">
+                <OrderDate> 7/3/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o11002">
+                <OrderDate> 5/6/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10700">
+                <OrderDate> 11/10/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10882">
+                <OrderDate> 3/13/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o11030">
+                <OrderDate> 5/17/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o11064">
+                <OrderDate> 5/31/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10452">
+                <OrderDate> 3/23/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10722">
+                <OrderDate> 11/29/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10678">
+                <OrderDate> 10/24/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10941">
+                <OrderDate> 4/10/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10440">
+                <OrderDate> 3/13/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10657">
+                <OrderDate> 10/5/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10748">
+                <OrderDate> 12/21/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10815">
+                <OrderDate> 2/5/96</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10714">
+                <OrderDate> 11/22/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10713">
+                <OrderDate> 11/22/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10711">
+                <OrderDate> 11/21/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+            <Item orderID="o10627">
+                <OrderDate> 9/11/95</OrderDate>
+                <ShipAddress> 187 Suffolk Ln.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SEVES</CustomerID>
+        <CompanyName> Seven Seas Imports</CompanyName>
+        <ContactName> Hari Kumar</ContactName>
+        <OrderIDs>
+            <Item orderID="o10472">
+                <OrderDate> 4/12/95</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10547">
+                <OrderDate> 6/23/95</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10388">
+                <OrderDate> 1/19/95</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10377">
+                <OrderDate> 1/9/95</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10359">
+                <OrderDate> 12/22/94</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10869">
+                <OrderDate> 3/6/96</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10804">
+                <OrderDate> 1/30/96</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10523">
+                <OrderDate> 6/1/95</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10800">
+                <OrderDate> 1/26/96</OrderDate>
+                <ShipAddress> 90 Wadhurst Rd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SIMOB</CustomerID>
+        <CompanyName> Simons bistro</CompanyName>
+        <ContactName> Jytte Petersen</ContactName>
+        <OrderIDs>
+            <Item orderID="o10669">
+                <OrderDate> 10/16/95</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o10341">
+                <OrderDate> 11/29/94</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o10802">
+                <OrderDate> 1/29/96</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o11074">
+                <OrderDate> 6/5/96</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o10556">
+                <OrderDate> 7/4/95</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o10417">
+                <OrderDate> 2/16/95</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+            <Item orderID="o10642">
+                <OrderDate> 9/22/95</OrderDate>
+                <ShipAddress> Vinbæltet 34</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SPECD</CustomerID>
+        <CompanyName> Spécialités du monde</CompanyName>
+        <ContactName> Dominique Perrier</ContactName>
+        <OrderIDs>
+            <Item orderID="o10907">
+                <OrderDate> 3/27/96</OrderDate>
+                <ShipAddress> 25, rue Lauriston</ShipAddress>
+            </Item>
+            <Item orderID="o10738">
+                <OrderDate> 12/13/95</OrderDate>
+                <ShipAddress> 25, rue Lauriston</ShipAddress>
+            </Item>
+            <Item orderID="o10964">
+                <OrderDate> 4/19/96</OrderDate>
+                <ShipAddress> 25, rue Lauriston</ShipAddress>
+            </Item>
+            <Item orderID="o11043">
+                <OrderDate> 5/22/96</OrderDate>
+                <ShipAddress> 25, rue Lauriston</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SPLIR</CustomerID>
+        <CompanyName> Split Rail Beer &amp; Ale</CompanyName>
+        <ContactName> Art Braunschweiger</ContactName>
+        <OrderIDs>
+            <Item orderID="o10271">
+                <OrderDate> 9/1/94</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10349">
+                <OrderDate> 12/9/94</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10329">
+                <OrderDate> 11/15/94</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10821">
+                <OrderDate> 2/8/96</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10756">
+                <OrderDate> 12/28/95</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10369">
+                <OrderDate> 1/2/95</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10385">
+                <OrderDate> 1/17/95</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10432">
+                <OrderDate> 3/3/95</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+            <Item orderID="o10974">
+                <OrderDate> 4/24/96</OrderDate>
+                <ShipAddress> P.O. Box 555</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> SUPRD</CustomerID>
+        <CompanyName> Suprêmes délices</CompanyName>
+        <ContactName> Pascale Cartrain</ContactName>
+        <OrderIDs>
+            <Item orderID="o11035">
+                <OrderDate> 5/20/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10458">
+                <OrderDate> 3/29/95</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10252">
+                <OrderDate> 8/9/94</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10930">
+                <OrderDate> 4/5/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10475">
+                <OrderDate> 4/14/95</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10767">
+                <OrderDate> 1/5/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o11038">
+                <OrderDate> 5/21/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10885">
+                <OrderDate> 3/14/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10841">
+                <OrderDate> 2/20/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10302">
+                <OrderDate> 10/11/94</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10846">
+                <OrderDate> 2/22/96</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+            <Item orderID="o10463">
+                <OrderDate> 4/4/95</OrderDate>
+                <ShipAddress> Boulevard Tirou, 255</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> THEBI</CustomerID>
+        <CompanyName> The Big Cheese</CompanyName>
+        <ContactName> Liz Nixon</ContactName>
+        <OrderIDs>
+            <Item orderID="o10708">
+                <OrderDate> 11/17/95</OrderDate>
+                <ShipAddress> 89 Jefferson Way
+Suite 2</ShipAddress>
+            </Item>
+            <Item orderID="o10310">
+                <OrderDate> 10/21/94</OrderDate>
+                <ShipAddress> 89 Jefferson Way
+Suite 2</ShipAddress>
+            </Item>
+            <Item orderID="o10805">
+                <OrderDate> 1/30/96</OrderDate>
+                <ShipAddress> 89 Jefferson Way
+Suite 2</ShipAddress>
+            </Item>
+            <Item orderID="o10992">
+                <OrderDate> 5/1/96</OrderDate>
+                <ShipAddress> 89 Jefferson Way
+Suite 2</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> THECR</CustomerID>
+        <CompanyName> The Cracker Box</CompanyName>
+        <ContactName> Liu Wong</ContactName>
+        <OrderIDs>
+            <Item orderID="o11003">
+                <OrderDate> 5/6/96</OrderDate>
+                <ShipAddress> 55 Grizzly Peak Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10624">
+                <OrderDate> 9/7/95</OrderDate>
+                <ShipAddress> 55 Grizzly Peak Rd.</ShipAddress>
+            </Item>
+            <Item orderID="o10775">
+                <OrderDate> 1/12/96</OrderDate>
+                <ShipAddress> 55 Grizzly Peak Rd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> TOMSP</CustomerID>
+        <CompanyName> Toms Spezialitäten</CompanyName>
+        <ContactName> Karin Josephs</ContactName>
+        <OrderIDs>
+            <Item orderID="o10608">
+                <OrderDate> 8/23/95</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+            <Item orderID="o10548">
+                <OrderDate> 6/26/95</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+            <Item orderID="o10438">
+                <OrderDate> 3/9/95</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+            <Item orderID="o10249">
+                <OrderDate> 8/5/94</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+            <Item orderID="o10967">
+                <OrderDate> 4/22/96</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+            <Item orderID="o10446">
+                <OrderDate> 3/17/95</OrderDate>
+                <ShipAddress> Luisenstr. 48</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> TORTU</CustomerID>
+        <CompanyName> Tortuga Restaurante</CompanyName>
+        <ContactName> Miguel Angel Paolino</ContactName>
+        <OrderIDs>
+            <Item orderID="o10518">
+                <OrderDate> 5/26/95</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o11069">
+                <OrderDate> 6/3/96</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10319">
+                <OrderDate> 11/2/94</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10576">
+                <OrderDate> 7/24/95</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10842">
+                <OrderDate> 2/20/96</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10293">
+                <OrderDate> 9/29/94</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10676">
+                <OrderDate> 10/23/95</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10915">
+                <OrderDate> 3/29/96</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10276">
+                <OrderDate> 9/8/94</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+            <Item orderID="o10304">
+                <OrderDate> 10/13/94</OrderDate>
+                <ShipAddress> Avda. Azteca 123</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> TRADH</CustomerID>
+        <CompanyName> Tradição Hipermercados</CompanyName>
+        <ContactName> Anabela Domingues</ContactName>
+        <OrderIDs>
+            <Item orderID="o10606">
+                <OrderDate> 8/22/95</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+            <Item orderID="o10834">
+                <OrderDate> 2/15/96</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+            <Item orderID="o10839">
+                <OrderDate> 2/19/96</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+            <Item orderID="o10292">
+                <OrderDate> 9/28/94</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+            <Item orderID="o10830">
+                <OrderDate> 2/13/96</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+            <Item orderID="o10496">
+                <OrderDate> 5/5/95</OrderDate>
+                <ShipAddress> Av. Inês de Castro, 414</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> TRAIH</CustomerID>
+        <CompanyName> Trail's Head Gourmet Provisioners</CompanyName>
+        <ContactName> Helvetius Nagy</ContactName>
+        <OrderIDs>
+            <Item orderID="o10822">
+                <OrderDate> 2/8/96</OrderDate>
+                <ShipAddress> 722 DaVinci Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10577">
+                <OrderDate> 7/24/95</OrderDate>
+                <ShipAddress> 722 DaVinci Blvd.</ShipAddress>
+            </Item>
+            <Item orderID="o10574">
+                <OrderDate> 7/20/95</OrderDate>
+                <ShipAddress> 722 DaVinci Blvd.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> VAFFE</CustomerID>
+        <CompanyName> Vaffeljernet</CompanyName>
+        <ContactName> Palle Ibsen</ContactName>
+        <OrderIDs>
+            <Item orderID="o10688">
+                <OrderDate> 11/1/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10399">
+                <OrderDate> 1/31/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10769">
+                <OrderDate> 1/8/96</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10602">
+                <OrderDate> 8/17/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10921">
+                <OrderDate> 4/2/96</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10367">
+                <OrderDate> 12/29/94</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10465">
+                <OrderDate> 4/5/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10946">
+                <OrderDate> 4/11/96</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10591">
+                <OrderDate> 8/7/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10994">
+                <OrderDate> 5/2/96</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+            <Item orderID="o10744">
+                <OrderDate> 12/18/95</OrderDate>
+                <ShipAddress> Smagsløget 45</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> VICTE</CustomerID>
+        <CompanyName> Victuailles en stock</CompanyName>
+        <ContactName> Mary Saveley</ContactName>
+        <OrderIDs>
+            <Item orderID="o10478">
+                <OrderDate> 4/18/95</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10251">
+                <OrderDate> 8/8/94</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10814">
+                <OrderDate> 2/5/96</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10334">
+                <OrderDate> 11/21/94</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10546">
+                <OrderDate> 6/23/95</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10806">
+                <OrderDate> 1/31/96</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10459">
+                <OrderDate> 3/30/95</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10450">
+                <OrderDate> 3/22/95</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10843">
+                <OrderDate> 2/21/96</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+            <Item orderID="o10850">
+                <OrderDate> 2/23/96</OrderDate>
+                <ShipAddress> 2, rue du Commerce</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> VINET</CustomerID>
+        <CompanyName> Vins et alcools Chevalier</CompanyName>
+        <ContactName> Paul Henriot</ContactName>
+        <OrderIDs>
+            <Item orderID="o10739">
+                <OrderDate> 12/13/95</OrderDate>
+                <ShipAddress> 59 rue de l'Abbaye</ShipAddress>
+            </Item>
+            <Item orderID="o10274">
+                <OrderDate> 9/6/94</OrderDate>
+                <ShipAddress> 59 rue de l'Abbaye</ShipAddress>
+            </Item>
+            <Item orderID="o10295">
+                <OrderDate> 10/3/94</OrderDate>
+                <ShipAddress> 59 rue de l'Abbaye</ShipAddress>
+            </Item>
+            <Item orderID="o10248">
+                <OrderDate> 8/4/94</OrderDate>
+                <ShipAddress> 59 rue de l'Abbaye</ShipAddress>
+            </Item>
+            <Item orderID="o10737">
+                <OrderDate> 12/12/95</OrderDate>
+                <ShipAddress> 59 rue de l'Abbaye</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WANDK</CustomerID>
+        <CompanyName> Die Wandernde Kuh</CompanyName>
+        <ContactName> Rita Müller</ContactName>
+        <OrderIDs>
+            <Item orderID="o11046">
+                <OrderDate> 5/23/96</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10651">
+                <OrderDate> 10/2/95</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10632">
+                <OrderDate> 9/14/95</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10640">
+                <OrderDate> 9/21/95</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10513">
+                <OrderDate> 5/23/95</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10668">
+                <OrderDate> 10/16/95</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10312">
+                <OrderDate> 10/24/94</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10348">
+                <OrderDate> 12/8/94</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10301">
+                <OrderDate> 10/10/94</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+            <Item orderID="o10356">
+                <OrderDate> 12/19/94</OrderDate>
+                <ShipAddress> Adenauerallee 900</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WARTH</CustomerID>
+        <CompanyName> Wartian Herkku</CompanyName>
+        <ContactName> Pirkko Koskitalo</ContactName>
+        <OrderIDs>
+            <Item orderID="o11025">
+                <OrderDate> 5/15/96</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10750">
+                <OrderDate> 12/22/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10266">
+                <OrderDate> 8/26/94</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10320">
+                <OrderDate> 11/3/94</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10412">
+                <OrderDate> 2/13/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10270">
+                <OrderDate> 9/1/94</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10416">
+                <OrderDate> 2/16/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10781">
+                <OrderDate> 1/17/96</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10636">
+                <OrderDate> 9/19/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10583">
+                <OrderDate> 7/31/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10333">
+                <OrderDate> 11/18/94</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10526">
+                <OrderDate> 6/5/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10437">
+                <OrderDate> 3/8/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10553">
+                <OrderDate> 6/30/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+            <Item orderID="o10455">
+                <OrderDate> 3/27/95</OrderDate>
+                <ShipAddress> Torikatu 38</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WELLI</CustomerID>
+        <CompanyName> Wellington Importadora</CompanyName>
+        <ContactName> Paula Parente</ContactName>
+        <OrderIDs>
+            <Item orderID="o10803">
+                <OrderDate> 1/30/96</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10809">
+                <OrderDate> 2/1/96</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10644">
+                <OrderDate> 9/25/95</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10256">
+                <OrderDate> 8/15/94</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10585">
+                <OrderDate> 8/1/95</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10900">
+                <OrderDate> 3/22/96</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10905">
+                <OrderDate> 3/26/96</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10935">
+                <OrderDate> 4/8/96</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+            <Item orderID="o10420">
+                <OrderDate> 2/21/95</OrderDate>
+                <ShipAddress> Rua do Mercado, 12</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WHITC</CustomerID>
+        <CompanyName> White Clover Markets</CompanyName>
+        <ContactName> Karl Jablonski</ContactName>
+        <OrderIDs>
+            <Item orderID="o10904">
+                <OrderDate> 3/26/96</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10861">
+                <OrderDate> 3/1/96</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10696">
+                <OrderDate> 11/8/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10344">
+                <OrderDate> 12/2/94</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10693">
+                <OrderDate> 11/6/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10740">
+                <OrderDate> 12/14/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10596">
+                <OrderDate> 8/11/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o11032">
+                <OrderDate> 5/17/96</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10483">
+                <OrderDate> 4/24/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o11066">
+                <OrderDate> 5/31/96</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10269">
+                <OrderDate> 8/31/94</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10469">
+                <OrderDate> 4/10/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10504">
+                <OrderDate> 5/12/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+            <Item orderID="o10723">
+                <OrderDate> 11/30/95</OrderDate>
+                <ShipAddress> 1029 - 12th Ave. S.</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WILMK</CustomerID>
+        <CompanyName> Wilman Kala</CompanyName>
+        <ContactName> Matti Karttunen</ContactName>
+        <OrderIDs>
+            <Item orderID="o11005">
+                <OrderDate> 5/7/96</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10873">
+                <OrderDate> 3/8/96</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10673">
+                <OrderDate> 10/19/95</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10695">
+                <OrderDate> 11/7/95</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10910">
+                <OrderDate> 3/28/96</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10615">
+                <OrderDate> 8/30/95</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+            <Item orderID="o10879">
+                <OrderDate> 3/12/96</OrderDate>
+                <ShipAddress> Keskuskatu 45</ShipAddress>
+            </Item>
+        </OrderIDs>
+        <CustomerID> WOLZA</CustomerID>
+        <CompanyName> Wolski  Zajazd</CompanyName>
+        <ContactName> Zbyszek Piestrzeniewicz</ContactName>
+        <OrderIDs>
+            <Item orderID="o10374">
+                <OrderDate> 1/5/95</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o10906">
+                <OrderDate> 3/27/96</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o10792">
+                <OrderDate> 1/23/96</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o10998">
+                <OrderDate> 5/3/96</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o10870">
+                <OrderDate> 3/6/96</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o10611">
+                <OrderDate> 8/25/95</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+            <Item orderID="o11044">
+                <OrderDate> 5/23/96</OrderDate>
+                <ShipAddress> ul. Filtrowa 68</ShipAddress>
+            </Item>
+        </OrderIDs>
+    </CustomerIDs>
+</ROOT>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<test xmlns:xi="http://www.w3.org/2003/XInclude">
+    <xi:include href="non-existent.xml" parse="text">
+        <xi:fallback><fault/></xi:fallback>
+    </xi:include>
+</test>

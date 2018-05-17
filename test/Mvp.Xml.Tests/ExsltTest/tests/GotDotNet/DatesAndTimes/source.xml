@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="max.xslt"?>
+<data>
+  <timespan>P1M</timespan>
+  <timespan>P3M</timespan>
+  <timespan>P3M2D</timespan>
+  <bad-data>PY3M2D</bad-data>
+  <date>2004-09-01</date>
+</data>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE toinclude [
+    <!ELEMENT book (#PCDATA)>
+    <!ATTLIST book
+    id ID #IMPLIED
+>
+    <!ELEMENT toinclude (book)>
+]>
+<toinclude xmlns="foo.bar#">
+    <book id="f1">Books</book>
+</toinclude>

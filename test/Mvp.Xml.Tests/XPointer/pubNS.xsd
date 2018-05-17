@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xs:schema elementFormDefault="unqualified" attributeFormDefault="unqualified" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="dsPubs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="publishers" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="publishers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pub_name" type="xs:string"/>
+                <xs:element name="city" type="xs:string"/>
+                <xs:element name="state" type="xs:string" minOccurs="0"/>
+                <xs:element name="country" type="xs:string"/>
+                <xs:element name="titles" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="title_id" type="xs:string"/>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="type" type="xs:string"/>
+                            <xs:element name="pub_id" type="xs:unsignedShort"/>
+                            <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+                            <xs:element name="advance" type="xs:unsignedShort" minOccurs="0"/>
+                            <xs:element name="royalty" type="xs:unsignedByte" minOccurs="0"/>
+                            <xs:element name="ytd_sales" type="xs:unsignedShort" minOccurs="0"/>
+                            <xs:element name="notes" type="xs:string" minOccurs="0"/>
+                            <xs:element name="pubdate" type="xs:dateTime"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="pub_id" type="xs:ID"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

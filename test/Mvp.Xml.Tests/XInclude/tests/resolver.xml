@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<document xmlns:xi="http://www.w3.org/2001/XInclude">
+    <stream>
+        <xi:include href="stream://whatever"/>  
+    </stream>   
+    <textreader>
+        <xi:include href="textreader://whatever"/>  
+    </textreader>
+    <xmlreader>
+        <xi:include href="xmlreader://whatever"/>  
+    </xmlreader> 
+  <p>Filtered:</p>	
+   <xi:include href="textreader://whatever" xpointer="xpointer(//text())"/>
+</document>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<foo xmlns:xi="http://www.w3.org/2003/XInclude">
+    <bar xml:lang="en-us">
+        <baz>whatever</baz>
+         
+<russian-text xml:base="russian.xml" xml:lang="">
+    <text xml:lang="ru-ru">Русский текст</text>
+    Another neutral text.
+    <text2 xml:lang="he-IL">hebrew</text2>
+    <eng xml:lang="en-us" xml:base="whatever">
+        <english>english - en-us</english>
+    </eng>
+    <eng2 attr="23" xml:lang="en-us">
+        <english>english - en-us</english>
+    </eng2>
+    <eng3 xml:lang="en-gb" attr="22" xml:base="whatever">
+        <english>english - en-us</english>
+    </eng3>
+    <eng4 xml:lang="en-gb" xml:base="whatever" attr="dd">
+        <english>english - en-us</english>
+    </eng4>
+    <eng5 attr="ff" xml:lang="" xml:base="whatever" attr2="dd">
+        <english>english - en-us</english>
+    </eng5>
+</russian-text>
+
+        <text2 xml:base="russian.xml" xml:lang="he-IL">hebrew</text2>
+        <english xml:base="russian.xml">english - en-us</english><english xml:base="russian.xml">english - en-us</english><english xml:base="russian.xml" xml:lang="en-gb">english - en-us</english><english xml:base="russian.xml" xml:lang="en-gb">english - en-us</english><english xml:base="russian.xml" xml:lang="">english - en-us</english>
+        <eng xml:base="russian.xml">
+        <english>english - en-us</english>
+    </eng>
+        <eng2 attr="23" xml:base="russian.xml">
+        <english>english - en-us</english>
+    </eng2>
+        <eng3 attr="22" xml:base="russian.xml" xml:lang="en-gb">
+        <english>english - en-us</english>
+    </eng3>
+        <eng4 attr="dd" xml:base="russian.xml" xml:lang="en-gb">
+        <english>english - en-us</english>
+    </eng4> 
+        <eng5 attr="ff" attr2="dd" xml:base="russian.xml" xml:lang="">
+        <english>english - en-us</english>
+    </eng5>
+    </bar>
+</foo>

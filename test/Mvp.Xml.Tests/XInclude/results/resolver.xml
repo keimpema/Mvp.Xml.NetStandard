@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document xmlns:xi="http://www.w3.org/2001/XInclude">
+    <stream>
+        
+<document xmlns:xi="http://www.w3.org/2003/XInclude" xml:base="stream://whatever/">
+  <p>120 Mz is adequate for an average home user.</p>
+  <!-- comment -->
+  <?pi foo ?>
+  <disclaimer xml:base="disclaimer.xml">
+    <p>The opinions represented herein represent those of the individual
+  and should not be interpreted as official policy endorsed by this
+  organization.</p>
+  </disclaimer>
+foo
+</document>  
+    </stream>   
+    <textreader>
+        <text attr="val" xml:base="textreader://whatever/">From custom resolver (as TextReader)</text>  
+    </textreader>
+    <xmlreader>
+        <text attr="val" xml:base="xmlreader://whatever/">From custom resolver (as XmlReader)</text>  
+    </xmlreader> 
+  <p>Filtered:</p>	
+   From custom resolver (as TextReader)</document>

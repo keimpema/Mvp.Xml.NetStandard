@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document xmlns:xi="http://www.w3.org/2003/XInclude">
+    <p>120 Mz is adequate for an average home user.</p>
+    &lt;?xml version="1.0"?&gt;
+&lt;document xmlns:xi="http://www.w3.org/2003/XInclude"&gt;
+    &lt;p&gt;120 Mz is adequate for an average home user.&lt;/p&gt;
+    &lt;xi:include parse="text"&gt;&lt;foo&gt;&lt;/foo&gt;&lt;/xi:include&gt;
+foo
+&lt;/document&gt;
+
+foo
+</document>

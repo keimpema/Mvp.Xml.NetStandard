@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<foo xmlns:xi="http://www.w3.org/2003/XInclude">
+    <bar xml:lang="en-us">
+        <baz>whatever</baz>
+        <xi:include href="russian.xml"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//text2)"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//english)"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//eng)"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//eng2)"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//eng3)"/>
+        <xi:include href="russian.xml" xpointer="xpointer(//eng4)"/> 
+        <xi:include href="russian.xml" xpointer="xpointer(//eng5)"/>
+    </bar>
+</foo>

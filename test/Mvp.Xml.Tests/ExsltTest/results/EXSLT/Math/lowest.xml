@@ -1,0 +1,8 @@
+<out>
+  <test1>                
+lowest orders: <order>1.99</order><order>1.99</order></test1>
+  <test2>                
+lowest orders: </test2>
+  <test3>                
+lowest orders: </test3>
+</out>

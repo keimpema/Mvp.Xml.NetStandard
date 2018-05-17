@@ -1,0 +1,21 @@
+<h1 align="center"><a href="http://www.w3.org/TR/xinclude">XInclude</a> Test Suite</h1>
+<p> This is the CVS base used to maintain the
+<a href="http://www.w3.org/XML/Test/XInclude/Overview.html">test suite</a>
+for the <a href="http://www.w3.org/TR/xinclude">XInclude</a> specification.
+<p> The file <em>testdescr.xml</em> describes the set of primary
+resources used by the test suite, the sections of the specification
+that are being checked, the author and date of each test. It also
+provide whether the test should fail with a fatal error or points
+to a result file if this is not the case. Please note that while
+we expect the testsuite to accurately reflect the XInclude specification
+it is not normative and may change if errors are found.
+<p> For more informations on the test suite or to download a packaged
+version of the tests, please visit the
+<a href="http://www.w3.org/XML/Test/XInclude/Overview.html">XInclude
+test suite page</a>.
+<p> This document has been produced by the 
+<a href="http://www.w3.org/XML/Core/">W3C XML Core Working Group</a>
+as part of the <a href="http://www.w3.org/XML/">XML Activity</a>.
+<p> Feedback on the content of this test suite should be sent
+to the public mailing list <a href="mailto:www-xml-xinclude-comments@w3.org"
+>www-xml-xinclude-comments@w3.org </a> <a href="http://lists.w3.org/Archives/Public/www-xml-xinclude-comments/">(archive)</a>.

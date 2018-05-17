@@ -1,0 +1,6 @@
+﻿<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Foo</Name>
+  <Items>
+    <xi:include href="Item3.xml" parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>         
+  </Items>
+</Document>

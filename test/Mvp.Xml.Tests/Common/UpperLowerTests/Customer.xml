@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<customer id="0736" xmlns="mvp-xml-customer">
+	<name>Daniel Cazzulino</name>
+	<order id="25" />
+</customer>

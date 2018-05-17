@@ -1,0 +1,8 @@
+<out>
+  <test1>                
+Max orders: <order>999.99</order><order>999.99</order></test1>
+  <test2>                
+Max orders: </test2>
+  <test3>                
+Max orders: </test3>
+</out>

@@ -1,0 +1,112 @@
+November 12, 2005
+
+Added XslReader (olegt)
+
+---------------------------------------------------------
+
+October 24, 2005
+
+Converted to .NET 2.0 (olegt)
+
+---------------------------------------------------------
+
+May 28, 2005
+
+Added ObjectNode to XmlNodeFactory to improve performance of client-side message-based communication with web services through XmlSerializer.
+See: http://weblogs.asp.net/cazzu/posts/xmlmessageperformance.aspx
+
+---------------------------------------------------------
+
+January 04, 2005
+
+Added Serialization folder and classes.
+
+---------------------------------------------------------
+
+November 13, 2004
+
+Bug fix in XmlNodeListFactory. Thanks to Raneses, Jason.
+Bug fixes in XPathNavigatorReader (thanks Oleg!)
+
+---------------------------------------------------------
+
+October 8, 2004
+
+Bug fix in XPathCache that caused NullReferenceExceptions if an XmlNamespaceManager is not used when selecting nodes. 
+
+---------------------------------------------------------
+
+June 30, 2004
+
+Added XPathNavigatorIterator
+Allows building an iterator by hand, by appending navigators.
+XPathNavigatorReader.InnerXml fixed. Thanks to Lawrence Oluyede!
+
+---------------------------------------------------------
+June 24, 2004
+
+Added SubtreeXPathNavigator
+See: http://weblogs.asp.net/cazzu/archive/2004/06/24/164243.aspx.
+
+---------------------------------------------------------
+May 31, 2004
+
+Added XmlNodeFactory
+See: http://weblogs.asp.net/cazzu/archive/2004/05/31/144922.aspx.
+
+---------------------------------------------------------
+May 27, 2004
+
+Added sort overloads to XPathCache. 
+Thanks to Jason Addie.
+
+---------------------------------------------------------
+May 15, 2004
+
+Bug fixing in XPathNavigatorReader
+Thanks to Joost Ploegmakers
+
+---------------------------------------------------------
+May 10, 2004
+
+Bug fixing in XPathNavigatorReader
+See: http://weblogs.asp.net/cazzu/archive/2004/05/10/129101.aspx
+
+Added XmlFirstUpperReader and XmlFirstLowerWriter
+See: http://weblogs.asp.net/cazzu/archive/2004/05/10/129106.aspx
+
+---------------------------------------------------------
+April 26, 2004
+
+Added XPathIteratorReader
+See: http://weblogs.asp.net/cazzu/archive/2004/04/26/120684.aspx
+
+---------------------------------------------------------
+April 23, 2004
+
+Added XmlFragmentStream: 
+See: http://weblogs.asp.net/cazzu/archive/2004/04/23/119263.aspx
+
+---------------------------------------------------------
+April 19, 2004
+
+Fully working production-quality XPathNavigatorReader. 
+See: http://weblogs.asp.net/cazzu/archive/2004/04/19/115966.aspx
+
+---------------------------------------------------------
+April 11, 2004
+
+Added IndexingXPathNavigator code.
+See http://www.tkachenko.com/blog/archives/000194.html
+
+---------------------------------------------------------
+April 02, 2004
+
+XPathCache and DynamicContext added to project.
+See: http://weblogs.asp.net/cazzu/archive/2004/04/02/106667.aspx
+
+---------------------------------------------------------
+April 01, 2004
+
+Initial setup.
+Folder contains main project source files.

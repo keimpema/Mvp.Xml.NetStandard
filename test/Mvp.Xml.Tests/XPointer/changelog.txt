@@ -1,0 +1,15 @@
+---------------------------------------------------------
+October 11, 2004
+
+Added test XML/XSD and unit test for schema-determined IDs.
+
+---------------------------------------------------------
+October 9, 2004
+
+Added unit tests.
+
+---------------------------------------------------------
+September 28, 2004
+
+Initial setup.
+Will contain the project's tests.

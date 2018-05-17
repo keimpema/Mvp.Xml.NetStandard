@@ -1,0 +1,2309 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/"><channel><title>XML</title><link>http://weblogs.asp.net/cazzu/category/1567.aspx</link><description>XML</description><dc:language>en-US</dc:language><generator>.Text Version 0.95.2004.111</generator><item><dc:creator>Daniel Cazzulino</dc:creator><title>Mvp.Xml project: healthy start</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/25/119940.aspx</link><pubDate>Sun, 25 Apr 2004 19:01:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/25/119940.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/119940.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/25/119940.aspx#Feedback</comments><slash:comments>0</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/119940.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/119940.aspx</trackback:ping><description>I've just checked the stats of our &lt;a href="http://sourceforge.net/projects/mvp-xml"&gt;Mvp.Xml&lt;/a&gt; project. Pretty good news for a project born only two months ago:
+&lt;p&gt;
+Page views: 1.421&lt;br/&gt;
+Downloads: 243&lt;br/&gt;
+Last 30 days we've had a steady rate of increase in page views of 200% a day, and 150% in downloads.&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/119940.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Reading XML fragments with XmlTextReader</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/23/119263.aspx</link><pubDate>Fri, 23 Apr 2004 21:51:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/23/119263.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/119263.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/23/119263.aspx#Feedback</comments><slash:comments>4</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/119263.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/119263.aspx</trackback:ping><description>		&lt;p&gt;Back at the &lt;a href="http://mvp.support.microsoft.com/default.aspx?scid=fh;en-us;mvpsmt2004"&gt;
+				2004 MVP Global Summit&lt;/a&gt;, I met fellow XML fan &lt;a href="http://weblogs.asp.net/kaevans"&gt;
+				Kirk&lt;/a&gt;, who was seeking a solution to the following problem: you have a 
+			(several) megabytes file containing multiple XML fragments, and you want to 
+			read it (in &lt;a href="http://weblogs.asp.net/kaevans/archive/2004/04/24/119508.aspx"&gt;his case&lt;/a&gt; specially through the &lt;a href="http://www.gotdotnet.com/Community/UserSamples/Details.aspx?SampleGuid=B90FDDCE-E60D-43F8-A5C4-C3BD760564BC"&gt;SgmlReader&lt;/a&gt;). The problem is, of course, that the &lt;code&gt;XmlTextReader&lt;/code&gt; will 
+			throw an exception as soon as it finds the second fragment, unless you use the special ctor. overload that takes an &lt;code&gt;XmlParsingContext&lt;/code&gt;.&lt;a href="http://www.25hoursaday.com/"&gt;
+				Dare&lt;/a&gt; &lt;a href="http://msdn.microsoft.com/xml/default.aspx?pull=/library/en-us/dnxmlnet/html/largexml.asp"&gt;
+				shows&lt;/a&gt; an alternate solution based on XML inclusion techniques, either DTD external 
+			entities or &lt;a href="http://workspaces.gotdotnet.com/xinclude"&gt;XInclude&lt;/a&gt;.
+		&lt;/p&gt;
+		&lt;P&gt;These techniques effectively expose a fully well-formed document to your application, which has a number of 
+benefits, including the ability to transform it if you need to, for example. But I was thinking more along the lines of providing a class that could actually read the fragments without resorting to those mechanisms. I couldn't cheat the &lt;code&gt;XmlTextReader&lt;/code&gt;, so I 
+			decided to go one step lower. The result is the &lt;code&gt;XmlFragmentStream&lt;/code&gt;, 
+			a class that wraps any &lt;code&gt;System.IO.Stream&lt;/code&gt; and fakes the missing root 
+			element, so that an &lt;code&gt;XmlTextReader&lt;/code&gt; layered on top of it, will think 
+			the document is well-formed. Here's how to use it:
+		&lt;/P&gt;
+		&lt;P&gt;Given the following XML fragments:&lt;/P&gt;
+		&lt;xmp&gt;&lt;event&gt;
+ &lt;ip&gt;127.0.0.1&lt;/ip&gt;
+ &lt;http_method&gt;GET&lt;/http_method&gt;
+ ...
+&lt;/event&gt;
+&lt;event&gt;
+ &lt;ip&gt;127.0.0.1&lt;/ip&gt;
+ &lt;http_method&gt;POST&lt;/http_method&gt;
+ ...
+&lt;/event&gt;
+...&lt;/xmp&gt;
+		&lt;P&gt;
+			You can read (and even validate with an &lt;code&gt;XmlValidatingReader&lt;/code&gt;) using 
+			this code:&lt;/P&gt;
+		&lt;xmp&gt;using (Stream stm = File.OpenRead("events.xml"))
+{
+  XmlTextReader tr = new XmlTextReader(new XmlFragmentStream(stm));
+  // Do performant ref comparison
+  string ev = tr.NameTable.Add("event");
+  while (tr.Read())
+  {
+    if (tr.LocalName == ev)
+    // Process it!
+  }
+}&lt;/xmp&gt;
+		&lt;P&gt;The &lt;code&gt;XmlFragmentStream&lt;/code&gt; class also contain two contructor overloads 
+			that allow you to specify the name and namespace of the enclosing root element 
+			(by default &lt;code&gt;&amp;lt;root&amp;gt;&lt;/code&gt;):&lt;/P&gt;
+		&lt;xmp&gt;public XmlFragmentStream(Stream innerStream, string rootName)
+public XmlFragmentStream(Stream innerStream, string rootName, string namespaceURI)&lt;/xmp&gt;
+		&lt;P&gt;This technique is proven by a real world (surely happy) customer Kirk helped 
+			;). What's more, he even contributed a bug-fix he found when&amp;nbsp;using it.
+			&lt;BR&gt;
+			The performance impact of this approach in&amp;nbsp;negligible because the class is 
+			basically an intermediary with minimal processing.&lt;p&gt;As Oleg noted pointed in a comment (and motivated a slight editing in this post), as well as &lt;a href="http://www.tkachenko.com/blog/archives/000053.html"&gt;showed in his weblog&lt;/a&gt;, you can do this with the aforementioned special &lt;code&gt;XmlTextReader&lt;/code&gt; constructor overload, passing an &lt;code&gt;XmlParsingContext&lt;/code&gt;. This is more cumbersome, in my opinion, 
+and still leaves you with the problem of not having a valid XML document.&lt;/p&gt;
+		&lt;/P&gt;
+		&lt;div&gt;&lt;span style="FONT-WEIGHT: bold; CURSOR: pointer; COLOR: white; BACKGROUND-COLOR: blue"
+				onclick="var div=document.getElementById('CodeListing');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt;
+			As usual, if you just want the full class code to copy-paste on your project, 
+			here it is. I strongly encourage you to take a look at the Mvp.Xml project, as 
+			there're other really cool goodies there!
+			&lt;xmp id="CodeListing" style="DISPLAY:none"&gt;#region using
+
+using System;
+using System.IO;
+using System.Text;
+
+#endregion using
+
+namespace Mvp.Xml
+{
+  /// &lt;summary&gt;
+  /// Allows streams without a root element (i.e. multiple document 
+  /// fragments) to be passed to an &lt;see cref="System.Xml.XmlReader"/&gt;.
+  /// &lt;/summary&gt;
+  /// &lt;remarks&gt;A faked root element is added at the stream 
+  /// level to enclose the fragments, which can be customized 
+  /// using the overloaded constructors.
+  /// &lt;para&gt;Author: Daniel Cazzulino, kzu@aspnet2.com&lt;/para&gt;
+  /// See: http://weblogs.asp.net/cazzu/archive/2004/04/23/119263.aspx.
+  /// &lt;/remarks&gt;
+  public class XmlFragmentStream : Stream
+  {
+    #region Fields
+
+    // Holds the inner stream with the XML fragments.
+    Stream _stream;
+
+    bool _first = true;
+    bool _done = false;
+    bool _eof = false;
+
+    // TODO: there's a potential encoding issue here.
+    byte[] _rootstart = UTF8Encoding.UTF8.GetBytes("&lt;root&gt;");
+    byte[] _rootend = UTF8Encoding.UTF8.GetBytes("&lt;/root&gt;");
+    int _endidx = -1;
+
+    #endregion Fields
+
+    #region Ctors
+
+    /// &lt;summary&gt;
+    /// Initializes the class with the underlying stream to use, and 
+    /// uses the default &amp;lt;root&amp;gt; container element. 
+    /// &lt;/summary&gt;
+    /// &lt;param name="innerStream"&gt;The stream to read from.&lt;/param&gt;
+    public XmlFragmentStream(Stream innerStream)
+    {
+      if (innerStream == null)
+        throw new ArgumentNullException("innerStream");
+      _stream = innerStream;
+    }
+
+    /// &lt;summary&gt;
+    /// Initializes the class with the underlying stream to use, with 
+    /// a custom root element. 
+    /// &lt;/summary&gt;
+    /// &lt;param name="innerStream"&gt;The stream to read from.&lt;/param&gt;
+    /// &lt;param name="rootName"&gt;Custom root element name to use.&lt;/param&gt;
+    public XmlFragmentStream(Stream innerStream, string rootName) : this (innerStream)
+    {
+      _rootstart = UTF8Encoding.UTF8.GetBytes("&lt;" + rootName + "&gt;");
+      _rootend = UTF8Encoding.UTF8.GetBytes("&lt;/" + rootName + "&gt;");
+    }
+
+    /// &lt;summary&gt;
+    /// Initializes the class with the underlying stream to use, with 
+    /// a custom root element. 
+    /// &lt;/summary&gt;
+    /// &lt;param name="innerStream"&gt;The stream to read from.&lt;/param&gt;
+    /// &lt;param name="rootName"&gt;Custom root element name to use.&lt;/param&gt;
+    /// &lt;param name="namespaceURI"&gt;The namespace of the root element.&lt;/param&gt;
+    public XmlFragmentStream(Stream innerStream, string rootName, string namespaceURI) : this (innerStream)
+    {
+      _rootstart = UTF8Encoding.UTF8.GetBytes("&lt;" + rootName + " xmlns=\"" + namespaceURI + "\"&gt;");
+      _rootend = UTF8Encoding.UTF8.GetBytes("&lt;/" + rootName + "&gt;");
+    }
+
+    #endregion Ctors
+
+    #region Stream abstract implementation
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.Flush"/&gt;.&lt;/summary&gt;
+    public override void Flush()
+    {
+      _stream.Flush();
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.Seek"/&gt;.&lt;/summary&gt;
+    public override long Seek(long offset, SeekOrigin origin)
+    {
+      return _stream.Seek(offset, origin);
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.SetLength"/&gt;.&lt;/summary&gt;
+    public override void SetLength(long value)
+    {
+      _stream.SetLength(value);
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.Write"/&gt;.&lt;/summary&gt;
+    public override void Write(byte[] buffer, int offset, int count)
+    {
+      _stream.Write(buffer, offset, count);
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.CanRead"/&gt;.&lt;/summary&gt;
+    public override bool CanRead { get { return _stream.CanRead; } }
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.CanSeek"/&gt;.&lt;/summary&gt;
+    public override bool CanSeek { get { return _stream.CanSeek; } }
+    
+    /// &lt;summary&gt;See &lt;see cref="Stream.CanWrite"/&gt;.&lt;/summary&gt;
+    public override bool CanWrite { get { return _stream.CanWrite; } }
+    
+    /// &lt;summary&gt;See &lt;see cref="Stream.Length"/&gt;.&lt;/summary&gt;
+    public override long Length { get { return _stream.Length; } }
+    
+    /// &lt;summary&gt;See &lt;see cref="Stream.Position"/&gt;.&lt;/summary&gt;
+    public override long Position 
+    { 
+      get { return _stream.Position; }
+      set { _stream.Position = value; }
+    }
+
+    #endregion Stream abstract implementation
+
+    #region Read method 
+
+    /// &lt;summary&gt;See &lt;see cref="Stream.Read"/&gt;.&lt;/summary&gt;
+    public override int Read(byte[] buffer, int offset, int count)
+    {
+      if (_done) 
+      {
+        if(!_eof)
+        {
+          _eof = true;
+          return 0;
+        }
+        else
+        {
+          throw new System.IO.EndOfStreamException(SR.GetString(SR.XmlFragmentStream_EOF)); 
+        }
+      }
+
+      // If this is the first one, return the wrapper root element.
+      if (_first)
+      {
+        _rootstart.CopyTo(buffer, 0);
+
+        _stream.Read(buffer, _rootstart.Length, count - _rootstart.Length);
+
+        _first = false;
+        return count;
+      }
+
+      // We have a pending closing wrapper root element.
+      if (_endidx != -1)
+      {
+        for (int i = _endidx; i &lt; _rootend.Length; i++)
+        {
+          buffer[i] = _rootend[i];
+        }
+        return _rootend.Length - _endidx;
+      }
+
+      int ret = _stream.Read(buffer, offset, count);
+
+      // Did we reached the end?
+      if (ret &lt; count)
+      {
+        _rootend.CopyTo(buffer, ret);
+        if (count - ret &gt; _rootend.Length)
+        {
+          _done = true;
+          return ret + _rootend.Length;
+        }
+        else
+        {
+          _endidx = count - ret;
+          return count;
+        }
+      }
+
+      return ret;
+    }
+
+    #endregion Read method 
+  }
+}&lt;/xmp&gt;
+		&lt;/div&gt;
+		&lt;p&gt;The full &lt;A href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml project&lt;/A&gt; source 
+			code can be downloaded from &lt;a href="http://prdownloads.sourceforge.net/mvp-xml/Mvp.Xml.zip?download"&gt;
+				SourceForge&lt;/a&gt;.&lt;/p&gt;
+		&lt;p&gt;Enjoy and please give us feedback on the project!&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/119263.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>IndexingXPathNavigator reloaded</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/19/116001.aspx</link><pubDate>Mon, 19 Apr 2004 13:58:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/19/116001.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/116001.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/19/116001.aspx#Feedback</comments><slash:comments>0</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/116001.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/116001.aspx</trackback:ping><description>&lt;a href="http://www.tkachenko.com/blog/"&gt;Oleg&lt;/a&gt;'s &lt;a href="http://www.tkachenko.com/blog/archives/000194.html"&gt;IndexingXPathNavigator&lt;/a&gt; is now part of the opensource &lt;a href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml project&lt;/a&gt;. A another good addition to the package...
+		&lt;p&gt;The full project source code can be downloaded from &lt;a href="http://prdownloads.sourceforge.net/mvp-xml/Mvp.Xml.zip?download"&gt;
+				SourceForge&lt;/a&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/116001.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>XPathNavigatorReader: reading, validating and serializing! (XmlTextReader over XPathNavigator)</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/19/115966.aspx</link><pubDate>Mon, 19 Apr 2004 13:16:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/19/115966.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/115966.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/19/115966.aspx#Feedback</comments><slash:comments>10</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/115966.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/115966.aspx</trackback:ping><description>&lt;p&gt;There are many reasons why developers don't use the &lt;code&gt;XPathDocument&lt;/code&gt; and
+			&lt;code&gt;XPathNavigator&lt;/code&gt; APIs and resort to &lt;code&gt;XmlDocument&lt;/code&gt; instead. 
+			I outlined some of&amp;nbsp;them with regards to querying functionality in&amp;nbsp;my 
+			posts about&amp;nbsp;&lt;a href="http://weblogs.asp.net/cazzu/archive/2003/10/07/30888.aspx"&gt;how 
+				to take advantage of XPath expression precompilation&lt;/a&gt;, and &lt;a href=""&gt;how to 
+				get an &lt;code&gt;XmlNodeList&lt;/code&gt; from compiled expressions compilation&lt;/a&gt;.
+		&lt;/p&gt;
+		&lt;p&gt;&lt;code&gt;XPathNavigator&lt;/code&gt; is a far superior way of accessing and querying data 
+			because it offers built-in support for XPath querying independently of the 
+			store, which automatically gain the feature and more importantly, because it 
+			abstracts the underlying store mechanism, which allows multiple data formats to 
+			be accessed consistently. The XML WebData team has seriously optimized the 
+			internal storage of &lt;code&gt;XPathDocument&lt;/code&gt;, which results in important 
+			improvents both in loading time and memory footprint, as well as general 
+			performance.&amp;nbsp;This was possible because the underlying store is completely 
+			hidden from the developer behind the &lt;code&gt;XPathNavigator&lt;/code&gt; class, 
+			therefore, even the most drastic change in internal representation does not 
+			affect current applications.&lt;/p&gt;
+		&lt;p&gt;However, some useful features of the &lt;code&gt;XmlDocument&lt;/code&gt; and &lt;code&gt;XmlReader&lt;/code&gt;
+			classes are not available. Basically, I've created an &lt;code&gt;XmlReader&lt;/code&gt; facade 
+			over the &lt;code&gt;XPathNavigator&lt;/code&gt; class, which allows you to work against 
+			either an streaming or a cursor API. I'll discuss how the missing features are 
+			enabled by the use of the new&amp;nbsp;&lt;code&gt;XPathNavigatorReader&lt;/code&gt; class, 
+			part of the opensource &lt;a href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml project&lt;/a&gt;.
+		&lt;/p&gt;
+		&lt;p&gt;Examples use an XML document with the structure of the Pubs database.&lt;/p&gt;
+		&lt;h2&gt;Serialization as XML&lt;/h2&gt;
+		&lt;p&gt;Both the &lt;code&gt;XmlDocument&lt;/code&gt;&amp;nbsp;(more properly, the&amp;nbsp;&lt;code&gt;XmlNode&lt;/code&gt;) 
+			the&amp;nbsp;and &lt;code&gt;XmlReader&lt;/code&gt; offer built-in support to get a raw string 
+			representing the entire content of any node. &lt;code&gt;XmlNode&lt;/code&gt; exposes &lt;code&gt;InnerXml&lt;/code&gt;
+			and &lt;code&gt;OuterXml&lt;/code&gt; properties,&amp;nbsp;whereas the &lt;code&gt;XmlReader&lt;/code&gt; offers
+			&lt;code&gt;ReadInnerXml&lt;/code&gt; and &lt;code&gt;ReadOuterXml&lt;/code&gt; methods.&lt;/p&gt;
+		&lt;p&gt;Once you go the &lt;code&gt;XPathDocument&lt;/code&gt; route, however, you completely loss 
+			this feature. The new &lt;code&gt;XPathNavigatorReader&lt;/code&gt; is an &lt;code&gt;XmlReader&lt;/code&gt;
+			implementation over an &lt;code&gt;XPathNavigator&lt;/code&gt;, thus providing the 
+			aforementioned&amp;nbsp;&lt;code&gt;ReadInnerXml&lt;/code&gt; and &lt;code&gt;ReadOuterXml&lt;/code&gt; methods. 
+			Basically, you work with the &lt;code&gt;XPathNavigator&lt;/code&gt; object, and at the 
+			point you need to serialize it as XML, you simply construct this new reader 
+			over it, and use it as you would with any &lt;code&gt;XmlReader&lt;/code&gt;:&lt;/p&gt;
+		&lt;xmp&gt;XPathDocument doc = new XPathDocument(input);
+XPathNavigator nav = doc.CreateNavigator();
+// Move navigator, select with XPath, whatever.
+
+XmlReader reader = new XPathNavigatorReader(nav);
+// Initialize it.
+if (reader.Read())
+{
+  Console.WriteLine(reader.ReadOuterXml());
+  // We can also use reader.ReadInnerXml();
+}&lt;/xmp&gt;
+		&lt;p&gt;Another useful scenario is directly writing a fragment of the document by means 
+			of the &lt;code&gt;XmlWriter.WriteNode&lt;/code&gt; method:&lt;/p&gt;
+		&lt;xmp&gt;// Will select the title id.
+XPathExpression idexpr = navigator.Compile("string(title_id/text())");
+
+XPathNodeIterator it = navigator.Select("//titles[price &gt; 10]");
+while (it.MoveNext())
+{
+  XmlReader reader = new XPathNavigatorReader(it.Current);
+
+  // Save to a file with the title ID as the name.
+  XmlTextWriter tw = new XmlTextWriter(
+	(string) it.Current.Evaluate(idexpr) + ".xml", 
+    System.Text.Encoding.UTF8);
+  
+  // Dump it!
+  writer.WriteNode(reader, false);
+  writer.Close();
+}&lt;/xmp&gt;
+		&lt;p&gt;This code saves each book with a price bigger than 10 to a file named after the 
+			title id.&amp;nbsp;You can note that the reader works&amp;nbsp;in the scope defined by 
+			the navigator passed to its constructor, effectively providing a view over 
+			a&amp;nbsp;fragment of&amp;nbsp;the entire document.&amp;nbsp;It's also important to 
+			observe that even when an evaluation will cause a cursor movement to the 
+			navigator in &lt;code&gt;it.Current&lt;/code&gt;, the reader we're using will not be 
+			affected, as the constructor clones it up-front. Also, note that it's always a 
+			good idea to precompile an expression that is going to be executed repeatedly 
+			(ideally, application-wide).&lt;/p&gt;
+		&lt;h3&gt;XmlSerializer-ready&lt;/h3&gt;
+		&lt;p&gt;The reader implements IXmlSerializable, so you can directly return it from 
+			WebServices for example. You could have a web service returning the result of 
+			an XPath query without resorting to hacks like loading &lt;code&gt;XmlDocument&lt;/code&gt; 
+			s or returning an XML string that will be escaped. XPathDocument is not 
+			XML-serializable either. Now you can simply use code like the following:&lt;/p&gt;
+		&lt;xmp&gt;[WebMethod]
+public XPathNavigatorReader GetData()
+{
+  XPathDocument doc = GetDocument();
+  XPathNodeIterator it = doc.CreateNavigator().Select("//titles[title_id='BU2075']");
+  if (it.MoveNext())
+	return new XPathNavigatorReader(it.Current);
+
+  return null;
+}&lt;/xmp&gt;
+		&lt;p&gt;This web service response will be:&lt;/p&gt;
+&lt;div class="codeBlock"&gt;&lt;code&gt;&lt;pre class="codeForeground"&gt;&amp;lt;XPathNavigatorReader&amp;gt;
+  &amp;lt;titles&amp;gt;
+    &amp;lt;title_id&amp;gt;BU2075&amp;lt;/title_id&amp;gt;
+    &amp;lt;title&amp;gt;You Can Combat Computer Stress!&amp;lt;/title&amp;gt;
+    &amp;lt;type&amp;gt;business    &amp;lt;/type&amp;gt;
+    &amp;lt;pub_id&amp;gt;0736&amp;lt;/pub_id&amp;gt;
+    &amp;lt;price&amp;gt;2.99&amp;lt;/price&amp;gt;
+    &amp;lt;advance&amp;gt;10125&amp;lt;/advance&amp;gt;
+    &amp;lt;royalty&amp;gt;24&amp;lt;/royalty&amp;gt;
+    &amp;lt;ytd_sales&amp;gt;18722&amp;lt;/ytd_sales&amp;gt;
+    &amp;lt;notes&amp;gt;The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.&amp;lt;/notes&amp;gt;
+    &amp;lt;pubdate&amp;gt;1991-06-30T00:00:00.0000000-03:00&amp;lt;/pubdate&amp;gt;
+  &amp;lt;/titles&amp;gt;
+&amp;lt;/XPathNavigatorReader&amp;gt;
+&lt;/pre&gt;&lt;/code&gt;&lt;/div&gt;
+		&lt;h2&gt;XML Schema Validation&lt;/h2&gt;
+		&lt;p&gt;Imagine the following scenario: you are processing a document, where only 
+			certain elements and their content need to be validated against an XML Schema, 
+			such as the contents of an element inside a &lt;code&gt;soap:Body&lt;/code&gt;. If you're 
+			working with an &lt;code&gt;XmlDocument&lt;/code&gt;,&amp;nbsp;a known bug in &lt;code&gt;XmlValidatingReader&lt;/code&gt;
+			prevents you from doing the following:
+		&lt;/p&gt;
+		&lt;xmp&gt;XmlDocument doc = GetDocument(); // Get the doc somehow.
+XmlNode node = doc.SelectSingleNode("//titles[title_id='BU2075']");
+// Create a validating reader for XSD validation.
+XmlValidatingReader vr = new XmlValidatingReader(new XmlNodeReader(node));&lt;/xmp&gt;
+		&lt;p&gt;The validating reader will throw an exception because it expects an instance of 
+			an &lt;code&gt;XmlTextReader&lt;/code&gt; object. This will be fixed in Whidbey, but no 
+			luck for v1.x. You're forced to do this:
+		&lt;/p&gt;
+		&lt;xmp&gt;XmlDocument doc = GetDocument(); // Get the doc somehow.
+XmlNode node = doc.SelectSingleNode("//titles[title_id='BU2075']");
+
+// Build the reader directly from the XML string taken through OuterXml.
+XmlValidatingReader vr = new XmlValidatingReader(
+	new XmlTextReader(new StringReader(node.OuterXml)));&lt;/xmp&gt;
+		&lt;p&gt;Of course, you're paying the parsing cost twice here. The &lt;code&gt;XPathNavigatorReader&lt;/code&gt;, 
+			unlike the &lt;code&gt;XmlNodeReader&lt;/code&gt;, derives directly from &lt;code&gt;XmlTextReader&lt;/code&gt;, 
+			therefore, it fully supports fragment validation. You can validate against XML 
+			Schemas that only define the node where you're standing. The following code 
+			validates&amp;nbsp;all expensive books with a narrow schema, instead of a 
+			full-blown Pubs schema:&lt;/p&gt;
+		&lt;xmp&gt;XmlSchema sch = XmlSchema.Read(expensiveBooksSchemaLocation, null);
+// Select expensive books.
+XPathNodeIterator it = navigator.Select("//titles[price &gt; 10]");
+while (it.MoveNext())
+{
+  // Create a validating reader over an XPathNavigatorReader for the current node.
+  XmlValidatingReader vr = new XmlValidatingReader(new XPathNavigatorReader(it.Current));
+
+  // Add the schema for the current node.
+  vr.Schemas.Add(sch);
+
+  // Validate it!
+  while (vr.Read()) {}
+}&lt;/xmp&gt;
+		&lt;p&gt;This opens the possiblity for modular validation of documents, which is 
+			specially useful when you have generic XML processing layers that validate 
+			selectively depending on namespaces, for example. What's more, this feature 
+			really starts making the XPathDocument/XPathNavigator combination a more 
+			feature-complete option to &lt;code&gt;XmlDocument&lt;/code&gt; when you only need 
+			read-only access to the document.&lt;/p&gt;
+		&lt;div&gt;&lt;span style="FONT-WEIGHT: bold; CURSOR: pointer; COLOR: white; BACKGROUND-COLOR: blue"
+				onclick="var div=document.getElementById('implementation');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt;
+			Implementation details. Expand only if you care to know a couple tricks I did 
+			;)
+			&lt;div id="implementation" style="DISPLAY:none"&gt;
+				&lt;h2&gt;Implementation Goodies&lt;/h2&gt;
+				&lt;p&gt;
+					If you wonder how did I implement it from &lt;code&gt;XmlTextReader&lt;/code&gt; instead of &lt;code&gt;
+						XmlReader&lt;/code&gt;
+				, read on. If you just want to go straight to downloading and using it, you can 
+				safely skip this section.
+				&lt;a name="cheatXmlTextReader" /&gt;
+				&lt;p&gt;Even in the face of the &lt;code&gt;XmlValidatingReader&lt;/code&gt; bug, I found a 
+					workaround that works great. Luckily, the &lt;code&gt;XmlTextReader&lt;/code&gt; is not a 
+					sealed class, so intead of inheriting from &lt;code&gt;XmlReader&lt;/code&gt;, I inherited 
+					from it. I basically cheat it at construction time, passing an empty string to 
+					it:&lt;/p&gt;
+				&lt;xmp&gt;public class XPathNavigatorReader : XmlTextReader
+{
+  public XPathNavigatorReader(XPathNavigator navigator) :
+    base(new StringReader(String.Empty))
+  ...&lt;/xmp&gt;
+				&lt;p&gt;Next, I override all the methods which are abstract on the base &lt;code&gt;XmlReader&lt;/code&gt;, 
+					basically replacing all the functionality from the &lt;code&gt;XmlTextReader&lt;/code&gt;. 
+					Next, I also replaced the functionality of &lt;code&gt;ReadInnerXml&lt;/code&gt; and &lt;code&gt;ReadOuterXml&lt;/code&gt;
+					methods, which are new from the &lt;code&gt;XmlTextReader&lt;/code&gt;:&lt;/p&gt;
+				&lt;xmp&gt;public override string ReadInnerXml()
+{
+  if (this.Read()) return Serialize();  
+  return String.Empty;
+}
+
+public override string ReadOuterXml()
+{
+  if (_state != ReadState.Interactive) return String.Empty;
+  return Serialize();
+}&lt;/xmp&gt;
+				&lt;p&gt;They are both passthrough methods to the &lt;code&gt;Serialize&lt;/code&gt; one that 
+					performs actual writing. I think you will be surprised by the following 
+					snippet. There's no&amp;nbsp;interesting or complex code here, and I basically use 
+					the same node writing feature I explained above:&lt;/p&gt;
+				&lt;xmp&gt;private string Serialize()
+{
+  StringWriter sw = new StringWriter();
+  XmlTextWriter tw = new XmlTextWriter(sw);
+  tw.WriteNode(this, false);
+
+  sw.Flush();
+  return sw.ToString();
+}&lt;/xmp&gt;
+				&lt;p&gt;This is a benefit of having a 100% reader implementation.
+					&lt;br&gt;
+					Another interesting thing in the implementation is that the &lt;code&gt;XPathNavigator&lt;/code&gt;
+					class provides separate handling of namespace attributes and regular ones (&lt;code&gt;GetAttribute&lt;/code&gt;
+					and &lt;code&gt;GetNamespace&lt;/code&gt;), unlike the&amp;nbsp;&lt;code&gt;XmlReader&lt;/code&gt;, which 
+					exposes both simply as attributes. The reader &lt;code&gt;MoveToFirstAttribute&lt;/code&gt; 
+					method checks for both cases, moving either to the first regular attribute or 
+					the namespace one:&lt;/p&gt;
+				&lt;xmp&gt;public override bool MoveToFirstAttribute() 
+{
+  if (_isendelement) return false;
+  bool moved = _navigator.MoveToFirstAttribute();
+  if (!moved) moved = _navigator.MoveToFirstNamespace(XPathNamespaceScope.Local);
+
+  if (moved)
+  {
+    // Escape faked text node for attribute value.
+    if (_attributevalueread) _depth--;
+    // Reset attribute value read flag.
+    _attributevalueread = false;
+  }
+
+  return moved;
+}&lt;/xmp&gt;
+				&lt;p&gt;The same work is done in the &lt;code&gt;MoveToNextAttribute&lt;/code&gt;:&lt;/p&gt;
+				&lt;xmp&gt;public override bool MoveToNextAttribute() 
+{
+  bool moved = false;
+  if (_navigator.NodeType == XPathNodeType.Attribute)
+  {
+    moved = _navigator.MoveToNextAttribute();
+    if (!moved)
+    {
+      // We ended regular attributes. Start with namespaces if appropriate.
+      _navigator.MoveToParent();
+      moved = _navigator.MoveToFirstNamespace(XPathNamespaceScope.Local);
+    }
+  }
+  else if (_navigator.NodeType == XPathNodeType.Namespace)
+  {
+    moved = _navigator.MoveToNextNamespace(XPathNamespaceScope.Local);
+  }
+
+  if (moved)
+  {
+    // Escape faked text node for attribute value.
+    if (_attributevalueread) _depth--;
+    // Reset attribute value read flag.
+    _attributevalueread = false;
+  }
+
+  return moved;
+}&lt;/xmp&gt;
+				&lt;p&gt;I also take into account that the &lt;code&gt;ReadAttributeValue&lt;/code&gt; method call 
+					causes a reader to be moved into the attribute value, where the current node 
+					type becomes Text usually (there's also the &lt;code&gt;Entity&lt;/code&gt; resolution and 
+					references stuff). The documentation for the&amp;nbsp;&lt;code&gt;XmlReader.ReadAttributeValue&lt;/code&gt;
+					method states that the depth is incremented, so I take into account that too. 
+					This is basically a matter of setting a flag:&lt;/p&gt;
+				&lt;xmp&gt;public override bool ReadAttributeValue() 
+{
+	// If this method hasn't been called yet for the attribute.
+	if (!_attributevalueread &amp;&amp; 
+		(_navigator.NodeType == XPathNodeType.Attribute || 
+		_navigator.NodeType == XPathNodeType.Namespace))
+	{
+		_attributevalueread = true;
+		_depth++;
+		return true;
+	}
+
+	return false;
+
+} bool _attributevalueread = false;&lt;/xmp&gt;
+				&lt;p&gt;I came across the need to implement this when I used the &lt;code&gt;XmlWriter.WriteNode&lt;/code&gt;
+					method, which uses it intensively. I studied both the &lt;code&gt;XmlValidatingReader&lt;/code&gt;
+					and &lt;code&gt;XmlTextWriter&lt;/code&gt; usage of the underlying &lt;code&gt;XmlReader&lt;/code&gt;, 
+					by creating an &lt;code&gt;XmlTextReader&lt;/code&gt; descendant that basically logs calls 
+					to its methods (yup, I could have used DevPartner Profiler, or any other 
+					profiles, I know...), which gave me the following picture on what's used by 
+					each:&lt;/p&gt;
+				&lt;table id="Table1"&gt;
+					&lt;tr&gt;
+						&lt;th&gt;
+							XmlReader methods&lt;/th&gt;
+						&lt;th&gt;
+							Called by XmlValidatingReader&lt;/th&gt;
+						&lt;th&gt;
+							Called by XmlTextWriter&lt;/th&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;AttributeCount&lt;/td&gt;
+						&lt;td&gt;AttributeCount&lt;/td&gt;
+						&lt;td&gt;AttributeCount&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;BaseURI&lt;/td&gt;
+						&lt;td&gt;BaseURI&lt;/td&gt;
+						&lt;td&gt;BaseURI&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Close&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Depth&lt;/td&gt;
+						&lt;td&gt;Depth&lt;/td&gt;
+						&lt;td&gt;Depth&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;EOF&lt;/td&gt;
+						&lt;td&gt;EOF&lt;/td&gt;
+						&lt;td&gt;EOF&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;GetAttribute&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;HasValue&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;IsDefault&lt;/td&gt;
+						&lt;td&gt;IsDefault&lt;/td&gt;
+						&lt;td&gt;IsDefault&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;IsEmptyElement&lt;/td&gt;
+						&lt;td&gt;IsEmptyElement&lt;/td&gt;
+						&lt;td&gt;IsEmptyElement&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Item&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;LocalName&lt;/td&gt;
+						&lt;td&gt;LocalName&lt;/td&gt;
+						&lt;td&gt;LocalName&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;LookupNamespace&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;MoveToAttribute&lt;/td&gt;
+						&lt;td&gt;MoveToAttribute(int)&lt;/td&gt;
+						&lt;td&gt;MoveToAttribute(int)&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;MoveToElement&lt;/td&gt;
+						&lt;td&gt;MoveToElement&lt;/td&gt;
+						&lt;td&gt;MoveToElement&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;MoveToFirstAttribute&lt;/td&gt;
+						&lt;td&gt;MoveToFirstAttribute&lt;/td&gt;
+						&lt;td&gt;MoveToFirstAttribute&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;MoveToNextAttribute&lt;/td&gt;
+						&lt;td&gt;MoveToNextAttribute&lt;/td&gt;
+						&lt;td&gt;MoveToNextAttribute&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Name&lt;/td&gt;
+						&lt;td&gt;Name&lt;/td&gt;
+						&lt;td&gt;Name&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;NamespaceURI&lt;/td&gt;
+						&lt;td&gt;NamespaceURI&lt;/td&gt;
+						&lt;td&gt;NamespaceURI&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;NameTable&lt;/td&gt;
+						&lt;td&gt;NameTable&lt;/td&gt;
+						&lt;td&gt;NameTable&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;NodeType&lt;/td&gt;
+						&lt;td&gt;NodeType&lt;/td&gt;
+						&lt;td&gt;NodeType&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Prefix&lt;/td&gt;
+						&lt;td&gt;Prefix&lt;/td&gt;
+						&lt;td&gt;Prefix&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;QuoteChar&lt;/td&gt;
+						&lt;td&gt;QuoteChar&lt;/td&gt;
+						&lt;td&gt;QuoteChar&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Read&lt;/td&gt;
+						&lt;td&gt;Read&lt;/td&gt;
+						&lt;td&gt;Read&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;ReadAttributeValue&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;ReadAttributeValue&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;ReadState&lt;/td&gt;
+						&lt;td&gt;ReadState&lt;/td&gt;
+						&lt;td&gt;ReadState&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;ResolveEntity&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Value&lt;/td&gt;
+						&lt;td&gt;Value&lt;/td&gt;
+						&lt;td&gt;Value&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;XmlLang&lt;/td&gt;
+						&lt;td&gt;XmlLang&lt;/td&gt;
+						&lt;td&gt;XmlLang&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;XmlSpace&lt;/td&gt;
+						&lt;td&gt;XmlSpace&lt;/td&gt;
+						&lt;td&gt;XmlSpace&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/table&gt;
+				&lt;p&gt;There's some interesting information here! For example, neither class uses the &lt;code&gt;
+						XmlReader.HasValue&lt;/code&gt; property, or the &lt;code&gt;GetAttribute&lt;/code&gt; or 
+					indexer (&lt;code&gt;Item&lt;/code&gt;) to access attributes. Mostly, access to attributes 
+					is done either by calling &lt;code&gt;MoveToFirstAttribute/MoveToNextAttribute&lt;/code&gt; 
+					or by gettting the &lt;code&gt;AttributeCount&lt;/code&gt; and later using &lt;code&gt;MoveToAttribute(int 
+						index)&lt;/code&gt; for each, something like:&lt;/p&gt;
+				&lt;xmp&gt;for (int i = 0; i &lt;                         reader.AttributeCount; i++)
+{
+  reader.MoveToAttribute(i); 
+  // Do something with it.
+}&lt;/xmp&gt;
+				&lt;p&gt;I've seen other attempts at this issue (both for &lt;code&gt;XPathNavigatorReader&lt;/code&gt;
+					and &lt;code&gt;NavigatorReader&lt;/code&gt; classes) that basically iterate attributes 
+					each time &lt;code&gt;AttributeCount&lt;/code&gt; is retrieved, and do the same until the 
+					desired index is reached in &lt;code&gt;MoveToAttribute(i)&lt;/code&gt;, by calling &lt;code&gt;MoveToNextAttribute()&lt;/code&gt;
+					repeatedly. From the table above, I could see that was a pretty bad idea. 
+					Therefore, I store in an &lt;code&gt;ArrayList&lt;/code&gt; (therefore accessible by index) 
+					the name and namespace of each attribute of the current node, cache it and 
+					return its length. When the &lt;code&gt;MoveToAttribute(i)&lt;/code&gt; is executed, I 
+					retrieve he name/namespace combination through the list for the index 
+					specified, and simply call the &lt;code&gt;MoveToAttribute&lt;/code&gt; native method in 
+					the navigator with these parameters. I think this is better, although I haven't 
+					measured the difference.&lt;/p&gt;
+				&lt;p&gt;As a final word on the implementation: I reviewed Aaron Skonnard attempt at this 
+					feature, but I discarded it&amp;nbsp;because it's XmlReader-based, didn't handle 
+					attribute/namespace attribute manipulation the way I expected, etc. So I 
+					decided to just start from scratch. If you look at his and my code, you'll 
+					see&amp;nbsp;they're quite different. I recall Don Box did something too, but &lt;code&gt;XmlReader&lt;/code&gt;-based too..&amp;nbsp;&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;p&gt;
+			&lt;div&gt;&lt;span style="FONT-WEIGHT: bold; CURSOR: pointer; COLOR: white; BACKGROUND-COLOR: blue"
+					onclick="var div=document.getElementById('CodeListing');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt;
+				As usual, if you just want the full class code to copy-paste on your project, 
+				here it is. I strongly encourage you to take a look at the Mvp.Xml project, as 
+				there're other cool goodies there!
+				&lt;xmp id="CodeListing" style="DISPLAY:none"&gt;using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Xml.XPath;
+
+namespace Mvp.Xml.XPath
+{
+  /// &lt;summary&gt;
+  /// Provides an &lt;see cref="XmlReader"/&gt; over an 
+  /// &lt;see cref="XPathNavigator"/&gt;.
+  /// &lt;/summary&gt;
+  /// &lt;remarks&gt;
+  /// Reader is positioned at the current navigator position. Reading 
+  /// it completely is similar to querying for the &lt;see cref="XmlNode.OuterXml"/&gt; 
+  /// property. 
+  /// &lt;para&gt;The navigator is cloned at construction time to avoid side-effects 
+  /// in calling code.&lt;/para&gt;
+  /// &lt;para&gt;Author: Daniel Cazzulino, kzu@aspnet2.com&lt;/para&gt;
+  /// &lt;para&gt;See: http://weblogs.asp.net/cazzu/archive/2004/04/19/115966.aspx&lt;/para&gt;
+  /// &lt;/remarks&gt;
+  public class XPathNavigatorReader : XmlTextReader, IXmlSerializable
+  {
+    #region Fields
+
+    // Cursor that will be moved by the reader methods.
+    XPathNavigator _navigator;
+    // Cursor remaining in the original position, to determine EOF.
+    XPathNavigator _original;
+
+    // Will track whether we're at a faked end element
+    bool _isendelement = false;
+
+    #endregion Fields
+
+    #region Ctor
+
+    /// &lt;summary&gt;
+    /// Parameterless constructor for XML serialization.
+    /// &lt;/summary&gt;
+    /// &lt;remarks&gt;Supports the .NET serialization infrastructure. Don't use this 
+    /// constructor in your regular application.&lt;/remarks&gt;
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    public XPathNavigatorReader()
+    {
+    }
+
+    /// &lt;summary&gt;
+    /// Initializes the reader.
+    /// &lt;/summary&gt;
+    /// &lt;param name="navigator"&gt;The navigator to expose as a reader.&lt;/param&gt;
+    public XPathNavigatorReader(XPathNavigator navigator) : base(new StringReader(String.Empty))
+    {
+      _navigator = navigator.Clone();
+      _original = navigator.Clone();
+    }
+
+    #endregion Ctor
+
+    #region Private members
+
+    /// &lt;summary&gt;
+    /// Retrieves and caches node positions and their name/ns
+    /// &lt;/summary&gt;
+    private ArrayList OrderedAttributes
+    {
+      get 
+      { 
+        // List contains the following values: string[] { name, namespaceURI }
+        if (_orderedattributes != null) return _orderedattributes;
+
+        // Cache attributes position and names.
+        // We do this because when an attribute is accessed by index, it's 
+        // because of a usage pattern using a for loop as follows:
+        // for (int i = 0; i &lt; reader.AttributeCount; i++)
+        //   Console.WriteLine(reader[i]);
+
+        // Init list. 
+        _orderedattributes = new ArrayList();
+
+        // Return empty list for end elements.
+        if (_isendelement) return _orderedattributes;
+
+        // Add all regular attributes.
+        if (_navigator.HasAttributes)
+        {
+          XPathNavigator attrnav = _navigator.Clone();
+          _orderedattributes = new ArrayList();
+          if (attrnav.MoveToFirstAttribute())
+          {
+            _orderedattributes.Add(new string[] { attrnav.LocalName, attrnav.NamespaceURI });
+            while (attrnav.MoveToNextAttribute())
+            {
+              _orderedattributes.Add(new string[] { attrnav.LocalName, attrnav.NamespaceURI });
+            }
+          }
+        }
+
+        // Add all namespace attributes declared at the current node.
+        XPathNavigator nsnav = _navigator.Clone();
+        if (nsnav.MoveToFirstNamespace(XPathNamespaceScope.Local))
+        {
+          _orderedattributes.Add(new string[] { nsnav.LocalName, XmlNamespaces.XmlNs });
+          while (nsnav.MoveToNextNamespace(XPathNamespaceScope.Local))
+          { _orderedattributes.Add(new string[] { nsnav.LocalName, XmlNamespaces.XmlNs }); }
+        }
+
+        return _orderedattributes;
+      }
+    } ArrayList _orderedattributes;
+
+    /// &lt;summary&gt;
+    /// Returns the XML representation of the current node and all its children.
+    /// &lt;/summary&gt;
+    private string Serialize()
+    {
+      StringWriter sw = new StringWriter();
+      XmlTextWriter tw = new XmlTextWriter(sw);
+      tw.WriteNode(this, false);
+
+      sw.Flush();
+      return sw.ToString();
+    }
+
+    #endregion Private members
+
+    #region Properties
+
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.AttributeCount"/&gt;&lt;/summary&gt;
+    public override int AttributeCount 
+    {
+      get 
+      {
+        // When the user requests the attribute count, it's usually to 
+        // use a for iteration pattern for accessing attributes. Therefore, 
+        // we force loading the attributes positions to prepare for 
+        // indexed access to them. This is done in the OrderedAttributes getter.
+        return OrderedAttributes.Count;
+      }
+    } 
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.BaseURI"/&gt;&lt;/summary&gt;
+    public override string BaseURI 
+    {
+      get { return _navigator.BaseURI; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Depth"/&gt;&lt;/summary&gt;
+    public override int Depth 
+    {
+      get { return _depth; }
+    } int _depth = 0;
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.EOF"/&gt;&lt;/summary&gt;
+    public override bool EOF 
+    {
+      get { return _eof; }
+    } bool _eof = false;
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.HasValue"/&gt;&lt;/summary&gt;
+    public override bool HasValue 
+    {
+      get 
+      {
+        return (
+          _navigator.NodeType == XPathNodeType.Namespace ||
+          _navigator.NodeType == XPathNodeType.Attribute || 
+          _navigator.NodeType == XPathNodeType.Comment ||
+          _navigator.NodeType == XPathNodeType.ProcessingInstruction ||
+          _navigator.NodeType == XPathNodeType.SignificantWhitespace ||
+          _navigator.NodeType == XPathNodeType.Text ||
+          _navigator.NodeType == XPathNodeType.Whitespace);
+      }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.IsDefault"/&gt;&lt;/summary&gt;
+    public override bool IsDefault 
+    {
+      get { return false; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.IsDefault"/&gt;&lt;/summary&gt;
+    public override bool IsEmptyElement 
+    {
+      get { return _navigator.IsEmptyElement; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.this"/&gt;&lt;/summary&gt;
+    public override string this[string name, string namespaceURI] 
+    {
+      get 
+      {
+        // Attribute requested may be a namespaces prefix mapping.
+        if (namespaceURI == XmlNamespaces.XmlNs)
+        {
+          return _navigator.GetNamespace(name);
+        }
+        else
+        {
+          return _navigator.GetAttribute(name, namespaceURI);
+        }
+      }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.this"/&gt;&lt;/summary&gt;
+    public override string this[string name] 
+    {
+      get 
+      {
+        return this[name, String.Empty];
+      }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.this"/&gt;&lt;/summary&gt;
+    public override string this[int i] 
+    {
+      get 
+      {
+        // List contains the following values: string[] { name, namespaceURI }
+        string[] values = (string[]) OrderedAttributes[i];
+        return this[values[0], values[1]];
+      }
+    } 
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.LocalName"/&gt;&lt;/summary&gt;
+    public override string LocalName 
+    {
+      get { return _navigator.LocalName; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Name"/&gt;&lt;/summary&gt;
+    public override string Name 
+    {
+      get { return _navigator.Name; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.NamespaceURI"/&gt;&lt;/summary&gt;
+    public override string NamespaceURI 
+    {
+      get 
+      { 
+        return _navigator.NodeType == XPathNodeType.Namespace ? 
+          XmlNamespaces.XmlNs : _navigator.NamespaceURI;
+      }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.NameTable"/&gt;&lt;/summary&gt;
+    public override XmlNameTable NameTable 
+    {
+      get { return _navigator.NameTable; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.NodeType"/&gt;&lt;/summary&gt;
+    public override XmlNodeType NodeType 
+    {
+      get 
+      {   
+        // Special states.
+        if (_state != ReadState.Interactive) return XmlNodeType.None;
+        if (_isendelement) return XmlNodeType.EndElement;
+        if (_attributevalueread) return XmlNodeType.Text;
+
+        switch(_navigator.NodeType)
+        { 
+          case XPathNodeType.Attribute:
+            // Namespaces are exposed by the XmlReader as attributes too.
+          case XPathNodeType.Namespace:
+            return XmlNodeType.Attribute;
+          case XPathNodeType.Comment:
+            return XmlNodeType.Comment;
+          case XPathNodeType.Element:
+            return XmlNodeType.Element;        
+          case XPathNodeType.ProcessingInstruction:
+            return XmlNodeType.ProcessingInstruction;
+          case XPathNodeType.Root:
+            return XmlNodeType.Document;
+          case XPathNodeType.SignificantWhitespace:
+            return XmlNodeType.SignificantWhitespace;        
+          case XPathNodeType.Text:
+            return XmlNodeType.Text;               
+          case XPathNodeType.Whitespace:
+            return XmlNodeType.Whitespace;       
+          default:
+            return XmlNodeType.None;
+        }
+      }
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Prefix"/&gt;&lt;/summary&gt;
+    public override string Prefix 
+    {
+      get { return _navigator.Prefix; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.QuoteChar"/&gt;&lt;/summary&gt;
+    public override char QuoteChar 
+    {
+      get { return '"'; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.ReadState"/&gt;&lt;/summary&gt;
+    public override ReadState ReadState 
+    {
+      get { return _state; }
+    } ReadState _state = ReadState.Initial;
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Value"/&gt;&lt;/summary&gt;
+    public override string Value 
+    {
+      get { return HasValue ? _navigator.Value : String.Empty; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.XmlLang"/&gt;&lt;/summary&gt;
+    public override string XmlLang 
+    {
+      get { return _navigator.XmlLang; }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.XmlSpace"/&gt;&lt;/summary&gt;
+    public override XmlSpace XmlSpace 
+    {
+      get { return XmlSpace.Default; }
+    }
+
+    #endregion Properties 
+
+    #region Methods
+
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Close"/&gt;&lt;/summary&gt;
+    public override void Close() 
+    {
+      _state = ReadState.Closed;
+      _eof = true;
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.GetAttribute"/&gt;&lt;/summary&gt;
+    public override string GetAttribute(string name, string namespaceURI) 
+    {
+      return this[name, namespaceURI];
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.GetAttribute"/&gt;&lt;/summary&gt;
+    public override string GetAttribute(string name) 
+    {
+      return this[name];
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.GetAttribute"/&gt;&lt;/summary&gt;
+    public override string GetAttribute(int i) 
+    {
+      return this[i];
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.LookupNamespace"/&gt;&lt;/summary&gt;
+    public override string LookupNamespace(string prefix) 
+    {
+      return _navigator.GetNamespace(prefix);
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToAttribute"/&gt;&lt;/summary&gt;
+    public override bool MoveToAttribute(string name, string ns) 
+    {
+      return _navigator.MoveToAttribute(name, ns);
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToAttribute"/&gt;&lt;/summary&gt;
+    public override bool MoveToAttribute(string name) 
+    {
+      return MoveToAttribute(name, String.Empty);
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToAttribute"/&gt;&lt;/summary&gt;
+    public override void MoveToAttribute(int i) 
+    {
+      string[] values = (string[]) OrderedAttributes[i];
+      MoveToAttribute(values[0], values[1]);
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToElement"/&gt;&lt;/summary&gt;
+    public override bool MoveToElement() 
+    {
+      if (_navigator.NodeType == XPathNodeType.Attribute || 
+        _navigator.NodeType == XPathNodeType.Namespace)
+      {
+        _navigator.MoveToParent();
+        // Escape faked text node for attribute value.
+        if (_attributevalueread) _depth--;
+        _attributevalueread = false;
+                return true;
+      }
+
+      return false;
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToFirstAttribute"/&gt;&lt;/summary&gt;
+    public override bool MoveToFirstAttribute() 
+    {
+      if (_isendelement) return false;
+      bool moved = _navigator.MoveToFirstAttribute();
+      if (!moved) moved = _navigator.MoveToFirstNamespace(XPathNamespaceScope.Local);
+
+      if (moved)
+      {
+        // Escape faked text node for attribute value.
+        if (_attributevalueread) _depth--;
+        // Reset attribute value read flag.
+        _attributevalueread = false;
+      }
+
+      return moved;
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.MoveToNextAttribute"/&gt;&lt;/summary&gt;
+    public override bool MoveToNextAttribute() 
+    {
+      bool moved = false;
+      if (_navigator.NodeType == XPathNodeType.Attribute)
+      {
+        moved = _navigator.MoveToNextAttribute();
+        if (!moved)
+        {
+          // We ended regular attributes. Start with namespaces if appropriate.
+          _navigator.MoveToParent();
+          moved = _navigator.MoveToFirstNamespace(XPathNamespaceScope.Local);
+        }
+      }
+      else if (_navigator.NodeType == XPathNodeType.Namespace)
+      {
+        moved = _navigator.MoveToNextNamespace(XPathNamespaceScope.Local);
+      }
+
+      if (moved)
+      {
+        // Escape faked text node for attribute value.
+        if (_attributevalueread) _depth--;
+        // Reset attribute value read flag.
+        _attributevalueread = false;
+      }
+
+      return moved;
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Read"/&gt;&lt;/summary&gt;
+    public override bool Read() 
+    {
+      // Return fast if state is no appropriate.
+      if (_state == ReadState.Closed || _state == ReadState.EndOfFile)
+        return false;
+
+      if (_state == ReadState.Initial)
+      {
+        _state = ReadState.Interactive;
+        if (_navigator.NodeType == XPathNodeType.Root)
+        {
+          // Sync to the real first node.
+          _original.MoveToFirstChild();
+          return _navigator.MoveToFirstChild();
+        }
+        return true;
+      }
+
+      // Reset temp state.
+      _orderedattributes = null;
+      // Reading attribute values causes movement to faked Text node.
+      if (_attributevalueread) _depth--;
+      // Reset the flag afterwards.
+      _attributevalueread = false;
+
+      // Reposition if we moved to attributes.
+      if (_navigator.NodeType == XPathNodeType.Attribute || 
+        _navigator.NodeType == XPathNodeType.Namespace) _navigator.MoveToParent();
+
+      if (_isendelement)
+      {
+        // If we're at the same position we started, it's eof;
+        if (_navigator.IsSamePosition(_original))
+        {
+          _eof = true;
+          _state = ReadState.EndOfFile;
+          return false;
+        }
+
+        // If we're at the faked end element, move to next sibling.
+        if (_navigator.MoveToNext())
+        {
+          _isendelement = false;
+          return true;
+        }
+        else
+        {
+          // Otherwise, move to the parent and set as the 
+          // end element of it (we already read all children therefore).
+          _navigator.MoveToParent();
+          _depth--;
+          // _isendelement remains true.
+          return true;
+        }
+      }
+      else if (_navigator.HasChildren)
+      {
+        _depth++;
+        // Move to child node.
+        return _navigator.MoveToFirstChild();
+      }
+      else
+      {
+        // Otherwise, try to move to sibling.
+        if (_navigator.MoveToNext())
+        {
+          return true;
+        }
+        else
+        {
+          // Otherwise, move to the parent and set as the 
+          // end element of it (we already read all children therefore).
+          _navigator.MoveToParent();
+          _depth--;
+          _isendelement = true;
+          return true;
+        }
+      }
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.ReadAttributeValue"/&gt;&lt;/summary&gt;
+    public override bool ReadAttributeValue() 
+    {
+      // If this method hasn't been called yet for the attribute.
+      if (!_attributevalueread &amp;&amp; 
+        (_navigator.NodeType == XPathNodeType.Attribute || 
+        _navigator.NodeType == XPathNodeType.Namespace))
+      {
+        _attributevalueread = true;
+        _depth++;
+        return true;
+      }
+
+      return false;
+
+    } bool _attributevalueread = false;
+
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.ReadInnerXml"/&gt;&lt;/summary&gt;
+    public override string ReadInnerXml()
+    {
+      if (this.Read()) return Serialize();      
+      return String.Empty;
+    }
+
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.ReadOuterXml"/&gt;&lt;/summary&gt;
+    public override string ReadOuterXml()
+    {
+      if (_state != ReadState.Interactive) return String.Empty;
+      return Serialize();
+    }
+    
+    /// &lt;summary&gt;See &lt;see cref="XmlReader.Read"/&gt;&lt;/summary&gt;
+    public override void ResolveEntity() 
+    {
+      // Not supported.
+    }
+
+    #endregion Methods
+
+    #region IXmlSerializable Members
+
+    void IXmlSerializable.WriteXml(XmlWriter writer)
+    {
+      writer.WriteNode(this, false);
+    }
+
+    System.Xml.Schema.XmlSchema IXmlSerializable.GetSchema()
+    {
+      return null;
+    }
+
+    void IXmlSerializable.ReadXml(XmlReader reader)
+    {
+      XPathDocument doc = new XPathDocument(reader);
+      _navigator = doc.CreateNavigator();
+    }
+
+    #endregion
+  }
+}&lt;/xmp&gt;
+			&lt;/div&gt;
+		&lt;p&gt;Finally, I imagine you could even think about loading an XmlDocument from an 
+			XPathNavigator using the XPathNavigatorReader... although can't think of any 
+			good reason why would you want to do such a thing :S...&lt;/p&gt;
+		&lt;p&gt;The full project source code can be downloaded from &lt;a href="http://prdownloads.sourceforge.net/mvp-xml/Mvp.Xml.zip?download"&gt;
+				SourceForge&lt;/a&gt;
+		.
+		&lt;p&gt;&lt;/p&gt;
+		&lt;p&gt;Enjoy and please give us feedback on the project!&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/115966.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Mvp.Xml project: how to get an XmlNodeList from an XPathNodeIterator (reloaded)</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/14/113479.aspx</link><pubDate>Wed, 14 Apr 2004 21:07:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/14/113479.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/113479.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/14/113479.aspx#Feedback</comments><slash:comments>1</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/113479.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/113479.aspx</trackback:ping><description>		&lt;p&gt;In a &lt;a href="http://weblogs.asp.net/cazzu/archive/2004/03/09/86609.aspx"&gt;previous 
+				post&lt;/a&gt; I showed a possible approach to get an iterator for &lt;code&gt;XmlNode&lt;/code&gt;s 
+				from an &lt;code&gt;XPathNodeIterator&lt;/code&gt;. 
+			Please that post as it explains the problem in depth, and explains the reasons 
+			why you should move to using &lt;code&gt;XPathNodeIterator&lt;/code&gt;.
+		&lt;/p&gt;
+		&lt;P&gt;However, the solution I showed involved a new class that only had an &lt;code&gt;IEnumerable&lt;/code&gt;
+			implementation. It wasn't compatible at all with the built-in &lt;code&gt;XmlNodeList&lt;/code&gt;
+			(abstract) class. This time, for the&amp;nbsp;&lt;A href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml 
+				project&lt;/A&gt;, I decided to do the right thing: inherit from &lt;code&gt;XmlNodeList&lt;/code&gt;
+			and implement the whole thing. What this means is that if you have a method 
+			that returns an &lt;code&gt;XmlNodeList&lt;/code&gt;, as follows:&lt;/P&gt;
+		&lt;xmp&gt;public void DoSomeStuff(XmlDocument document)
+{
+  XmlNodeList nodes = GetTheRelevantNodes(document);
+  // Process the nodes.
+}
+
+private XmlNodeList GetTheRelevantNodes(XmlDocument document)
+{
+  return document.SelectNodes(someQuery);
+}&lt;/xmp&gt;
+		&lt;P&gt;You can now simply change the method internal implementation to use cached 
+			XPathExpressions (as explained in&amp;nbsp;&lt;A href="http://weblogs.asp.net/cazzu/archive/2003/10/07/30888.aspx"&gt;Performant 
+				XML (I)&lt;/A&gt;) and keep the return value the same:&lt;/P&gt;
+		&lt;xmp&gt;private XmlNodeList GetTheRelevantNodes(XmlDocument document)
+{
+  XPathNodesIterator it = document.CreateNavigator().Select(
+    theCachedPerformantPreCompiledXPathExpression);
+  return XmlNodeListFactory.CreateNodeList(it);
+}&lt;/xmp&gt;
+		&lt;P&gt;Now you can focus on the cursor-style XML processing approach (and be ready for 
+			Whidbey where it's the "blessed" API), while maintaining "backwards" 
+			compatibility for your methods. Note, however, that the factory will throw an 
+			exception if you query a non-&lt;code&gt;XmlDocument&lt;/code&gt; store.&lt;/P&gt;
+		&lt;P&gt;The &lt;code&gt;XmlNodeList&lt;/code&gt; class has the following signature:&lt;/P&gt;
+		&lt;xmp&gt;public abstract class XmlNodeList : IEnumerable
+{
+  // Methods
+  protected XmlNodeList();
+  public abstract IEnumerator GetEnumerator();
+  public abstract XmlNode Item(int index);
+  
+  // Properties
+  public abstract int Count { get; }
+  public virtual XmlNode this[int] { get; }
+}&lt;/xmp&gt;
+		&lt;P&gt;(Note: for some strange reason, Reflector shows the indexer property of this 
+			particular class as a property with the name &lt;code&gt;ItemOf&lt;/code&gt; (?))&lt;/P&gt;
+		&lt;P&gt;This may seem trival to implement, unless you know how the &lt;code&gt;XPathNodeIterator&lt;/code&gt;
+			works. When it's returned from a query, the full document isn't evaluated. 
+			Rather, the query is advanced each time you move the iterator, thus reducing 
+			the initial performance impact of querying a potencially large document. 
+			Therefore, in order to maintain this performance advantage, I had to carefully 
+			implement the list so as to read from the iterator only the nodes actually 
+			needed. Of course, and just like the &lt;code&gt;XPathNodeIterator&lt;/code&gt; does, 
+			retrieving the &lt;code&gt;Count&lt;/code&gt; property requires the query to be evaluated 
+			against the whole document. Therefore:&lt;/P&gt;
+		&lt;P class="sideNote"&gt;Avoid retrieving the &lt;code&gt;Count&lt;/code&gt; property on either an &lt;code&gt;
+				XmlNodeList&lt;/code&gt; or an &lt;code&gt;XPathNodeIterator&lt;/code&gt; at all costs!&lt;/P&gt;
+		&lt;P&gt;So, the implementation basically advances the cursor when needed (for example 
+			when you access an item whose position hasn't been reached yet, or when you 
+			move the iterator), and caches the &lt;code&gt;XmlNode&lt;/code&gt; instances that are 
+			taken from the iterator through the &lt;code&gt;IHasXmlNode&lt;/code&gt; interface on the 
+			current node. This mechanism was explained in the post mentioned at the 
+			beginning.&lt;/P&gt;
+		&lt;div&gt;&lt;span style="FONT-WEIGHT: bold; CURSOR: pointer; COLOR: white; BACKGROUND-COLOR: blue"
+				onclick="var div=document.getElementById('CodeListing');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt;
+			The full code here was already showed in the previous post, but is reproduced 
+			here for your convenience.
+			&lt;xmp id="CodeListing" style="DISPLAY:none"&gt;using System;
+using System.Collections;
+using System.Xml;
+using System.Xml.XPath;
+
+namespace Mvp.Xml
+{
+  /// &lt;summary&gt;
+  /// Constructs &lt;see cref="XmlNodeList"/&gt; instances from 
+  /// &lt;see cref="XPathNodeIterator"/&gt; objects.
+  /// &lt;/summary&gt;
+  public sealed class XmlNodeListFactory
+  {
+    private XmlNodeListFactory() {}
+
+    #region Public members
+
+    /// &lt;summary&gt;
+    /// Creates an instance of a &lt;see cref="XmlNodeList"/&gt; that allows 
+    /// enumerating &lt;see cref="XmlNode"/&gt; elements in the iterator.
+    /// &lt;/summary&gt;
+    /// &lt;param name="iterator"&gt;The result of a previous node selection 
+    /// through an &lt;see cref="XPathNavigator"/&gt; query.&lt;/param&gt;
+    /// &lt;returns&gt;An initialized list ready to be enumerated.&lt;/returns&gt;
+    /// &lt;remarks&gt;The underlying XML store used to issue the query must be 
+    /// an object inheriting &lt;see cref="XmlNode"/&gt;, such as 
+    /// &lt;see cref="XmlDocument"/&gt;.&lt;/remarks&gt;
+    public static XmlNodeList CreateNodeList(XPathNodeIterator iterator)
+    {
+      return new XmlNodeListIterator(iterator);
+    }
+
+    #endregion Public members
+
+    #region XmlNodeListIterator
+
+    private class XmlNodeListIterator: XmlNodeList
+    {
+      XPathNodeIterator _iterator;
+      ArrayList _nodes = new ArrayList();
+
+      public XmlNodeListIterator(XPathNodeIterator iterator)
+      {
+        _iterator = iterator.Clone();
+
+        // Read first one to detect IHasXmlNode interface.
+        ReadTo(0);
+        if (!_done &amp;&amp; !(_nodes[0] is IHasXmlNode))
+          throw new ArgumentException(SR.GetString(SR.XmlNodeListFactory_IHasXmlNodeMissing));
+      }
+
+      public override IEnumerator GetEnumerator()
+      {
+        return new XmlNodeListEnumerator(this);
+      }
+      
+      public override XmlNode Item(int index)
+      {
+        return this[index];
+      }
+
+      public override int Count 
+      { 
+        get 
+        { 
+          if (!_done) ReadToEnd();
+          return _nodes.Count;
+        } 
+      }
+      
+      public override XmlNode this[int index]
+      { 
+        get 
+        { 
+          if (index &gt;= _nodes.Count)
+            ReadTo(index);
+
+          return (XmlNode) _nodes[index];
+        } 
+      }
+
+      /// &lt;summary&gt;
+      /// Reads the entire iterator.
+      /// &lt;/summary&gt;
+      private void ReadToEnd()
+      {
+        while (_iterator.MoveNext())
+        {
+          _nodes.Add(((IHasXmlNode)_iterator.Current).GetNode());
+        }
+        _done = true;
+      }
+
+      /// &lt;summary&gt;
+      /// Reads up to the specified index, or until the 
+      /// iterator is consumed.
+      /// &lt;/summary&gt;
+      private void ReadTo(int to)
+      {
+        while (_nodes.Count &lt;= to)
+        {
+          if (_iterator.MoveNext())
+          {
+            _nodes.Add(((IHasXmlNode)_iterator.Current).GetNode());
+          }
+          else
+          {
+            _done = true;
+            return;
+          }
+        }
+      }
+
+      /// &lt;summary&gt;
+      /// Flags that the iterator has been consumed.
+      /// &lt;/summary&gt;
+      private bool Done
+      {
+        get { return _done; }
+      } bool _done;
+
+      #region XmlNodeListEnumerator
+
+      private class XmlNodeListEnumerator: IEnumerator
+      {
+        XmlNodeListIterator _iterator;
+        int _position = -1;
+
+        public XmlNodeListEnumerator(XmlNodeListIterator iterator)
+        {
+          _iterator = iterator;
+        }
+
+        #region IEnumerator Members
+
+        void System.Collections.IEnumerator.Reset()
+        {
+          _position = -1;
+        }
+
+
+        bool System.Collections.IEnumerator.MoveNext()
+        {
+          _position++;
+                    _iterator.ReadTo(_position);
+
+          // If we reached the end and our index is still 
+          // bigger, there're no more items.
+          if (_iterator.Done &amp;&amp; _position &gt;= _position)
+            return false;
+
+          return true;
+        }
+
+        object System.Collections.IEnumerator.Current
+        {
+          get
+          {
+            return _iterator[_position];
+          }
+        }
+
+        #endregion
+      }
+
+      #endregion XmlNodeListEnumerator
+    }
+
+    #endregion XmlNodeListIterator
+  }
+}&lt;/xmp&gt;
+		&lt;/div&gt;
+&lt;p&gt;Note that in order to reduce the API surface, the only available class is the factory itself, and the implementation of the wrapper itself as well as the enumerator are completely hidden from you, so you can keep using the familiar &lt;code&gt;XmlNodeList&lt;/code&gt; and let us change the implementation in the future at will ;).&lt;/p&gt;
+		&lt;p&gt;The full &lt;A href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml project&lt;/A&gt; source 
+			code can be downloaded from &lt;a href="http://prdownloads.sourceforge.net/mvp-xml/Mvp.Xml.zip?download"&gt;
+				SourceForge&lt;/a&gt;.&lt;/p&gt;
+		&lt;p&gt;Enjoy and please give us feedback on the project!&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/113479.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Mvp.Xml project: enhance XPath execution performance with XPathCache</title><link>http://weblogs.asp.net/cazzu/archive/2004/04/02/106667.aspx</link><pubDate>Fri, 02 Apr 2004 17:22:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/04/02/106667.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/106667.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/04/02/106667.aspx#Feedback</comments><slash:comments>0</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/106667.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/106667.aspx</trackback:ping><description>		&lt;p&gt;
+			Just about a month ago, most XVPs (XML MVPs) started the opensource &lt;a href="http://sf.net/projects/mvp-xml"&gt;
+				Mvp.Xml project&lt;/a&gt;&amp;nbsp;aimed at providing a single point of entry for all 
+			our efforts in advancing XML&amp;nbsp;processing and APIs in .NET. By having a 
+			single project to look for, you can take advantage of the implementation of 
+			most stuff you read regularle though the MVPs weblogs, including this one. The 
+			code will contain references to the appropriate weblog posts whenever 
+			they're&amp;nbsp;available.
+		&lt;/p&gt;
+		&lt;p&gt;So, here comes the turn for the first contribution to the project. Some time 
+			ago, I explained &lt;a href="http://weblogs.asp.net/cazzu/archive/2003/10/07/30888.aspx"&gt;
+				how to take advantage of XPath expression precompilation&lt;/a&gt;, even in the 
+			face of dynamic values that change at run-time. This post gave birth to the &lt;code&gt;DynamicContext&lt;/code&gt;
+			class which implements this functionality.
+		&lt;/p&gt;
+		&lt;p&gt;This time, I'll tackle the "problem" about precompiling XPath expressions: 
+			there's just so many lines of code to use! (I don't care about that, but you 
+			may). Besides that, you have to remember to keep these expressions in memory to 
+			gain some more performance, etc. Typically, compiling, setting the context (&lt;code&gt;XmlNamespaceManager&lt;/code&gt;) 
+			and selecting some nodes looks like the following:&lt;/p&gt;
+		&lt;xmp&gt;string expr = "//mvp:titles[mvp:price &gt; 10]";
+
+XPathDocument doc = new XPathDocument(source);
+XPathNavigator docnav = doc.CreateNavigator();
+XPathExpression xpath = docnav.Compile(expr);
+
+XmlNamespaceManager mgr = new XmlNamespaceManager(docnav.NameTable);
+mgr.AddNamespace("mvp", "mvp-xml");
+xpath.SetContext(mgr);
+
+int count = doc.CreateNavigator().Select(xpath).Count;&lt;/xmp&gt;
+		&lt;p&gt;Note: I always clone/create new navigators whenever I'm about to use them, 
+			because as explained in a &lt;a href="http://weblogs.asp.net/cazzu/archive/2003/10/09/31294.aspx"&gt;
+				previous post&lt;/a&gt; it's very cheap operation, and XPath expression 
+			compilation causes cursor movements. So, to ensure the cursor is always at the 
+			starting point, I get a fresh one from the &lt;code&gt;XPathDocument&lt;/code&gt;.
+		&lt;/p&gt;
+		&lt;p&gt;The expression used above is not being reused. We would have to put it in some 
+			static variable, initialize it upon first use, and so on. This is where the &lt;code&gt;XPathCache&lt;/code&gt;
+			comes in handy. You can replace all the above code with:&lt;/p&gt;
+		&lt;xmp&gt;string expr = "//mvp:titles[mvp:price &gt; 10]";
+
+XPathDocument doc = new XPathDocument(source);
+
+XmlNamespaceManager mgr = new XmlNamespaceManager(docnav.NameTable);
+mgr.AddNamespace("mvp", "mvp-xml");
+
+int count = XPathCache.Evaluate(expr, doc.CreateNavigator(), mgr);&lt;/xmp&gt;
+		&lt;p&gt;Ok, you don't get so many lines less, but XPathCache will automatically 
+			precompile the expression the first time it's used, and store it for later. 
+			Whenever you pass the same XPath query string, you'll be reusing the cached 
+			precompiled version. Now, this wouldn't be at all efficient if (just as in the 
+			case shown), we are passing the price to query appended directly to the string, 
+			such as:&lt;/p&gt;
+		&lt;xmp&gt;public int GetExpensiveBooks(IXPathNavigable doc, int minPrice)
+{
+  string expr = "//mvp:titles[mvp:price &gt; " + minPrice + "]";
+  ...
+  return XPathCache.Select(expr, doc.CreateNavigator(), mgr).Count;
+}&lt;/xmp&gt;
+		&lt;p&gt;In this case, we would be compiling and caching an expression for each distinct 
+			value received by the method! Not good at all! Here's where the integration 
+			between utilities released through weblog posts enters the scene. I talked 
+			about dynamic compilation before. That class is included in the Mvp.Xml 
+			project. Therefore, the cache also takes advantage of it. Among the many 
+			overloads, there's one that allows you to pass variables, as a struct with a 
+			name and a value to use:&lt;/p&gt;
+		&lt;xmp&gt;public int GetExpensiveBooks(IXPathNavigable doc, int minPrice)
+{
+  string expr = "//mvp:titles[mvp:price &gt; $price]";
+  ...
+  return XPathCache.Select(expr, doc.CreateNavigator(), mgr, 
+           new XPathVariable("price", minPrice)).Count;
+}&lt;/xmp&gt;
+		&lt;p&gt;Now you're effectively using a single compilation for all possible values. 
+			What's more, the last parameter, the variable, is defined in the method with 
+			the keyword &lt;code&gt;params&lt;/code&gt;, so you can pass as many variables as you need. 
+			There are many overloads, which also allow you to &lt;code&gt;Evaluate&lt;/code&gt; an 
+			expression.
+		&lt;/p&gt;
+		&lt;p&gt;
+			Finally, there's the case with &lt;code&gt;XmlDocument&lt;/code&gt; and the different 
+			handling about iteration over results. I discussed this in a &lt;a href="http://weblogs.asp.net/cazzu/archive/2004/03/09/86609.aspx"&gt;
+				previous article&lt;/a&gt; also, where I show the problem, and how to solve it. 
+			It turns out that I didn't chose the optimal solution to it. I created a class 
+			that only implemented &lt;code&gt;IEnumerable&lt;/code&gt;, and therefore wasn't compatible 
+			with &lt;code&gt;XmlNodeList&lt;/code&gt; you could be expecting. I fixed that for this 
+			initial contribution to the &lt;a href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml 
+				project&lt;/a&gt;, and directly inherited the abstract &lt;code&gt;XmlNodeList&lt;/code&gt; class 
+			and implemented the iteration so that you don't have to change your code 
+			currently consuming it. I implemented the public interface as a factory method, 
+			so that the API isn't poluted with the implementation classes. It's called 
+			XmlNodeListFactory and it's used simply with:
+		&lt;/p&gt;
+		&lt;xmp&gt;XPathNodeIterator it; // from a query
+XmlNodeList nodes = XmlNodeListFactory.CreateNodeList(it);
+
+foreach (XmlNode node in nodes)
+  //do your stuff
+&lt;/xmp&gt;
+		&lt;p&gt;Internally, the implementation is similar to that (hidden) in .NET.&lt;/p&gt;
+		&lt;div&gt;&lt;span style="FONT-WEIGHT: bold; CURSOR: pointer; COLOR: white; BACKGROUND-COLOR: blue"
+				onclick="var div=document.getElementById('CodeListing');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt;
+			For the avid reader, the full code can be expanded here.
+			&lt;xmp id="CodeListing" style="DISPLAY:none"&gt;using System;
+using System.Collections;
+using System.Xml;
+using System.Xml.XPath;
+
+namespace Mvp.Xml
+{
+  /// &lt;summary&gt;
+  /// Constructs &lt;see cref="XmlNodeList"/&gt; instances from 
+  /// &lt;see cref="XPathNodeIterator"/&gt; objects.
+  /// &lt;/summary&gt;
+  public sealed class XmlNodeListFactory
+  {
+    #region Public members
+
+    /// &lt;summary&gt;
+    /// Creates an instance of a &lt;see cref="XmlNodeList"/&gt; that allows 
+    /// enumerating &lt;see cref="XmlNode"/&gt; elements in the iterator.
+    /// &lt;/summary&gt;
+    /// &lt;param name="iterator"&gt;The result of a previous node selection 
+    /// through an &lt;see cref="XPathNavigator"/&gt; query.&lt;/param&gt;
+    /// &lt;returns&gt;An initialized list ready to be enumerated.&lt;/returns&gt;
+    /// &lt;remarks&gt;The underlying XML store used to issue the query must be 
+    /// an object inheriting &lt;see cref="XmlNode"/&gt;, such as 
+    /// &lt;see cref="XmlDocument"/&gt;.&lt;/remarks&gt;
+    public static XmlNodeList CreateNodeList(XPathNodeIterator iterator)
+    {
+      return new XmlNodeListIterator(iterator);
+    }
+
+    #endregion Public members
+
+    #region XmlNodeListIterator
+
+    private class XmlNodeListIterator: XmlNodeList
+    {
+      XPathNodeIterator _iterator;
+      ArrayList _nodes = new ArrayList();
+
+      public XmlNodeListIterator(XPathNodeIterator iterator)
+      {
+        _iterator = iterator.Clone();
+
+        // Read first one to detect IHasXmlNode interface.
+        ReadTo(0);
+        if (!_done &amp;&amp; !(_nodes[0] is IHasXmlNode))
+          throw new ArgumentException(SR.GetString(SR.XmlNodeListFactory_IHasXmlNodeMissing));
+      }
+
+      public override IEnumerator GetEnumerator()
+      {
+        return new XmlNodeListEnumerator(this);
+      }
+      
+      public override XmlNode Item(int index)
+      {
+        return this[index];
+      }
+
+      public override int Count 
+      { 
+        get 
+        { 
+          if (!_done) ReadToEnd();
+          return _nodes.Count;
+        } 
+      }
+      
+      public override XmlNode this[int index]
+      { 
+        get 
+        { 
+          if (index &gt;= _nodes.Count)
+            ReadTo(index);
+
+          return (XmlNode) _nodes[index];
+        } 
+      }
+
+      /// &lt;summary&gt;
+      /// Reads the entire iterator.
+      /// &lt;/summary&gt;
+      private void ReadToEnd()
+      {
+        while (_iterator.MoveNext())
+        {
+          _nodes.Add(((IHasXmlNode)_iterator.Current).GetNode());
+        }
+        _done = true;
+      }
+
+      /// &lt;summary&gt;
+      /// Reads up to the specified index, or until the 
+      /// iterator is consumed.
+      /// &lt;/summary&gt;
+      private void ReadTo(int to)
+      {
+        while (_nodes.Count &lt;= to)
+        {
+          if (_iterator.MoveNext())
+          {
+            _nodes.Add(((IHasXmlNode)_iterator.Current).GetNode());
+          }
+          else
+          {
+            _done = true;
+            return;
+          }
+        }
+      }
+
+      /// &lt;summary&gt;
+      /// Flags that the iterator has been consumed.
+      /// &lt;/summary&gt;
+      private bool Done
+      {
+        get { return _done; }
+      } bool _done;
+
+      #region XmlNodeListEnumerator
+
+      private class XmlNodeListEnumerator: IEnumerator
+      {
+        XmlNodeListIterator _iterator;
+        int _position = -1;
+
+        public XmlNodeListEnumerator(XmlNodeListIterator iterator)
+        {
+          _iterator = iterator;
+        }
+
+        #region IEnumerator Members
+
+        void System.Collections.IEnumerator.Reset()
+        {
+          _position = -1;
+        }
+
+
+        bool System.Collections.IEnumerator.MoveNext()
+        {
+          _position++;
+                    _iterator.ReadTo(_position);
+
+          // If we reached the end and our index is still 
+          // bigger, there're no more items.
+          if (_iterator.Done &amp;&amp; _position &gt;= _position)
+            return false;
+
+          return true;
+        }
+
+        object System.Collections.IEnumerator.Current
+        {
+          get
+          {
+            return _iterator[_position];
+          }
+        }
+
+        #endregion
+      }
+
+      #endregion XmlNodeListEnumerator
+    }
+
+    #endregion XmlNodeListIterator
+  }
+}
+&lt;/xmp&gt;
+		&lt;/div&gt;
+		&lt;p&gt;
+			With this implementation at hand, I could extend the &lt;code&gt;XPathCache&lt;/code&gt; to 
+			support &lt;code&gt;SelectNodes&lt;/code&gt; and &lt;code&gt;SelectSingleNode&lt;/code&gt;, while still 
+			reusing the XPath compilation and caching. The methods have different signature 
+			in order to account for the fact that they can only be executed against an &lt;code&gt;XmlNode&lt;/code&gt;:&lt;/p&gt;
+		&lt;xmp&gt;public XmlNodeList GetExpensiveBooks(XmlNode doc, int minPrice)
+{
+  string expr = "//mvp:titles[mvp:price &gt; $price]";
+  ...
+  return XPathCache.SelectNodes(expr, doc, mgr, new XPathVariable("price", minPrice));
+}&lt;/xmp&gt;
+		&lt;p&gt;The overloads allow you to execute each query (&lt;code&gt;Evaluate&lt;/code&gt;, &lt;code&gt;Select&lt;/code&gt;,
+			&lt;code&gt;SelectNode&lt;/code&gt; and &lt;code&gt;SelectSingleNode&lt;/code&gt;) with the following 
+			parameters (source can be &lt;code&gt;XPathNavigator&lt;/code&gt; or &lt;code&gt;XmlNode&lt;/code&gt; depending 
+			on the method):&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;
+			string expression, source
+			&lt;li&gt;
+			string expression, source, XmlNamespaceManager context
+			&lt;li&gt;
+			string expression, source, params XPathVariable[] args
+			&lt;li&gt;
+				string expression, source, XmlNamespaceManager context, params XPathVariable[] 
+				args&lt;/li&gt;&lt;/ul&gt;
+		&lt;p&gt;That accounts for all use cases I could think of. The full project source code 
+			can be downloaded from &lt;a href="http://prdownloads.sourceforge.net/mvp-xml/Mvp.Xml.zip?download"&gt;SourceForge&lt;/a&gt;.&lt;/p&gt;
+		&lt;p&gt;Enjoy and please give us feedback on the project!&lt;/p&gt;
+&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/106667.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Do I need SAX for .NET? (or does straight Java ports to C# make sense?)</title><link>http://weblogs.asp.net/cazzu/archive/2004/03/29/101437.aspx</link><pubDate>Mon, 29 Mar 2004 19:47:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/03/29/101437.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/101437.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/03/29/101437.aspx#Feedback</comments><slash:comments>6</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/101437.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/101437.aspx</trackback:ping><description>		&lt;p&gt;After reading &lt;a href="http://www.tkachenko.com/"&gt;Oleg's&lt;/a&gt; post &lt;a href="http://www.tkachenko.com/blog/archives/000197.html"&gt;
+				about an upcoming SAX.NET&lt;/a&gt;&amp;nbsp;implementation, and&amp;nbsp;while I still 
+			look forward to the other XML fellow developer working on that, I got certainly 
+			excited and run to download and have a look at it. I was dissapointed, I must 
+			say.
+		&lt;/p&gt;
+		&lt;p&gt;When I see a project implementing a class called XmlNamespaces containing 
+			methods such as &lt;code&gt;AddMapping&lt;/code&gt;, &lt;code&gt;GetPrefixMapping&lt;/code&gt;, &lt;code&gt;PushScope&lt;/code&gt;
+			and &lt;code&gt;PopScope&lt;/code&gt; (among others), which do exactly the same as the &lt;a href="http://msdn.microsoft.com/library/en-us/cpref/html/frlrfsystemxmlxmlnamespacemanagerclasstopic.asp"&gt;
+				System.Xml.XmlNamespaceManager&lt;/a&gt; with its &lt;code&gt;AddNamespace&lt;/code&gt;, &lt;code&gt;LookupNamespace&lt;/code&gt;,
+			&lt;code&gt;LookupPrefix&lt;/code&gt;, &lt;code&gt;PushScope&lt;/code&gt; and &lt;code&gt;PopScope&lt;/code&gt;, I 
+			start wondering whether straight ports of other platform libraries really does 
+			make sense in .NET. The mismatch doesn't end there:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;
+			There's IAttributes AND IAttributes2, and the corresponding implementations 
+			called AttributesImpl and AttributesImpl2 (?!?!). Multiply that by ILocator, 
+			IEntityResolver and so on. This is the first port and there's already interface 
+			versioning problems?
+			&lt;li&gt;
+			There's an IXMLReader (note the casing) class with an EntityResolver property 
+			which doesn't try to take advantage of .NET XmlResolver class, instead 
+			reinventing it through the IEntityResolver interface
+			&lt;li&gt;
+				All the GetFeature/SetFeature/IProperty baggage that only makes sense when 
+				multiple XML parsers are available and with varying features support (which 
+				judging from the &lt;a href="http://groups.google.com/groups?q=cazzulino+xmlfactory&amp;amp;hl=en&amp;amp;lr=&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&amp;amp;selm=u7uLRLPBEHA.1212%40TK2MSFTNGP12.phx.gbl&amp;amp;rnum=1"&gt;
+					silence of death&lt;/a&gt;
+			to my request for support to such scenarios isn't going to happen at all in 
+			.NET)
+			&lt;li&gt;
+				Non-standard delegate such as &lt;code&gt;OnPropertyChange(IProperty property, object 
+					newValue)&lt;/code&gt; - in .NET world it would have been &lt;code&gt;OnPropertyChange(object 
+					sender, ProperyChangeEventArgs e)&lt;/code&gt;.
+			&lt;li&gt;
+				Trivial things such as:
+				&lt;xmp&gt;public static string GetString(RsId id)
+{
+  string name = Enum.GetName(typeof(RsId), id);
+  return rm.GetString(name); 
+  // Should have been:
+  // return rm.GetString(id.ToString());
+}&lt;/xmp&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p&gt;I think copying Java projects over to .NET is not always a good idea, specially 
+			if done by people who doesn't work with C# and .NET on a daily basis. Examples of well done ports are&amp;nbsp;NUnit and Log4Net, for example. Note, 
+			however, that it wasn't until v2 that NUnit started using .NET-isms as custom 
+			Attributes.
+		&lt;/p&gt;
+		&lt;p&gt;So, do I want SAX.NET? Definitely NOT. I like some of its ideas. We, as .NET 
+			developers, should take the best ideas from it, mix them with .NET-friendly 
+			APIs, take advantage of built-in infrastructure, and improve on it. So, I still 
+			like it much more the &lt;A href="http://weblogs.asp.net/cazzu/posts/XseIntro.htm"&gt;Xml 
+				Streaming Events (XSE)&lt;/a&gt; idea than any of these ports. I have to work 
+			further on it, develop more use cases, clarify the API and give a second though 
+			to some concepts, but it definitely integrates far better with current and 
+			future .NET XML support. What I definitely don't want, is&amp;nbsp;to code against 
+			a pseudo-.NET/pseudo-Java API.
+		&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/101437.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Who failed to validate XML?</title><link>http://weblogs.asp.net/cazzu/archive/2004/03/24/95588.aspx</link><pubDate>Wed, 24 Mar 2004 20:24:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/03/24/95588.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/95588.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/03/24/95588.aspx#Feedback</comments><slash:comments>2</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/95588.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/95588.aspx</trackback:ping><description>		&lt;p&gt;Today, you validate XML in .NET v1.x by creating an &lt;code&gt;XmlValidatingReader&lt;/code&gt;, 
+			setting the schema, and reading:
+		&lt;/p&gt;
+		&lt;xmp&gt;// Configure the validating reader
+XmlValidatingReader vr = new XmlValidatingReader(theinput);
+
+// Add the schema to the reader (usually the schema is preloaded only once).
+vr.Schemas.Add(theschema);
+
+while (vr.Read())
+{
+  // Do your stuff.
+}&lt;/xmp&gt;
+		&lt;p&gt;You have two options for handling invalid content in the input document (with 
+			regards to the schema/s):
+		&lt;/p&gt;
+		&lt;ol&gt;
+			&lt;li&gt;
+				Catch the&amp;nbsp; exception thrown at the first error, halting processing:
+				&lt;xmp&gt;try
+{
+  while (vr.Read())
+  {
+    // Do your stuff.
+  }
+}
+catch (XmlException ex)
+{
+  // Report the *parse* exception/rethrow.
+}
+catch (XmlSchemaException ex)
+{
+  // Report the *validation* exception.
+}
+  &lt;/xmp&gt;
+			&lt;li&gt;
+				Attach to the &lt;code&gt;ValidationEventHandler&lt;/code&gt; (according to .NET naming conventions this 
+				would have been named &lt;code&gt;ValidationError&lt;/code&gt; or something like that):
+				&lt;xmp&gt;vr.ValidationEventHandler += new ValidationEventHandler(OnValidationError);
+
+while (vr.Read())
+{
+  // Do your stuff.
+}
+
+if (_haserrors)
+{
+  // Report the errors/throw.
+}&lt;/xmp&gt;
+				Here you get a chance of sort of recovering from errors, as you can keep 
+				reading and working with data. The &lt;code&gt;_haserrors&lt;/code&gt; flag is set by your &lt;code&gt;
+					OnValidationError&lt;/code&gt; event handler, as well as the accumulation of 
+				error messages.
+			&lt;/li&gt;
+		&lt;/ol&gt;
+		&lt;p&gt;So far so good. All this is clearly explained in the &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconxmlvalidatingreadervalidationeventhandlercallback.asp"&gt;
+				MSDN documentation&lt;/a&gt;. The validation handler signature looks just like 
+			what you would expect:
+		&lt;/p&gt;
+		&lt;xmp&gt;void ValidationCallback(object sender, ValidationEventArgs e)
+{
+}&lt;/xmp&gt;
+		&lt;p&gt;In case 2, what happens to the invalid XML item in the input? Well, it's read 
+			anyways, as well as its content. Now, suppose that the element just found 
+			doesn't even exist in your schema, and most probably its inner content either. 
+			Your validation error messages will be filled with errors about each and every 
+			single item inside the erroneous element. What's more, I may want my application 
+			to work in a "forgiveness" mode and so do something useful with what IS valid so far.&lt;/p&gt;
+		&lt;p&gt;Easy enough, I though. I have a &lt;code&gt;sender&lt;/code&gt; in my validation callback. I 
+			bet it's the reader. I just have to cast it back, call the &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemxmlxmlreaderclassskiptopic.asp"&gt;
+				&lt;code&gt;Skip&lt;/code&gt;&lt;/a&gt; method, accumulate just one error for the current 
+			validation failure, and move on:&lt;/p&gt;
+		&lt;xmp&gt;private void OnValidationError(object sender, ValidationEventArgs e)
+{
+  if (e.Severity = XmlSeverityType.Error)
+  {
+    // Accumulate error, set flag.
+    ((XmlReader)sender).Skip();
+  }
+}&lt;/xmp&gt;
+		&lt;p&gt;Unfortunately, the &lt;code&gt;sender&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; in v1.x, so no luck. &lt;br/&gt;
+			The good news is that this has been fixed in the PDC bits. Maybe we can hope a 
+			service pack/hotfix for v1.1...&lt;/p&gt;
+&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/95588.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>Typed XmlReaders: bridging the gap between streaming and object model APIs.</title><link>http://weblogs.asp.net/cazzu/archive/2004/03/12/TypedReader.aspx</link><pubDate>Fri, 12 Mar 2004 11:32:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/03/12/TypedReader.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/88559.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/03/12/TypedReader.aspx#Feedback</comments><slash:comments>4</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/88559.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/88559.aspx</trackback:ping><description>&lt;p&gt;When dealing with XML in .NET, you're mostly faced with two options:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;
+			Streaming API: the XmlReader.
+			&lt;li&gt;
+				Object model API: either XmlDocument, XPathDocument or an XmlSerializer-aware 
+				custom object model.&lt;/li&gt;&lt;/ul&gt;
+		&lt;p&gt;Several reasons can lean you towards any of the later&amp;nbsp;ones, such as strong 
+			typing (XmlSerializer), flexibility and XPath querying (XmlDocument and 
+			XPathDocument), etc. Any of the three object model API approaches, however, 
+			require the entire XML input to be parsed and loaded to memory. Therefore, when 
+			you're presented with large documents, or need the fastest processing, all 
+			you're left with is the XmlReader. If you worked with it doing anything but the 
+			most trivial XML processing, you know how ugly it can become. Lots of string 
+			comparison, endless switch, if, loops, whatever.
+		&lt;/p&gt;
+		&lt;p&gt;From my point of&amp;nbsp;view, working&amp;nbsp;against a custom object model is best, 
+			as it gives you&amp;nbsp;a level of abstraction from the wire format, and you get 
+			to work with OO classes and properties, which is far more comfortable than 
+			dealing with InnerXml, Value, etc.&amp;nbsp;If you haven't tried the XmlSerializer 
+			approach before, you definitely should.
+		&lt;/p&gt;
+		&lt;p&gt;When you move to&amp;nbsp;streaming processing, you lose all that. And you don't 
+			lose it because the abstractions of your entities have disappeared, as you most 
+			probably have an XML Schema defining what the XML must look like. You just lose 
+			it because of the API. You can still use the XML Schema to validate as you 
+			read, and get some (very little) extra functionality from the &lt;code&gt;XmlValidatingReader.ReadTypedValue()&lt;/code&gt;
+			method. If you're like me, you may be asking: given that I know the schema at 
+			design time, isn't there a way to use it to make things &lt;strong&gt;easier for me&lt;/strong&gt;?&lt;/p&gt;
+		&lt;p&gt;And that's not the only issue. Validating against an XML Schema, even if it's 
+			absolutely a really good idea&amp;nbsp;to keep your application data consistent and 
+			considerably reduce your own validation code, is not for free. According to 
+			tests I've done with the (fairly simple)&amp;nbsp;purchase order schema and 
+			instance document in &lt;a href="http://www.w3.org/TR/xmlschema-0/"&gt;XML Schema Part 0: 
+				Primer&lt;/a&gt;, &lt;code&gt;XmlValidatingReader&lt;/code&gt; is between 10X and 12X slower 
+			than the &lt;code&gt;XmlTextReader&lt;/code&gt;. Not that this is a bad number, just that you 
+			need to have that in mind. And why is it so costly? Well, mostly because it's a 
+			generic XML Schema validator, which&amp;nbsp;means as it parses, it checks valid 
+			transition between states, data types,&amp;nbsp;facets, etc. And again, given that 
+			I know the schema at design time, isn't there a way to use it to make things &lt;strong&gt;
+				easier for the parser&lt;/strong&gt;?
+		&lt;/p&gt;
+		&lt;h2&gt;Typed readers&lt;/h2&gt;
+		&lt;p&gt;Just as typed datasets build upon the generic DataSet to bring strong-typing and 
+			validation to the game, based on an XML Schema, wouldn't it be great if the 
+			same existed for readers?
+			&lt;br&gt;
+			A typed reader should be built upon the XmlReader and&amp;nbsp;provide the same 
+			validation capabilities as XmlValidatingReader, but at a fraction of the cost, 
+			because it would already know all the elements, attributes and types, and it 
+			would also be able to read and validate an specific schema.&lt;/p&gt;
+		&lt;p&gt;Given &lt;a href="http://www.w3.org/TR/xmlschema-0/#po.xml"&gt;a purchase order&lt;/a&gt; document, 
+			I could write code as follows:
+		&lt;/p&gt;
+		&lt;xmp&gt;poReader r = new poReader( inputStream );
+
+if (r.Read())
+{
+  // Typed date for the orderDate attribute.
+  Console.WriteLine( r.orderDate.ToShortDateString() );
+
+  shipToReader shipto = r.ReadshipTo();
+  // Country attribute turned into an Enum
+  if (shipto.country == shipToCountry.US)
+    Console.WriteLine( "US!!" );
+
+  // An inner simple-typed element is made a property
+  // In OO, there's no distinction between this and an attribute.
+  Console.WriteLine( shipto.name );
+}&lt;/xmp&gt;
+		&lt;p&gt;Maybe it should be something more like this:&lt;/p&gt;
+		&lt;xmp&gt;poReader r = new poReader( inputStream );
+
+while (r.Read())
+{
+  if (r.TypedReader is shipToReader)
+  {
+    shipToReader shipto = (shipToReader) r.TypedReader();
+    // Work against the typed one now.
+  }
+  else if (r.TypedReader is itemsReader)
+  {
+    // Do so for items.
+  }
+}&lt;/xmp&gt;
+		&lt;p&gt;I sort of prefer the later. The &lt;code&gt;TypedReader&lt;/code&gt; property would contain 
+			the instance used to read (and validate) the current element content model, 
+			which would be the current &lt;a href="http://www.dofactory.com/patterns/PatternStrategy.aspx"&gt;
+				strategy&lt;/a&gt; being applied. With the advent of generics, maybe I should 
+			even be allowed to&amp;nbsp;pass the typed reader I want...
+		&lt;/p&gt;
+		&lt;xmp&gt;r.Read&lt;shipToReader&gt;();&lt;/xmp&gt;
+		&lt;p&gt;I guess in Whidbey that would be way to implement it internally, anyways....&lt;/p&gt;
+		&lt;p&gt;Another possible use is dynamic&amp;nbsp;run-time generation of these typed readers 
+			for a schema. If we can prove that performance will increase, we could use the 
+			typed readers not to gain usability but to gain speed. This could be a 
+			specialized factory that emits the code (the same your would get at design 
+			time) to execute:&lt;/p&gt;
+&lt;xmp&gt;XmlSchema sch = new XmlSchema.Read(theFile, null);
+XmlReader r = XmlTypedFactory.CreateReader( sch );&lt;/xmp&gt;
+		&lt;p&gt;The factory itself would keep cached versions of the Types it has already generated from a certain schema...&lt;/p&gt;
+		&lt;p&gt;So, what do you think about such an idea? Is it useful? Would you use it? What 
+			should the API look like?&lt;/p&gt;
+		&lt;p&gt;This may be part of the new &lt;a href="http://sf.net/projects/mvp-xml"&gt;Mvp.Xml&lt;/a&gt; project 
+		most XML MVPs (including me, of course) are heading.&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/88559.aspx" width = "1" height = "1" /&gt;</description></item><item><dc:creator>Daniel Cazzulino</dc:creator><title>XmlNodes from XPathNodeIterator</title><link>http://weblogs.asp.net/cazzu/archive/2004/03/09/86609.aspx</link><pubDate>Tue, 09 Mar 2004 13:37:00 GMT</pubDate><guid>http://weblogs.asp.net/cazzu/archive/2004/03/09/86609.aspx</guid><wfw:comment>http://weblogs.asp.net/cazzu/comments/86609.aspx</wfw:comment><comments>http://weblogs.asp.net/cazzu/archive/2004/03/09/86609.aspx#Feedback</comments><slash:comments>12</slash:comments><wfw:commentRss>http://weblogs.asp.net/cazzu/comments/commentRss/86609.aspx</wfw:commentRss><trackback:ping>http://weblogs.asp.net/cazzu/services/trackbacks/86609.aspx</trackback:ping><description>&lt;p&gt;Every now and then I&amp;nbsp;receive complains&amp;nbsp;about &lt;code&gt;XPathNodeIterator&lt;/code&gt;. 
+			You know, it allows iteration where each &lt;code&gt;Current&lt;/code&gt; element is an &lt;code&gt;XPathNavigator&lt;/code&gt;. 
+			Not too useful if you're looking for &lt;code&gt;OuterXml&lt;/code&gt;, or are 
+			too-dependant on the XmlNode-based API (i.e. &lt;code&gt;XmlDocument&lt;/code&gt;).&amp;nbsp;The 
+			most worrying issue is that people use this argument against using compiled 
+			XPath expressions, which are known to significantly improve performance (see &lt;a href="http://weblogs.asp.net/cazzu/archive/2003/10/07/30888.aspx"&gt;
+				Performant XML (I)&lt;/a&gt; and &lt;a href="http://weblogs.asp.net/cazzu/archive/2003/10/09/31294.aspx"&gt;
+				Performant XML (II)&lt;/a&gt; articles). The reason is that in order to get an 
+			XmlNodeList, you have to use the SelectNodes method of the XmlNode (and 
+			therefore XmlDocument), whose signature is as follows:&lt;/p&gt;
+		&lt;xmp&gt;public XmlNodeList SelectNodes(string xpath);
+public XmlNodeList SelectNodes(string xpath, XmlNamespaceManager nsmgr);&lt;/xmp&gt;
+		&lt;p&gt;This means that most developers won't compile their expressions simply because 
+			in order to use the &lt;code&gt;XPathExpression&lt;/code&gt;, they have to explicitly 
+			create a navigator for the node/document and work against the cursor-style API 
+			of the &lt;code&gt;XPathNodeIterator&lt;/code&gt; and &lt;code&gt;XPathNavigator&lt;/code&gt;:&lt;/p&gt;
+		&lt;xmp&gt;// Statically compile and cache the expression.
+XPathExpression expr;
+
+// Init and load a document.
+XmlDocument document;
+
+// Create navigator, clone expression and execute query.
+XPathNodeIterator it = document.CreateNavigator().Select(expr.Clone());
+while (it.MoveNext())
+{
+  // Do something with it.Current which is an XPathNavigator.
+}&lt;/xmp&gt;
+		&lt;p&gt;This approach generally means that in order to optimize the code by compiling 
+			expression, you actually have to refactor significant pieces of your code. And 
+			you don't have any other&amp;nbsp;choice if you need to sort the query by using &lt;code&gt;XPathExpression.AddSort()&lt;/code&gt;. 
+			There's a solution to this problem, as usual :).
+		&lt;/p&gt;
+		&lt;p&gt;You know that the &lt;code&gt;XPathNavigator&lt;/code&gt; is an abstract class that allows 
+			multiple underlying implementations to offer the same cursor-style API and gain 
+			the instant benefit of XPath querying. &lt;a href="http://skonnard.com/articles/199.aspx"&gt;
+				Aaron Skonnard&lt;/a&gt;&amp;nbsp;has some interesting implementations showing this 
+			concept. Therefore, when you're iterating the results of the query, and asking 
+			for the current element, you're actually using something that is dependant on 
+			the implementation. Therefore, this object, besides being an XPathNavigator 
+			(that is, the XPathNodeIterator.Current property), can also implement other 
+			interfaces as part of the underlying implementation. As such, queries executed 
+			against an XmlNode-based element will have each Current element implementing &lt;code&gt;IHasXmlNode&lt;/code&gt;
+			whereas &lt;code&gt;XPathDocument&lt;/code&gt;-based ones will implement &lt;code&gt;IXmlLineInfo&lt;/code&gt;. 
+			And what is this useful for? Well, just to get access to additional information 
+			beyond the standard &lt;code&gt;XPathNavigator&lt;/code&gt; API that depends on the 
+			concrete implementation. So, inside the while look above, we can ask:
+		&lt;/p&gt;
+		&lt;xmp&gt;while (it.MoveNext())
+{
+  if (it.Current is IHasXmlNode)
+  {
+    XmlNode node = ((IHasXmlNode)it.Current).GetNode();
+    // Work with your beloved DOM api ;)
+  }
+}&lt;/xmp&gt;
+		&lt;p&gt;Still, this doesn't solve the problem that you have to iterate diffently than 
+			you're used to, and that significant rewrites are still needed when you use &lt;code&gt;XPathExpression&lt;/code&gt;
+			for querying.
+			&lt;br&gt;
+			The solution is to use the knowledge about the underlying implementation (i.e. 
+			you KNOW you're querying against an &lt;code&gt;XmlDocument&lt;/code&gt;) and get an easier 
+			API to it. This can be achieved by creating an &lt;code&gt;IEnumerable&lt;/code&gt; class 
+			that provides iteration ofer the &lt;code&gt;XPathNodeIterator&lt;/code&gt; but exposing 
+			the underlying &lt;code&gt;XmlNode&lt;/code&gt;. Also, a helper method returning&amp;nbsp;an 
+			array of XmlNodes is useful. It&amp;nbsp;would be used as follows:&lt;/p&gt;
+		&lt;xmp&gt;XPathNodeIterator it = doc.CreateNavigator().Select(expr.Clone());
+XmlNodesEnumerable nodes = new XmlNodesEnumerable(it);
+
+foreach (XmlNode node in en)
+{
+  Response.Write(node.OuterXml);
+}
+
+// Or use the array directly:
+XmlNode[] list = nodes.ToArray();&lt;/xmp&gt;
+		&lt;p&gt;Complete code for the custom enumerable object and its internal enumerator 
+			implementation follows.&lt;/p&gt;
+		&lt;div&gt;&lt;span style="font-weight: bold; color: white; background-color: blue; cursor: pointer" 
+				onclick="var div=document.getElementById('CodeListing');if(div.style.display=='none'){div.style.display='block';this.innerHTML='&amp;nbsp;-&amp;nbsp;';}else{div.style.display='none';this.innerHTML='+';}"&gt;+&lt;/span&gt; Collapsible code listing.
+			&lt;xmp id="CodeListing" style="display:none"&gt;/// &lt;summary&gt;
+/// Provides enumeration over an &lt;see cref="XPathNodeIterator"/&gt; but 
+/// exposing the underlying &lt;see cref="XmlNode"/&gt; elements.
+/// &lt;/summary&gt;
+public class XmlNodesEnumerable : IEnumerable
+{
+  XPathNodeIterator _iterator;
+
+  /// &lt;summary&gt;
+  /// Constructs the iterator.
+  /// &lt;/summary&gt;
+  /// &lt;param name="iterator"&gt;The instance containing the nodes to iterate.&lt;/param&gt;
+  public XmlNodesEnumerable(XPathNodeIterator iterator)
+  {
+    _iterator = iterator;
+  }
+
+  /// &lt;summary&gt;
+  /// Returns all nodes in the underlying iterator as an array.
+  /// &lt;/summary&gt;
+  /// &lt;returns&gt;An array with all nodes.&lt;/returns&gt;
+  public XmlNode[] ToArray()
+  {
+    ArrayList list = new ArrayList();
+    IEnumerator en = new XmlNodesEnumerator(_iterator);
+    while (en.MoveNext())
+    {
+      list.Add(en.Current);
+    }
+    return (XmlNode[]) list.ToArray(typeof(XmlNode));
+  }
+
+  #region IEnumerable Members
+
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+    return new XmlNodesEnumerator(_iterator);
+  }
+
+  #endregion
+
+  #region Inner XmlNodesEnumerator class
+
+  /// &lt;summary&gt;
+  /// Provides iteration over an &lt;see cref="XPathNodeIterator"/&gt; but 
+  /// exposing the underlying &lt;see cref="XmlNode"/&gt; elements.
+  /// &lt;/summary&gt;
+  private class XmlNodesEnumerator : IEnumerator
+  {
+    XPathNodeIterator _iterator;
+
+    /// &lt;summary&gt;
+    /// Constructs the iterator.
+    /// &lt;/summary&gt;
+    /// &lt;param name="iterator"&gt;The instance containing the nodes to iterate.&lt;/param&gt;
+    public XmlNodesEnumerator(XPathNodeIterator iterator)
+    {
+      _iterator = iterator;
+    }
+
+    #region IEnumerator Members
+
+    /// &lt;summary&gt;
+    /// Not supported.
+    /// &lt;/summary&gt;
+    void IEnumerator.Reset()
+    {
+      throw new NotSupportedException("Can't reset this enumerator.");
+    }
+
+    /// &lt;summary&gt;
+    /// Returns the current &lt;see cref="XmlNode"/&gt;.
+    /// &lt;/summary&gt;
+    /// &lt;exception cref="ArgumentException"&gt;The current item in the 
+    /// underlying &lt;see cref="XPathNodeIterator"/&gt; doesn't point to an &lt;see cref="XmlNode"/&gt;.&lt;/exception&gt;
+    object IEnumerator.Current
+    {
+      get 
+      { 
+        IHasXmlNode node = _iterator.Current as IHasXmlNode;
+        if (node == null)
+          throw new ArgumentException("Can only traverse XmlNode iterators.");
+        return node.GetNode();
+      }
+    }
+
+    /// &lt;summary&gt;
+    /// Advances the iteration cursor.
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;True if more nodes remain in the iterator.&lt;/returns&gt;
+    bool IEnumerator.MoveNext()
+    {
+      return _iterator.MoveNext();
+    }
+
+    #endregion
+  }
+
+  #endregion
+}&lt;/xmp&gt;
+		&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Update: check an even better approach &lt;a href="http://weblogs.asp.net/cazzu/archive/2004/04/14/113479.aspx"&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+		&lt;p&gt;Enjoy!&lt;/p&gt;&lt;img src ="http://weblogs.asp.net/cazzu/aggbug/86609.aspx" width = "1" height = "1" /&gt;</description></item></channel></rss>

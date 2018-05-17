@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="tokenize.xslt"?>
+<data>
+  <input>The quick brown fox jumps over a lazy dog.</input>
+</data>

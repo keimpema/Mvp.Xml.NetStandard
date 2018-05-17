@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:tns="mvp-xml" attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="mvp-xml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="dsPubs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="publishers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="pub_id" type="xs:unsignedShort" />
+							<xs:element name="pub_name" type="xs:string" />
+							<xs:element name="city" type="xs:string" />
+							<xs:element minOccurs="0" name="state" type="xs:string" />
+							<xs:element name="country" type="xs:string" />
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="titles">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title_id" type="xs:string" />
+										<xs:element name="title" type="xs:string" />
+										<xs:element name="type" type="xs:string" />
+										<xs:element name="pub_id" type="xs:unsignedShort" />
+										<xs:element minOccurs="0" name="price" type="xs:decimal" />
+										<xs:element minOccurs="0" name="advance" type="xs:unsignedShort" />
+										<xs:element minOccurs="0" name="royalty" type="xs:unsignedByte" />
+										<xs:element minOccurs="0" name="ytd_sales" type="xs:unsignedShort" />
+										<xs:element minOccurs="0" name="notes" type="xs:string" />
+										<xs:element name="pubdate" type="xs:dateTime" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

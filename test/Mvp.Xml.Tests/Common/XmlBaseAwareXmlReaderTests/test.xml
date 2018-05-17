@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<catalog>
+  <files xml:base="file:///d:/Files/">
+    <file name="file1.xml"/>
+    <?pi ?>
+  </files>
+  <a>
+    <b xml:base="file:///d:/Files/a/">
+        <c xml:base="file:///d:/Files/c/">
+            <e>text</e>
+        </c>            
+        <d></d>
+        <!-- comment -->
+    </b>
+  </a>  
+</catalog> 

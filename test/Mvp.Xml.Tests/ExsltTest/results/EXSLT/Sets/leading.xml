@@ -1,0 +1,15 @@
+﻿<out>
+  <test1>
+    <foo bar="baz">1</foo>
+    <foo>2</foo>
+  </test1>
+  <test2 />
+  <test3>
+    <foo bar="baz">1</foo>
+    <foo>2</foo>
+    <foo bar="baz">3</foo>
+    <foo>4</foo>
+    <foo bar="baz">5</foo>
+  </test3>
+  <test4 />
+</out>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<myXml xmlns:xi="http://www.w3.org/2001/XInclude">&gt;
+
+<otherStuff>
+</otherStuff>
+
+
+<!--WORKS (found node)-->
+  <TABLE xml:base="table.xml">
+<CAPTION>MyCaption</CAPTION>
+</TABLE>
+
+<!--WORKS CORRECTLY (found node)-->
+  <TABLE xml:base="table.xml">
+<CAPTION>MyCaption</CAPTION>
+</TABLE>
+
+<!--WORKS CORRECTLY(fallback, node not found)-->
+  
+node not found
+
+
+<!--DOES NOT WORK CORRECTLY (node does not exist, should do fallback but throws CircularReferenceException-->
+  
+node not found
+
+
+<!--DOES NOT WORK CORRECTLY (node does not exist, should do fallback but throws CircularReferenceException-->
+  
+node not found
+
+
+<moreXML />
+
+</myXml>

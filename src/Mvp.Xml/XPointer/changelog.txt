@@ -1,0 +1,28 @@
+February 22, 2007
+
+Fixed bug with reusing documents with empty base URI.
+
+---------------------------------------------------------
+October 16, 2005
+
+Ported to .NET 2.0.
+
+---------------------------------------------------------
+October 11, 2004
+
+Added optional and limited support for schema-determined IDs.
+
+---------------------------------------------------------
+October 9, 2004
+
+Changed namespace to Mvp.Xml.XPointer.
+Externalized strings.
+Did general code review and cleanup.
+Simplified XPointerReader, switched to XPathDocument.
+Optimized by using XPathCache and XPathNavigatorReader.
+
+---------------------------------------------------------
+September 28, 2004
+
+Initial setup.
+Will contain the project's source code.

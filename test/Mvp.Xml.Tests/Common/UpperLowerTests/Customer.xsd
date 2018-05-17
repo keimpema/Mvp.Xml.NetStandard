@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="Customer" targetNamespace="mvp-xml-customer" elementFormDefault="qualified"
+	xmlns="mvp-xml-customer" xmlns:mstns="mvp-xml-customer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Customer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string" />
+				<xs:element name="Order">
+					<xs:complexType>
+						<xs:attribute name="Id" type="xs:int" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Id" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

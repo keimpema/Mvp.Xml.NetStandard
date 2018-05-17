@@ -1,0 +1,3565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XInclude Conformance Tests</title>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<style type="text/css">
+		    BODY {
+			font-family:	Lucida, Helvetica, Univers, sans-serif;
+		    }
+		     H2, H3, H4 {
+			text-align:	left;
+			color:		#0066CC;
+		    }
+</style>
+<style type="text/css">
+		    a:hover { 
+			color:		white;
+			background-color: blue;
+		    }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<center>
+<h1>
+<font color="#0066cc">XInclude Test Suite</font>
+</h1>
+</center>
+<p></p>
+<center>
+<table width="90%" border="4">
+<tr>
+<td>
+<table>
+<tr>
+<td width="35%"><img height="100" width="200" src="http://www.w3.org/Icons/w3c_home" alt="W3C"></td><td width="30%"></td><td align="right" width="35%"><img height="125" width="350" src="http://www.nist.gov/itl/div897/images/nist_home.gif" alt="NIST"></td>
+</tr>
+</table>
+<center>
+<table>
+<tr>
+<td><b><font size="+2">A Joint Development Effort</font></b></td>
+</tr>
+</table>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p></p>
+<h4>W3C XML Core Working Group<br>XInclude 1.0 Test Suite<br>3 November 2004</h4>
+<dl>
+<dt>
+<b>This version:</b>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://www.w3.org/XML/Test/XInclude/report.html">
+		   http://www.w3.org/XML/Test/XInclude/report.html</a>
+</li>
+</ul>
+</dd>
+<dt>
+<b>Current version:</b>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://www.w3.org/XML/Test/XInclude/report.html">
+		   http://www.w3.org/XML/Test/XInclude/report.html</a>
+</li>
+</ul>
+</dd>
+<dt>
+<b>W3C XML Core Working Group:</b>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://www.w3.org/XML/Core/">http://www.w3.org/XML/Core/</a>
+</li>
+</ul>
+</dd>
+<dt>
+<b>XML Inclusions (XInclude) Version 1.0:</b>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://www.w3.org/TR/xinclude">http://www.w3.org/TR/xinclude</a>
+</li>
+</ul>
+</dd>
+<dt>
+<b>Comments:</b>
+</dt>
+<dd>
+<ul>
+<li>Sandra Martinez, NIST <a href="mailto:sandra.martinez@nist.gov">&lt;sandra.martinez@nist.gov&gt;</a>
+</li>
+</ul>
+</dd>
+</dl>
+<a name="contents"></a>
+<h2>Table of Contents</h2>
+<ol>
+<li>
+<a href="#intro">Introduction</a>
+</li>
+<li>
+<a href="#categories">Test Case Descriptions</a>
+</li>
+<li>
+<a href="#contrib">Contributors</a>
+</li>
+</ol>
+<a name="intro"></a>
+<h2>1. Introduction </h2>
+<p> XInclude is a generic mechanism that is used to merge XML documents. XInclude uses
+                elements, attributes and URI references which are existing XML constructs.</p>
+<p>
+	    Conformance tests can be used by developers, content creators, and 
+            users alike to increase their level of confidence in product quality. In
+	    circumstances where interoperability is necessary, these tests can also
+	    be used to determine that differing implementations support the same set
+            of features. </p>
+<p>This report provides supporting documentation for all of the tests
+            contributed by members of the <i>W3C</i> XML Core Working Group. 
+	    Sources from which these tests have been collected
+	    include: <em>Redhat; FourThought; NIST; University of Edinburgh</em>.  It is anticipated that this report will supplement the actual tests.</p>
+<p>Comments/suggestions should be 
+            forwarded to the <a href="mailto:www-xml-xinclude-comments@w3.org">public XInclude comments mailing list</a>.</p>
+<a name="categories"></a>
+<h2>2.  Test Case Description</h2>
+<p> This section of this report contains descriptions of test cases, 
+		each test case includes a binary test. The test suite consists of a 
+		series of simple binary conformance tests, whereby a processor is deemed 
+		either to accept  (a positive test) or reject  (a negative test) the test. 
+		An expected result document is provided for the positive tests to compare 
+		the output of the processor with the reference file. 
+		Expected results are as accurate as possible, it is conceivable that a 
+		few files may diverge somewhat from the testcase description, however 
+		the idea is still captured. Negative tests are intended to 
+		identify expected errors as defined by the specification. Negative test are not 
+		accompanied by expected results.</p>
+<p>For an implementation to claim conformance it must pass all positive and negative 
+		testcases, which means that the implementation performed exactly as expected. </p>
+<p>A description for each test is presented in the following table as well as a 
+		section identifier from the XInclude recommendation and the Collection from 
+		which the test was originated. The test description is intended to have enough 
+		detail to evaluate diagnostic messages. Given the Test ID and the Collection, 
+		each test can be uniquely identified.</p>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/include.xml">imaq-include-xml-01</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including another XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/recursive.xml">imaq-include-xml-02</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test recursive inclusion.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/nodes.xml">imaq-include-xml-03</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including a set of nodes from an XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/docids.xml">imaq-include-xml-04</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>including another XML document with IDs</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/txtinclude.xml">imaq-include-xml-05</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including another text document</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Redhat/fallback.xml">imaq-include-xml-06</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Redhat</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of a fallback on unavailable URI.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include1.xml">FourThought-include-01</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including another XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include2.xml">FourThought-include-02</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test recursive inclusion.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include3.xml">FourThought-include-03</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including another text document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include4.xml">FourThought-include-04</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including a set of nodes from an XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include5.xml">FourThought-include-05</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including a set of nodes from an XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include6.xml">FourThought-include-06</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including a set of nodes from an XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/FourThought/ft-include7.xml">FourThought-include-07</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">FourThought</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple test of including a set of nodes from an XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-01.xml">Nist-include-01</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test the inclusion of  another XML document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-02.xml">Nist-include-02</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that the encoding attribute in the Xinclude element has no effect when parse="xml".</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-03.xml">Nist-include-03</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that values other than xml or text, in the parse attribute of the XInclude 
+				element, result in fatal errors. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-04.xml">Nist-include-04</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test of fallback element appearing as a child of an xinclude element. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-05.xml">Nist-include-05</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a fallback element not appearing as a direct
+			child of an xinclude element. A fatal error should be generated.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-06.xml">Nist-include-06</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a fallback when a resource error occurs.  </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-07.xml">Nist-include-07</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test an empty fallback element. The xinclude element is
+			 removed from the results.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-08.xml">Nist-include-08</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test of a fallback element missing from the 
+				include element. A resource error results in a fatal error. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-09.xml">Nist-include-09</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test unqualified attributes in the include element. They must be ignored.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-10.xml">Nist-include-10</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test content other than the fallback, in the xinclude element. 
+			This content must be ignored. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-11.xml">Nist-include-11</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a resource containing non-well-formed XML. The inclusion results in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-12.xml">Nist-include-12</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test that is a fatal error for an include element to contain more than one fallback elements. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-13.xml">Nist-include-13</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a fallback element containing markup when parse="text".  </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-14.xml">Nist-include-14</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a fallback element containing markup when parse="text".  </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-15.xml">Nist-include-15</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> It is illegal for an include element to point to itself, when parse="xml". </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-16.xml">Nist-include-16</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a document type declaration information item child 
+			  in the resource information set. the DTD should be excluded for inclusion in the source infoset.  </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-17.xml">Nist-include-17</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test intra-document reference within include elements.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-18.xml">Nist-include-18</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Simple test of including a set of nodes from an XML document. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-19.xml">Nist-include-19</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test the inclusion of a set of nodes from an XML document. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-20.xml">Nist-include-20</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test an include location identifying a document information item with
+			an xpointer  locating the document root. In this case
+			the set of top level include items is the children of acquired infoset's
+			document information item, except for the document type information
+			item.  </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-21.xml">Nist-include-21</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Including an XML document with an unparsed entity. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-22.xml">Nist-include-22</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing when the document (top level) element in the source infoset is an
+			include element. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-23.xml">Nist-include-23</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing an include element in the document (top-level) element in the source doc.
+				Test should fail because is including more than one element. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-24.xml">Nist-include-24</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing an include element in the document (top-level) element in the source doc.
+				Test should fail because is including only a processing instruction. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-25.xml">Nist-include-25</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing an include element in the document (top-level) element in the source doc.
+				Test should fail because is including only a comment. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-26.xml">Nist-include-26</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Test relative URI references in the included infoset. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-27.xml">Nist-include-27</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that the encoding attribute when parse="xml" does not translate the incoming document. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-28.xml">Nist-include-28</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  including another XML document with IDs, using a shorthand pointer. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-29.xml">Nist-include-29</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  including another XML document with IDs, using a shorthand pointer. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-30.xml">Nist-include-30</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including another XML document with IDs, using a shorthand pointer. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-31.xml">Nist-include-31</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an XML document using an XPointer element scheme. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-32.xml">Nist-include-32</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an XML document using an XPointer element scheme.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-33.xml">Nist-include-33</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an XML document using an XPointer element scheme.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-34.xml">Nist-include-34</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including another XML document with ids using XPointer element scheme. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-35.xml">Nist-include-35</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an XML document using an XPointer element scheme.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-36.xml">Nist-include-36</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an XML document using an XPointer element scheme.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-37.xml">Nist-include-37</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Including another XML document using XPointer Framework scheme-base pointer.  
+				If the processor does not support the scheme used in a pointer part, it skip that pointer part.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-38.xml">Nist-include-38</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Including another XML document using XPointer Framework.  
+				If the processor does not support the scheme used in a pointer part, it skip that pointer part.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-39.xml">nist-include-39</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The comment  should be ignored .</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-40.xml">nist-include-40</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The element should be ignored .</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-41.xml">nist-include-41</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+			This test should result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-42.xml">Nist-include-42</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The xinclude element may contain a fallback element; 
+				other elements from the xinclude namespace result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-43.xml">Nist-include-43</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The content must be one fallback. This test should result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-44.xml">Nist-include-44</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a resource that contains not-well-formed XML. 
+				This test should result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-45.xml">Nist-include-45</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test a resource that contains not-well-formed XML. 
+				This test should result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-46.xml">Nist-include-46</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The xinclude element may contain a fallback element; other elements from the xinclude namespace result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-47.xml">Nist-include-47</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Testing the content of the xinclude element. 
+				The xinclude element may contain a fallback element; other elements from the xinclude namespace result in a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-48.xml">Nist-include-48</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> It is a fatal error to resolve an xpointer scheme on a document
+			that contains unexpanded entity reference information items.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-49.xml">Nist-include-49</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> The unexpanded entity reference information items, if present in the source infoset,
+				will appear in the result infoset.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-50.xml">Nist-include-50</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test an include location identifying the document information item without an Xpointer, 
+			The set of top-level included items should be the children of the acquired inforset's document
+			information item, except for the document type declaration information item. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-51.xml">Nist-include-51</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test an include location having an XPointer identifying a comment. 
+			The set of top-level included items should consist of the information item corresponding 
+			to the comment node in the acquired infoset.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-52.xml">Nist-include-52</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test an include location having an XPointer identifying a processing instruction.
+			The set of top-level included items should consist of the information item corresponding 
+			to the processing instruction node in the acquired infoset.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.6</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-53.xml">Nist-include-53</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test that an include location identifying an attribute node will result in a
+			fatal error. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.6</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-54.xml">Nist-include-54</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that an include location identifying an attribute node will result in a
+			fatal error. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-55.xml">Nist-include-55</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Including a duplicate unparsed entity. 
+			Test should ignore duplicate unparsed entity. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/NIST/nist-include-56.xml">Nist-include-56</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">NIST</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Including an unparsed entity with same name, 
+			but different sysid. Test should fail. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/LTG, Edinburgh Univ/book.xml">eduni-1</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">LTG, Edinburgh Univ</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Simple whole-file inclusion.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/LTG, Edinburgh Univ/extract.xml">eduni-2</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">LTG, Edinburgh Univ</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Verify that xi:include elements in the target have been processed in the acquired infoset, ie before the xpointer is applied.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/LTG, Edinburgh Univ/lang.xml">eduni-3</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">LTG, Edinburgh Univ</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Check xml:lang fixup</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xmlbasetest.xml">harold-01</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:base attribute is used to resolve relative URLs in href attributes</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/resolvethruxpointer.xml">harold-02</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Use XPointer to include an include element in another document,
+    and make sure that's fully resolved too</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xmlbasetest2.xml">harold-03</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:base attribute on the xi:include element is used to resolve relative URL in href</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xmlbasetest3.xml">harold-04</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:base attribute from an unincluded element 
+			still applies to its included descendants</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/marshtest.xml">harold-05</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element includes its following sibling element, which has a child 
+      include element including the sibling element after that one.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/includedocumentwithintradocumentreferences.xml">harold-06</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Include a document that uses XPointers to reference various parts of itself</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.6</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/langtest1.xml">harold-07</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:lang attribute from including document does not override xml:lang attribute in included document</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.6</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/langtest2.xml">harold-08</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:lang attribute is added to retain the included element's language, even
+        though the language was originaly declared on an unincluded element</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.6</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/langtest3.xml">harold-09</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>xml:lang='' is added when the included document does not declare a language
+      and the including element does</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/marshtestwithxmlbase.xml">harold-10</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that the 
+      xml:base attribute is not used to resolve a missing href.
+      According to RFC 2396 empty string URI always refers to the  current document irrespective of base URI.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/marshtestwithxmlbaseandemptyhref.xml">harold-11</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>There's no difference between href="" and no href attribute.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/includefromsamedocumentwithbase.xml">harold-12</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Make sure base URIs are preserved when including from the same document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badiri.xml">harold-13</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntactically incorrect IRI is a fatal error (Eitehr I'm missing something or the spec needs to state this prinicple more clearly.)</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badiri2.xml">harold-14</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntactically incorrect IRI with an unrecognized scheme is a fatal error</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/goodiri.xml">harold-15</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntactically correct IRI with an unrecognized scheme is a resource error</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badaccept1.xml">harold-16</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept attribute contains carriage-return/linefeed pair</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badaccept2.xml">harold-17</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept attribute contains Latin-1 character (non-breaking space)</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/extraattributes.xml">harold-18</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Unprefixed, unrecognized attributes on an include element are ignored</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/emptyfallback.xml">harold-19</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Fallback elements can be empty</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest.xml">harold-20</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Included documents can themselves use fallbacks</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest6.xml">harold-21</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An included document can use a fallback that points into the included document</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest2.xml">harold-22</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An included document can use a fallback that includes another document as text</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest3.xml">harold-23</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fallback element in an included document contains an include element with a parse attribute with an illegal value.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest4.xml">harold-24</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fallback element in an included document contains an include element with neither an xpointer nor an href attribute.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktestwithfragmentid.xml">harold-25</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fallback element in an included document contains an include element whose href attribute has a fragment ID.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktest5.xml">harold-26</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>The XPointer does not select anything in the acquired infoset, but does select something in the source infoset.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktotexttest.xml">harold-27</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fallback in an included document contains some text and a comment, but no elements.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktestwithxpointer.xml">harold-28</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Include element points to another include element, which has a missing resource 
+      and therefore activates a fallback.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbacktestwithxpointer2.xml">harold-29</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element can include another include element that
+      then uses a fallback.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metamissingfallbacktestwithxpointer.xml">harold-30</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element can include another include element that
+      then fails to find a resource, which is a fatal error if there's no fallback.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/metafallbackwithbadxpointertest.xml">harold-31</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element can include another include element that
+      then fails to find a resource, but it has a fallback, which itself has an include child, which then throws a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/parseequalxml.xml">harold-32</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Basic test from XInclude spec</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/legalcircle.xml">harold-33</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element points to a document that includes it, using an xpointer to select part of that document.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/recursewithinsamedocument.xml">harold-34</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An include element points to another include element in the same document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/paralleltest.xml">harold-35</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Include elements can be siblings</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/namespacetest.xml">harold-36</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Namespaces (and lack thereof) must be preserved in included documents</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/internalcircular.xml">harold-37</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Detect an inclusion loop when an include element refers to itself</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/internalcircularviaancestor.xml">harold-38</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Detect an inclusion loop when an include element refers to its  ancestor element
+      in the same document</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/latin1.xml">harold-39</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Processing a document that contains no include elements produces the same document.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/simple.xml">harold-40</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Basic inclusion</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/roottest.xml">harold-41</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>The root element of a document can be an include element.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/roottest2.xml">harold-42</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>The root element of a document can be an include element.
+      In this test the included document has a prolog and an epilog and the root element is replaced</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/nestedxinclude.xml">harold-43</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>testIncludeElementsCannotHaveIncludeChildren</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/nestedxincludenamespace.xml">harold-44</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Include elements cannot have children from the xinclude namespace except for fallback.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/nakedfallback.xml">harold-45</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Fallback can only be a child of xinclude element</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/fallbackcontainsfallback.xml">harold-46</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fallback element cannot have a fallback child element.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/multiplefallbacks.xml">harold-47</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>"The appearance of more than one xi:fallback element, an xi:include element, 
+      or any other element from the XInclude namespace is a fatal error."
+      In this test the fallback is activated.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/multiplefallbacks2.xml">harold-48</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>"The appearance of more than one xi:fallback element, an xi:include element, 
+      or any other element from the XInclude namespace is a fatal error."
+      In this test the fallback is not activated.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/circle1.xml">harold-49</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A document cannot include itself</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/circle2a.xml">harold-50</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Document A includes document B which includes document A</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/missinghref.xml">harold-51</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Include element is missing an href and xpointer attribute</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badparseattribute.xml">harold-52</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>parse attribute must have value xml or text</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/missingfile.xml">harold-53</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Missing resource is fatal when there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.4</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/fallbacktest.xml">harold-54</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Missing resource is non-fatal when there's a fallback</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/fallbacktest2.xml">harold-55</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Fallback elements can themselves contain include elements</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/utf16.xml">harold-56</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>encoding="UTF-16"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptridtest.xml">harold-57</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A shorthand XPointer</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptridtest2.xml">harold-58</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>XPointer that selects nothing is a resource error, and fatal because there's no fallback.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrtumblertest.xml">harold-59</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>XPointers of the forms described in [XPointer Framework] and [XPointer element() scheme] must be supported. </p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/colonizedschemename.xml">harold-60</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Unrecognized colonized XPointer schemes are skipped, and the following scheme is used.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/laterfailure.xml">harold-61</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Even if the first XPointer part locates a resource, a syntax error in
+      the second XPointer part is still a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/laterfailure2.xml">harold-62</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Even if the first XPointer part locates a resource, a syntax error in
+      the second XPointer part is still a fatal error.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/onlyxpointer.xml">harold-63</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>You can include another element from the same document without an href attribute.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptr2tumblertest.xml">harold-64</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test with 3 element schemes in the XPointer.
+    The first and second one point to nothing. The third one
+    selects something. XPointer parts are evaluated from left to right until one finds something.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrtumblertest.xml">harold-65</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test with 2 element schemes in the XPointer.
+     The first one uses an ID that doesn't exist 
+    and points to nothing. The second one
+     selects something.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrtumblerfailsbutfallback.xml">harold-66</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Make sure XPointer syntax errors are treated as a resource 
+    error, not a fatal error; and thus fallbacks are applied</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrsyntaxerrorbutfallback.xml">harold-67</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>  Make sure XPointer syntax errors are treated as a resource 
+    error, not a fatal error; and thus fallbacks are applied</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrtumblertest.xml">harold-68</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p> Test with 3 element schemes in the XPointer, separated by white space.
+    The first one points to nothing. The third one
+    selects something.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrtumblertest2.xml">harold-69</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>An XPointer that doesn't point to anything is a resource error; and fatal because there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badxptr.xml">harold-70</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntax error in an XPointer is a resource error; and fatal because there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badxptr2.xml">harold-71</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntax error in an XPointer is a resource error; and fatal because there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptrfallback.xml">harold-72</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Unrecognized XPointer scheme activates fallback</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xptridandtumblertest.xml">harold-73</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>XPointer uses an element scheme where the first part is an ID</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/UTF16BigEndianWithByteOrderMark.xml">harold-74</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect UTF16 big endian files with a with a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/UTF16LittleEndianWithByteOrderMark.xml">harold-75</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect UTF16 little endian files with a with a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/UTF8WithByteOrderMark.xml">harold-76</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect UTF-8 files with a with a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/UnicodeBigUnmarked.xml">harold-77</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect UCS2 big endian files with a without a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/UnicodeLittleUnmarked.xml">harold-78</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect UCS2 little endian files with a without a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/EBCDIC.xml">harold-79</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Can autodetect EBCDIC files with a without a byte order mark when parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badxptr3.xml">harold-80</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntax error in an XPointer is a resource error; and fatal becaue there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badxptr4.xml">harold-81</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Syntax error in an XPointer is a resource error; and fatal becaue there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2.7</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/circlepointer1.xml">harold-82</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Circular references via xpointer are fatal</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xpointeroverridesfragmentid.xml">harold-83</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>href attribute with fragment ID is a fatal error even when there's an xpointer attribute</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/ignoresfragmentid.xml">harold-84</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>href attribute with fragment ID is a fatal error</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.3</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/lineends.xml">harold-85</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Line breaks must be preserved verbatim when including a document with parse="text"</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/meaninglessfragmentid.xml">harold-86</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>A fragment identifier is semantically bad; but still meets the
+    syntax of fragment IDs from RFC 2396. </p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/acceptfrench.xml">harold-87</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept-language="fr"
+			 This test connects to IBiblio to load the included
+data. This is necessary because file URLs don't support
+content negotiation</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/acceptenglish.xml">harold-88</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept-language="en"
+      This test connects to IBiblio to load the included
+data. This is necessary because file URLs don't support
+content negotiation</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/acceptplaintext.xml">harold-89</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept="text/plain"
+      This test connects to IBiblio to load the included
+data. This is necessary because file URLs don't support
+content negotiation</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/accepthtml.xml">harold-90</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>accept="text/html"
+      This test connects to IBiblio to load the included
+data. This is necessary because file URLs don't support
+content negotiation</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/unrecognizedscheme.xml">harold-91</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Unrecognized scheme in XPointer is a fatal error if there's no fallback</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.2</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/unrecognizedschemewithfallback.xml">harold-92</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Unrecognized scheme in XPointer is a resource error so fallbacks apply</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">4.5</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/test.xml">harold-93</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Basic inclusions as XML and text</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/toplevel.xml">harold-94</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Included document has an include element with neither href nor xpointer attribute</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/tobintop.xml">harold-95</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>XPointers are resolved against the acquired infoset, not thge source infoset</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/badelementschemedata.xml">harold-96</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Test that a non-child sequence in an xpointer is treated as a resource error.</p>
+<p>There is an output test associated with this input file.</p>
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr valign="top">
+<td width="40%">
+<table width="100%" border="1" bgcolor="#eeeeff">
+<tr>
+<td width="50%"><b>Sections [Rules]:</b></td><td bgcolor="#ffffcc">3.1</td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Test ID:</b></td><td bgcolor="#ffffcc"><a href="http://xw2k.sdct.itl.nist.gov/carmelo/XInclude/Elliotte Rusty Harold/xpointerwithpercentescape.xml">harold-97</a></td>
+</tr>
+<tr valign="top">
+<td width="50%"><b>Collection:</b></td><td bgcolor="#ffffcc">Elliotte Rusty Harold</td>
+</tr>
+</table>
+</td><td bgcolor="#ccffff">
+<p>Since the xpointer attribute is not a URI reference, %-escaping must not appear in the XPointer, nor is there any need for a processor to apply or reverse such escaping.</p>
+</td>
+</tr>
+</table>
+<a name="contrib"></a>
+<h3>4.  Contributors (Non-normative)</h3>
+<p> A team of volunteer members have participated in the
+	    development of this work.  Contributions have come from:
+	    </p>
+<ul>
+<li>Sandra I. Martinez, NIST</li>
+<li>Daniel Veillard, Red Hat Network</li>
+<li>John Evdemon, FourThought</li>
+<li>Richard Tobin, University of Edinburgh</li>
+<li>Elliotte Rusty Harold</li>
+</ul>
+</body>
+</html>
