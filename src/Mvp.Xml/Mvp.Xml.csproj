@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&lt;NUL set /p=&quot;PWD=&quot;&#xD;&#xA;cd&#xD;&#xA;echo IDE=%vsappiddir%&#xD;&#xA;call &quot;%vsappiddir%..\tools\vsdevcmd.bat&quot;&#xD;&#xA;&#xD;&#xA;ildasm $(TargetFileName) /out=$(TargetName).il /nobar /linenum&#xD;&#xA;dotnet &quot;$(SolutionDir)src\MethodRenamer\bin\$(ConfigurationName)\netcoreapp2.0\MethodRenamer.dll&quot; RenameMappings.json $(TargetName).il $(TargetName).fixed.il&#xD;&#xA;del $(TargetFileName) $(TargetName).pdb&#xD;&#xA;ilasm $(TargetName).fixed.il /OUTPUT=$(TargetFIleName) /RESOURCE=$(TargetName).res /DLL /PDB&#xD;&#xA;del $(TargetName).il $(TargetName).fixed.il $(TargetName).res *.resources" />
+    <Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&lt;NUL set /p=&quot;PWD=&quot;&#xD;&#xA;cd&#xD;&#xA;echo IDE=%vsappiddir%&#xD;&#xA;call &quot;%vsappiddir%..\tools\vsdevcmd.bat&quot;&#xD;&#xA;&#xD;&#xA;ildasm $(TargetFileName) /out=$(TargetName).il /nobar /linenum&#xD;&#xA;dotnet &quot;$(SolutionDir)tools\MethodRenamer\MethodRenamer.dll&quot; RenameMappings.json $(TargetName).il $(TargetName).fixed.il&#xD;&#xA;del $(TargetFileName) $(TargetName).pdb&#xD;&#xA;ilasm $(TargetName).fixed.il /OUTPUT=$(TargetFIleName) /RESOURCE=$(TargetName).res /DLL /PDB&#xD;&#xA;del $(TargetName).il $(TargetName).fixed.il $(TargetName).res *.resources" />
   </Target>
 
 </Project>
