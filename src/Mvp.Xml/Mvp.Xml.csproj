@@ -1,7 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Harmen van Keimpema</Authors>
+    <Company />
+    <PackageId>Mvp.Xml.NetStandard</PackageId>
+    <Product>Mvp.Xml.NetStandard</Product>
+    <Description>A .NET Standard port of the Mvp.Xml project developed by Microsoft MVP's in XML technologies and XML Web Services worldwide.</Description>
+    <PackageProjectUrl>https://github.com/keimpema/Mvp.Xml.NetStandard</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/keimpema/Mvp.Xml.NetStandard</RepositoryUrl>
+    <RepositoryType />
+    <PackageTags>xml;xslt;exslt;xinclude;xpointer;xmlbase</PackageTags>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0.0</InformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
