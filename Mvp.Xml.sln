@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Xml", "src\Mvp.Xml\Mvp.Xml.csproj", "{0273CBB0-E9B5-4E08-99FD-79ED54D785B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC1B1EE3-E147-4D9A-B63B-C76236196440}"
+	ProjectSection(SolutionItems) = preProject
+		postbuild.bat = postbuild.bat
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{429310FA-3365-434D-875B-B4A40A18E63F}"
 EndProject

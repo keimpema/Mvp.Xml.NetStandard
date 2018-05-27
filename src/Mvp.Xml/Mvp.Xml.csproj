@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&lt;NUL set /p=&quot;PWD=&quot;&#xD;&#xA;cd&#xD;&#xA;rem echo IDE=%vsappiddir%&#xD;&#xA;rem call &quot;%vsappiddir%..\tools\vsdevcmd.bat&quot;&#xD;&#xA;&#xD;&#xA;&quot;$(SolutionDir)tools\core\2.0.6\ildasm&quot; $(TargetFileName) /out=$(TargetName).il /linenum&#xD;&#xA;dotnet &quot;$(SolutionDir)tools\MethodRenamer\MethodRenamer.dll&quot; RenameMappings.json $(TargetName).il $(TargetName).fixed.il&#xD;&#xA;del $(TargetFileName) $(TargetName).pdb&#xD;&#xA;&quot;$(SolutionDir)tools\core\2.0.6\ilasm&quot; $(TargetName).fixed.il /OUTPUT=$(TargetFIleName) /RESOURCE=$(TargetName).res /DLL /PDB&#xD;&#xA;del $(TargetName).il $(TargetName).fixed.il $(TargetName).res *.resources" />
+    <Exec Command="call $(SolutionDir)postbuild.bat &quot;$(TargetDir)&quot; &quot;$(SolutionDIr)&quot; &quot;$(TargetName)&quot;" />
   </Target>
 
 </Project>
