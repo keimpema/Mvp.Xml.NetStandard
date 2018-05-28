@@ -17,10 +17,11 @@ echo TOOLSDIR=%tools%
 
 dotnet "%tools%\MethodRenamer.dll" RenameMappings.json %targetName%.il %targetName%.fixed.il
 
-del %targetName%.dll %targetName%.pdb
+del %targetName%.dll 
+rem del %targetName%.pdb
 
-rem although /pdb is specified, no pdb file is created
+rem need to specify /pdb but it does not yet create a pdb, so skip for now
 rem probably related to https://github.com/dotnet/coreclr/issues/15299
-"%tools%\ilasm" %targetName%.fixed.il /OUTPUT=%targetName%.dll /dll /pdb
+"%tools%\ilasm" %targetName%.fixed.il /OUTPUT=%targetName%.dll /dll
 
 del %targetName%.il %targetName%.fixed.il del %targetName%.res *.resources
