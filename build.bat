@@ -23,7 +23,7 @@ if not "%errorlevel%"=="0" goto failure
 rem cd test
 
 rem test
-call dotnet test test\mvp.xml.tests\mvp.xml.tests.csproj --configuration %config% --no-build --no-restore --verbosity=detailed
+call dotnet test test\mvp.xml.tests\mvp.xml.tests.csproj --configuration %config% --no-build --no-restore --verbosity=normal
 if not "%errorlevel%"=="0" goto failure
 
 rem package
