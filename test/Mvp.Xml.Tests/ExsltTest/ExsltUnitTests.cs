@@ -1,8 +1,7 @@
 using System;
-using Mvp.Xml.Exslt;
-using System.Xml;
 using System.Xml.XPath;
 using System.IO;
+using System.Xml.Linq;
 using Mvp.Xml.Common.Xsl;
 #if !NUNIT
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -43,14 +42,20 @@ namespace ExsltTest
 
             var sr = new StreamReader(ResultsDir + result);
             string expectedResult = sr.ReadToEnd();
-            sr.Close();
+            XDocument expected = XDocument.Load(new StringReader(expectedResult));
+
             string actualResult = res.ToString();
-			if (actualResult != expectedResult)
+            XDocument actual = XDocument.Load(new StringReader(actualResult));
+
+            sr.Close();
+
+            bool areEqual = XNode.DeepEquals(expected, actual);
+			if (!areEqual)
 			{
 				Console.WriteLine(@"Actual Result was {0}", actualResult);
 				Console.WriteLine(@"Expected Result was {0}", expectedResult);
 			}
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.IsTrue(areEqual);
         }        
     }
 }
