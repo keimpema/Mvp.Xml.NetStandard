@@ -10,17 +10,13 @@ if not "%BuildCounter%" == "" (
    set packversionsuffix=--version-suffix ci-%BuildCounter%
 )
 
-rem cd src
-
-rem Restore
+rem restore
 call dotnet restore
 if not "%errorlevel%"=="0" goto failure
 
 rem build all
 call dotnet build --configuration %config% --no-restore
 if not "%errorlevel%"=="0" goto failure
-
-rem cd test
 
 rem test
 call dotnet test test\mvp.xml.tests\mvp.xml.tests.csproj --configuration %config% --no-build --no-restore --verbosity=normal
