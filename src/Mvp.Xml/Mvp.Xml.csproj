@@ -23,8 +23,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.CodeDom" Version="4.4.0" />
-    <PackageReference Include="System.Security.Permissions" Version="4.4.1" />
+    <PackageReference Include="System.CodeDom" Version="4.5.0" />
+    <PackageReference Include="System.Security.Permissions" Version="4.5.0" />
     <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
   </ItemGroup>
 
@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="call $(SolutionDir)postbuild.bat &quot;$(TargetDir)&quot; &quot;$(SolutionDIr)&quot; &quot;$(TargetName)&quot;" />
+    <Exec Command="call postbuild.bat &quot;$(TargetDir)&quot; &quot;$(TargetName)&quot;" />
   </Target>
 
 </Project>

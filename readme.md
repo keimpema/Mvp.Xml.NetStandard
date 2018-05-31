@@ -11,8 +11,18 @@ Install [Nuget](https://www.nuget.org/packages/Usenet) package:
 PM> Install-Package Mvp.Xml.NetStandard
 ```
 
+## Developers
+The Mvp.Xml.dll contains methods names that are not valid in c# like
+for example "day-in-year". These methods are created by disassembling the dll,
+renaming the methods in the il file and compiling back to dll (ildasm/ilasm round trip).
+
+Use create-buildtools.bat to set up ildasm, ilasm and the MethodRenamer tool.
+
+Unfortunately the symbol file (pdb) does not survive this process because of [coreclr issue #2982](https://github.com/dotnet/coreclr/issues/2982).
+I will fix this as soon as pdb support is added to ilasm.
+
 ## Motivation ##
-I needed the XIncludingReader in another .NET core project.
+I needed the XIncludingReader in a .NET core project.
 
 ## Release Notes ##
 ### Release 1.0.0 ###
