@@ -23,7 +23,7 @@ call dotnet restore
 if not "%errorlevel%"=="0" goto failure
 call dotnet build --configuration %config% --no-restore
 if not "%errorlevel%"=="0" goto failure
-call dotnet test mvp.xml.tests\mvp.xml.tests.csproj --configuration %config% --no-restore
+call dotnet test mvp.xml.tests\mvp.xml.tests.csproj --configuration %config% --no-restore --no-build
 if not "%errorlevel%"=="0" goto failure
 
 rem create nuget package in artifacts folder
