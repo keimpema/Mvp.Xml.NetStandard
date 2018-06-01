@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Mvp.Xml\Mvp.Xml.csproj" />
+    <ProjectReference Include="..\Mvp.Xml\Mvp.Xml.csproj" />
   </ItemGroup>
 
   <ItemGroup>
