@@ -123,6 +123,7 @@ namespace Mvp.Xml.Exslt
 			/// </summary>
 			public ExsltDateTime()
 			{
+				D = System.DateTime.Now;
 			    Ts = TimeZoneInfo.Local.GetUtcOffset(System.DateTime.Now);
             }
 
