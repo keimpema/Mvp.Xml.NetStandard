@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.Diagnostics;
+using System.Security.Principal;
 using System.Threading;
 
 // ReSharper disable once CheckNamespace
@@ -198,8 +199,9 @@ namespace Mvp.Xml.Common.Xsl
 			SetUndefinedState(ReadState.Initial);
 			if (multiThread)
 			{
-				thread = new Thread(StartTransform);
-				thread.Start();
+			    principal = Thread.CurrentPrincipal;
+			    thread = new Thread(StartTransform);
+                thread.Start();
 			}
 			else
 			{
@@ -211,7 +213,9 @@ namespace Mvp.Xml.Common.Xsl
 		{
 			try
 			{
-				while (true)
+			    Thread.CurrentPrincipal = principal;
+
+                while (true)
 				{
 				    if (defaulDocument.Source is XmlReader xmlReader)
 					{
@@ -468,7 +472,9 @@ namespace Mvp.Xml.Common.Xsl
 		}
 
 	    private static readonly char[] qnameSeparator = { ':' };
-		private int FindAttribute(string name)
+	    private IPrincipal principal;
+
+	    private int FindAttribute(string name)
 		{
 			if (IsInsideElement())
 			{
