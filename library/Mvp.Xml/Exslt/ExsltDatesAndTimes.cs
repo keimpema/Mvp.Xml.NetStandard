@@ -123,8 +123,9 @@ namespace Mvp.Xml.Exslt
 			/// </summary>
 			public ExsltDateTime()
 			{
-			    Ts = TimeZoneInfo.Local.GetUtcOffset(System.DateTime.Now);
-            }
+				D = System.DateTime.Now;
+				Ts = TimeZoneInfo.Local.GetUtcOffset(D);
+			}
 
 			/// <summary>
 			/// Initialize the DateTimeTZ structure with the date, time and timezone in the string.
@@ -137,7 +138,7 @@ namespace Mvp.Xml.Exslt
 
 				if (s.EndsWith("Z"))
 				{
-				    Ts = new TimeSpan(0, 0, 0);
+					Ts = new TimeSpan(0, 0, 0);
 				}
 				else if (s.Length > 6)
 				{
@@ -150,11 +151,11 @@ namespace Mvp.Xml.Exslt
 							int minutes = int.Parse(zoneStr.Substring(4, 2));
 							if (hours < 0)
 							{
-							    minutes = -minutes;
+								minutes = -minutes;
 							}
 
-						    Ts = new TimeSpan(hours, minutes, 0);
-							D = D.Add(Ts);	// Adjust to time zone relative time						
+							Ts = new TimeSpan(hours, minutes, 0);
+							D = D.Add(Ts);  // Adjust to time zone relative time						
 						}
 						catch (Exception)
 						{
@@ -183,11 +184,11 @@ namespace Mvp.Xml.Exslt
 			{
 				if (!HasTimeZone())
 				{
-				    return D;
+					return D;
 				}
 				else
 				{
-				    return D.Subtract(Ts);
+					return D.Subtract(Ts);
 				}
 			}
 
@@ -223,7 +224,7 @@ namespace Mvp.Xml.Exslt
 				{
 					if (0 == Ts.Hours && 0 == Ts.Minutes)
 					{
-					    retString.Append('Z');
+						retString.Append('Z');
 					}
 					else if (Ts.Hours >= 0 && Ts.Minutes >= 0)
 					{
@@ -270,7 +271,7 @@ namespace Mvp.Xml.Exslt
 				{
 					if (0 == Ts.Hours && 0 == Ts.Minutes)
 					{
-					    retString.Append("GMT");
+						retString.Append("GMT");
 					}
 					else if (Ts.Hours >= 0 && Ts.Minutes >= 0)
 					{
@@ -289,8 +290,8 @@ namespace Mvp.Xml.Exslt
 				return retString.ToString();
 			}
 
-			protected abstract string[] ExpectedFormats { get;}
-			protected abstract string OutputFormat { get;}
+			protected abstract string[] ExpectedFormats { get; }
+			protected abstract string OutputFormat { get; }
 		}
 
 		internal class DateTimeTz : ExsltDateTime
@@ -303,30 +304,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f"  
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f"
 };
 				}
 			}
@@ -351,30 +352,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"yyyy-MM-ddzzz",
 											"yyyy-MM-ddZ",
 											"yyyy-MM-dd"};
@@ -399,30 +400,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"HH:mm:sszzz",
 											"HH:mm:ssZ",
 											"HH:mm:ss"};
@@ -448,30 +449,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"yyyy-MM-dd",
 											"yyyy-MM"};
 				}
@@ -496,30 +497,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"yyyy-MM-dd",
 											"yyyy-MM",
 											"yyyy"};
@@ -545,30 +546,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-										 "yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+										 "yyyy-MM-dd\"T\"HH:mm:ssZ",
 										 "yyyy-MM-dd\"T\"HH:mm:ss",
-                                         "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",   
+										 "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 										 "yyyy-MM-dd",
 										 "yyyy-MM",
 										 "--MM--"};
@@ -594,30 +595,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"yyyy-MM-dd",
 											"---dd",
 											"--MM-dd"};
@@ -643,30 +644,30 @@ namespace Mvp.Xml.Exslt
 			{
 				get
 				{
-					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz", 
-											"yyyy-MM-dd\"T\"HH:mm:ssZ", 
+					return new string[] {"yyyy-MM-dd\"T\"HH:mm:sszzz",
+											"yyyy-MM-dd\"T\"HH:mm:ssZ",
 											"yyyy-MM-dd\"T\"HH:mm:ss",
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ffZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.ff",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fzzz",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.fZ",  
-                                            "yyyy-MM-dd\"T\"HH:mm:ss.f",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ffZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.ff",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fzzz",
+											"yyyy-MM-dd\"T\"HH:mm:ss.fZ",
+											"yyyy-MM-dd\"T\"HH:mm:ss.f",
 											"yyyy-MM-dd",
 											"--MM-dd"};
 				}
@@ -683,13 +684,13 @@ namespace Mvp.Xml.Exslt
 
 
 		private string[] dayAbbrevs = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
-		private string[] dayNames = {"Sunday", "Monday", "Tuesday", 
+		private string[] dayNames = {"Sunday", "Monday", "Tuesday",
 										"Wednesday", "Thursday", "Friday", "Saturday"};
 
 		private string[] monthAbbrevs = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
 											"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 		private string[] monthNames = {"January", "February", "March", "April", "May", "June",
-										  "July", "August", "September", 
+										  "July", "August", "September",
 										  "October", "November", "December"};
 
 
@@ -774,15 +775,15 @@ namespace Mvp.Xml.Exslt
 			return dtz.ToString();
 		}
 
-	    public string date() => Date();
+		public string date() => Date();
 
-        /// <summary>
-        /// Implements the following function
-        ///   string date:date(string)
-        /// </summary>
-        /// <returns>The date part of the specified date or the empty string if the 
-        /// date is invalid</returns>        
-        public string Date(string d)
+		/// <summary>
+		/// Implements the following function
+		///   string date:date(string)
+		/// </summary>
+		/// <returns>The date part of the specified date or the empty string if the 
+		/// date is invalid</returns>        
+		public string Date(string d)
 		{
 			try
 			{
@@ -795,28 +796,28 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public string date(string d) => Date(d);
+		public string date(string d) => Date(d);
 
-        /// <summary>
-        /// Implements the following function
-        ///   string date:time()
-        /// </summary>
-        /// <returns>The current time</returns>        
-        public string Time()
+		/// <summary>
+		/// Implements the following function
+		///   string date:time()
+		/// </summary>
+		/// <returns>The current time</returns>        
+		public string Time()
 		{
 			TimeTz t = new TimeTz();
 			return t.ToString();
 		}
 
-	    public string time() => Time();
+		public string time() => Time();
 
-        /// <summary>
-        /// Implements the following function
-        ///   string date:time(string)
-        /// </summary>
-        /// <returns>The time part of the specified date or the empty string if the 
-        /// date is invalid</returns>        
-        public string Time(string d)
+		/// <summary>
+		/// Implements the following function
+		///   string date:time(string)
+		/// </summary>
+		/// <returns>The time part of the specified date or the empty string if the 
+		/// date is invalid</returns>        
+		public string Time(string d)
 		{
 			try
 			{
@@ -829,29 +830,29 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public string time(string d) => Time(d);
+		public string time(string d) => Time(d);
 
-        /// <summary>
-        /// Implements the following function
-        ///   number date:year()
-        /// </summary>
-        /// <returns>The current year</returns>        
-        public double Year()
+		/// <summary>
+		/// Implements the following function
+		///   number date:year()
+		/// </summary>
+		/// <returns>The current year</returns>        
+		public double Year()
 		{
 			return System.DateTime.Now.Year;
 		}
 
-	    public double year() => Year();
+		public double year() => Year();
 
-        /// <summary>
-        /// Implements the following function
-        ///   number date:year(string)
-        /// </summary>
-        /// <returns>The year part of the specified date or the empty string if the 
-        /// date is invalid</returns>
-        /// <remarks>Does not support dates in the format of the xs:yearMonth or 
-        /// xs:gYear types</remarks>        
-        public double Year(string d)
+		/// <summary>
+		/// Implements the following function
+		///   number date:year(string)
+		/// </summary>
+		/// <returns>The year part of the specified date or the empty string if the 
+		/// date is invalid</returns>
+		/// <remarks>Does not support dates in the format of the xs:yearMonth or 
+		/// xs:gYear types</remarks>        
+		public double Year(string d)
 		{
 			try
 			{
@@ -864,13 +865,13 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public double year(string d) => Year(d);
+		public double year(string d) => Year(d);
 
-        /// <summary>
-        /// Helper method for calculating whether a year is a leap year. Algorithm 
-        /// obtained from http://mindprod.com/jglossleapyear.html
-        /// </summary>        
-        private static bool IsLeapYear(int year)
+		/// <summary>
+		/// Helper method for calculating whether a year is a leap year. Algorithm 
+		/// obtained from http://mindprod.com/jglossleapyear.html
+		/// </summary>        
+		private static bool IsLeapYear(int year)
 		{
 			try
 			{
@@ -916,11 +917,11 @@ namespace Mvp.Xml.Exslt
 
 			if (y == double.NaN)
 			{
-			    return false;
+				return false;
 			}
 			else
 			{
-			    return IsLeapYear((int)y);
+				return IsLeapYear((int)y);
 			}
 		}
 
@@ -1479,10 +1480,10 @@ namespace Mvp.Xml.Exslt
 		{
 			if (dow < 0 || dow >= dayNames.Length)
 			{
-			    return string.Empty;
+				return string.Empty;
 			}
 
-		    return dayNames[dow];
+			return dayNames[dow];
 		}
 
 		/// <summary>
@@ -1541,10 +1542,10 @@ namespace Mvp.Xml.Exslt
 		{
 			if (dow < 0 || dow >= dayAbbrevs.Length)
 			{
-			    return string.Empty;
+				return string.Empty;
 			}
 
-		    return dayAbbrevs[dow];
+			return dayAbbrevs[dow];
 		}
 
 
@@ -1604,10 +1605,10 @@ namespace Mvp.Xml.Exslt
 		{
 			if (month < 1 || month > monthNames.Length)
 			{
-			    return string.Empty;
+				return string.Empty;
 			}
 
-		    return monthNames[month - 1];
+			return monthNames[month - 1];
 		}
 
 		/// <summary>
@@ -1641,11 +1642,11 @@ namespace Mvp.Xml.Exslt
 			double month = MonthInYear(d);
 			if (month == double.NaN)
 			{
-			    return "";
+				return "";
 			}
 			else
 			{
-			    return MonthName((int)month);
+				return MonthName((int)month);
 			}
 		}
 
@@ -1667,10 +1668,10 @@ namespace Mvp.Xml.Exslt
 		{
 			if (month < 1 || month > monthAbbrevs.Length)
 			{
-			    return string.Empty;
+				return string.Empty;
 			}
 
-		    return monthAbbrevs[month - 1];
+			return monthAbbrevs[month - 1];
 		}
 
 		/// <summary>
@@ -1705,11 +1706,11 @@ namespace Mvp.Xml.Exslt
 			double month = MonthInYear(d);
 			if (month == double.NaN)
 			{
-			    return "";
+				return "";
 			}
 			else
 			{
-			    return MonthAbbreviation((int)month);
+				return MonthAbbreviation((int)month);
 			}
 		}
 
@@ -1761,7 +1762,7 @@ namespace Mvp.Xml.Exslt
 				ExsltDateTime oDate = ExsltDateTimeFactory.ParseDateTime(d);
 				StringBuilder retString = new StringBuilder("");
 
-				for (int i = 0; i < format.Length; )
+				for (int i = 0; i < format.Length;)
 				{
 					int s = i;
 					switch (format[i])
@@ -1815,15 +1816,15 @@ namespace Mvp.Xml.Exslt
 							{
 								if (i - s <= 2)
 								{
-								    retString.Append(oDate.D.Month.ToString().PadLeft(i - s, '0'));
+									retString.Append(oDate.D.Month.ToString().PadLeft(i - s, '0'));
 								}
 								else if (i - s == 3)
 								{
-								    retString.Append(MonthAbbreviation(oDate.D.Month));
+									retString.Append(MonthAbbreviation(oDate.D.Month));
 								}
 								else
 								{
-								    retString.Append(MonthName(oDate.D.Month));
+									retString.Append(MonthName(oDate.D.Month));
 								}
 							}
 							break;
@@ -1851,10 +1852,10 @@ namespace Mvp.Xml.Exslt
 								int hour = oDate.D.Hour % 12;
 								if (0 == hour)
 								{
-								    hour = 12;
+									hour = 12;
 								}
 
-							    retString.Append(hour.ToString().PadLeft(i - s, '0'));
+								retString.Append(hour.ToString().PadLeft(i - s, '0'));
 							}
 							break;
 						case 'H'://        hour in day (0~23)      (Number)            0
@@ -1971,11 +1972,11 @@ namespace Mvp.Xml.Exslt
 							{
 								if (oDate.D.Hour < 12)
 								{
-								    retString.Append("AM");
+									retString.Append("AM");
 								}
 								else
 								{
-								    retString.Append("PM");
+									retString.Append("PM");
 								}
 							}
 							break;
@@ -2027,10 +2028,10 @@ namespace Mvp.Xml.Exslt
 								while (i < format.Length && format[i] != '\'' && i <= format.Length) { retString.Append(format.Substring(i++, 1)); }
 								if (i >= format.Length)
 								{
-								    return "";
+									return "";
 								}
 
-							    i++;
+								i++;
 							}
 							break;
 						default:
@@ -2129,10 +2130,10 @@ namespace Mvp.Xml.Exslt
 
 					if (yearDiff < 0)
 					{
-					    retString.Append('-');
+						retString.Append('-');
 					}
 
-				    retString.Append('P');
+					retString.Append('P');
 					retString.Append(Math.Abs(yearDiff));
 					retString.Append('Y');
 
@@ -2196,16 +2197,16 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public string difference(string start, string end) => Difference(start, end);
+		public string difference(string start, string end) => Difference(start, end);
 
-        /// <summary>
-        /// Implements the following function
-        ///    date:add(string, string)
-        /// </summary>
-        /// <param name="datetime">An ISO8601 date/time</param>
-        /// <param name="duration">the duration to add</param>
-        /// <returns>The new time</returns>        
-        public string Add(string datetime, string duration)
+		/// <summary>
+		/// Implements the following function
+		///    date:add(string, string)
+		/// </summary>
+		/// <param name="datetime">An ISO8601 date/time</param>
+		/// <param name="duration">the duration to add</param>
+		/// <returns>The new time</returns>        
+		public string Add(string datetime, string duration)
 		{
 			try
 			{
@@ -2213,17 +2214,17 @@ namespace Mvp.Xml.Exslt
 				//TimeSpan timespan = System.Xml.XmlConvert.ToTimeSpan(duration); 
 
 				Regex durationRe = new Regex(
-					@"^(-)?" +				// May begin with a - sign
-					@"P" +					// Must contain P as first or 2nd char
-					@"(?=\d+|(?:T\d+))" +		// Must contain at least one digit after P or after PT
-					@"(?:(\d+)Y)?" +		// May contain digits plus Y for year
-					@"(?:(\d+)M)?" +		// May contain digits plus M for month
-					@"(?:(\d+)D)?" +		// May contain digits plus D for day
-					@"(?=T\d+)?" +			// If there is a T here, must be digits afterwards
-					@"T?" +					// May contain a T
-					@"(?:(\d+)H)?" +		// May contain digits plus H for hours
-					@"(?:(\d+)M)?" +		// May contain digits plus M for minutes
-					@"(?:(\d+)S)?" +		// May contain digits plus S for seconds
+					@"^(-)?" +              // May begin with a - sign
+					@"P" +                  // Must contain P as first or 2nd char
+					@"(?=\d+|(?:T\d+))" +       // Must contain at least one digit after P or after PT
+					@"(?:(\d+)Y)?" +        // May contain digits plus Y for year
+					@"(?:(\d+)M)?" +        // May contain digits plus M for month
+					@"(?:(\d+)D)?" +        // May contain digits plus D for day
+					@"(?=T\d+)?" +          // If there is a T here, must be digits afterwards
+					@"T?" +                 // May contain a T
+					@"(?:(\d+)H)?" +        // May contain digits plus H for hours
+					@"(?:(\d+)M)?" +        // May contain digits plus M for minutes
+					@"(?:(\d+)S)?" +        // May contain digits plus S for seconds
 					@"$",
 					RegexOptions.IgnoreCase | RegexOptions.Singleline
 					);
@@ -2243,40 +2244,40 @@ namespace Mvp.Xml.Exslt
 
 					if (CultureInfo.InvariantCulture.CompareInfo.Compare(m.Groups[1].Value, "-") == 0)
 					{
-					    negation = -1;
+						negation = -1;
 					}
 
-				    if (m.Groups[2].Length > 0)
-				    {
-				        years = negation * int.Parse(m.Groups[2].Value);
-				    }
+					if (m.Groups[2].Length > 0)
+					{
+						years = negation * int.Parse(m.Groups[2].Value);
+					}
 
-				    if (m.Groups[3].Length > 0)
-				    {
-				        months = negation * int.Parse(m.Groups[3].Value);
-				    }
+					if (m.Groups[3].Length > 0)
+					{
+						months = negation * int.Parse(m.Groups[3].Value);
+					}
 
-				    if (m.Groups[4].Length > 0)
-				    {
-				        days = negation * int.Parse(m.Groups[4].Value);
-				    }
+					if (m.Groups[4].Length > 0)
+					{
+						days = negation * int.Parse(m.Groups[4].Value);
+					}
 
-				    if (m.Groups[5].Length > 0)
-				    {
-				        hours = negation * int.Parse(m.Groups[5].Value);
-				    }
+					if (m.Groups[5].Length > 0)
+					{
+						hours = negation * int.Parse(m.Groups[5].Value);
+					}
 
-				    if (m.Groups[6].Length > 0)
-				    {
-				        minutes = negation * int.Parse(m.Groups[6].Value);
-				    }
+					if (m.Groups[6].Length > 0)
+					{
+						minutes = negation * int.Parse(m.Groups[6].Value);
+					}
 
-				    if (m.Groups[7].Length > 0)
-				    {
-				        seconds = negation * int.Parse(m.Groups[7].Value);
-				    }
+					if (m.Groups[7].Length > 0)
+					{
+						seconds = negation * int.Parse(m.Groups[7].Value);
+					}
 
-				    date.D = date.D.AddYears(years);
+					date.D = date.D.AddYears(years);
 					date.D = date.D.AddMonths(months);
 					date.D = date.D.AddDays(days);
 					date.D = date.D.AddHours(hours);
@@ -2299,17 +2300,17 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public string add(string datetime, string duration) => Add(datetime, duration);
+		public string add(string datetime, string duration) => Add(datetime, duration);
 
 
-        /// <summary>
-        /// Implements the following function
-        ///    string:date:add-duration(string, string)
-        /// </summary>
-        /// <param name="duration1">Initial duration</param>
-        /// <param name="duration2">the duration to add</param>
-        /// <returns>The new time</returns>        
-        public string AddDuration(string duration1, string duration2)
+		/// <summary>
+		/// Implements the following function
+		///    string:date:add-duration(string, string)
+		/// </summary>
+		/// <param name="duration1">Initial duration</param>
+		/// <param name="duration2">the duration to add</param>
+		/// <returns>The new time</returns>        
+		public string AddDuration(string duration1, string duration2)
 		{
 			try
 			{
@@ -2355,22 +2356,22 @@ namespace Mvp.Xml.Exslt
 			return Seconds(new DateTimeTz());
 		}
 
-	    public double seconds() => Seconds();
+		public double seconds() => Seconds();
 
-        /// <summary>
-        /// Implements the following function
-        ///		number date:seconds(string)
-        /// </summary>
-        /// <returns>If date passed in, the amount of seconds between the specified date and the 
-        /// epoch (1970-01-01T00:00:00Z).  If timespan passed in, returns the number of seconds
-        /// in the timespan.</returns>
-        public double Seconds(string datetime)
+		/// <summary>
+		/// Implements the following function
+		///		number date:seconds(string)
+		/// </summary>
+		/// <returns>If date passed in, the amount of seconds between the specified date and the 
+		/// epoch (1970-01-01T00:00:00Z).  If timespan passed in, returns the number of seconds
+		/// in the timespan.</returns>
+		public double Seconds(string datetime)
 		{
 			try
 			{
 				return Seconds(ExsltDateTimeFactory.ParseDate(datetime));
 			}
-			catch (FormatException) { ; } //might be a duration
+			catch (FormatException) {; } //might be a duration
 
 			try
 			{
@@ -2383,15 +2384,15 @@ namespace Mvp.Xml.Exslt
 			}
 		}
 
-	    public double seconds(string datetime) => Seconds(datetime);
+		public double seconds(string datetime) => Seconds(datetime);
 
-        /// <summary>
-        /// Implements the following function 
-        ///		string date:sum(node-set)
-        /// </summary>
-        /// <param name="iterator">Nodeset of timespans</param>
-        /// <returns>The sum of the timespans within a node set.</returns>        
-        public string Sum(XPathNodeIterator iterator)
+		/// <summary>
+		/// Implements the following function 
+		///		string date:sum(node-set)
+		/// </summary>
+		/// <param name="iterator">Nodeset of timespans</param>
+		/// <returns>The sum of the timespans within a node set.</returns>        
+		public string Sum(XPathNodeIterator iterator)
 		{
 
 			TimeSpan sum = new TimeSpan(0, 0, 0, 0);
@@ -2417,31 +2418,31 @@ namespace Mvp.Xml.Exslt
 			return XmlConvert.ToString(sum); //XmlConvert.ToString(sum);
 		}
 
-	    public string sum(XPathNodeIterator iterator) => Sum(iterator);
+		public string sum(XPathNodeIterator iterator) => Sum(iterator);
 
-        /// <summary>
-        /// Implements the following function 
-        ///    string date:duration()
-        /// </summary>
-        /// <returns>seconds since the beginning of the epoch until now</returns>        
-        public string Duration()
+		/// <summary>
+		/// Implements the following function 
+		///    string date:duration()
+		/// </summary>
+		/// <returns>seconds since the beginning of the epoch until now</returns>        
+		public string Duration()
 		{
 			return Duration(Seconds());
 		}
 
-	    public string duration() => Duration();
+		public string duration() => Duration();
 
-        /// <summary>
-        /// Implements the following function 
-        ///    string date:duration(number)
-        /// </summary>
-        /// <param name="seconds"></param>
-        /// <returns></returns>        
-        public string Duration(double seconds)
+		/// <summary>
+		/// Implements the following function 
+		///    string date:duration(number)
+		/// </summary>
+		/// <param name="seconds"></param>
+		/// <returns></returns>        
+		public string Duration(double seconds)
 		{
 			return XmlConvert.ToString(TimeSpan.FromSeconds(seconds));
 		}
 
-	    public string duration(double seconds) => Duration(seconds);
+		public string duration(double seconds) => Duration(seconds);
 	}
 }

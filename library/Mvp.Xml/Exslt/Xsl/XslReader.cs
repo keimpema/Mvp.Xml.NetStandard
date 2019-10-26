@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.Diagnostics;
+using System.Security.Principal;
 using System.Threading;
 
 // ReSharper disable once CheckNamespace
@@ -108,28 +109,28 @@ namespace Mvp.Xml.Common.Xsl
 	/// </example>
 	public class XslReader : XmlReader
 	{
-	    private const string nsXml = "http://www.w3.org/XML/1998/namespace";
-	    private const string nsXmlNs = "http://www.w3.org/2000/xmlns/";
-	    private const int defaultBufferSize = 256;
-	    private readonly XmlNameTable nameTable;
-	    private readonly TokenPipe pipe;
-	    private readonly BufferWriter writer;
-	    private readonly ScopeManager scope;
-	    private Thread thread;
+		private const string nsXml = "http://www.w3.org/XML/1998/namespace";
+		private const string nsXmlNs = "http://www.w3.org/2000/xmlns/";
+		private const int defaultBufferSize = 256;
+		private readonly XmlNameTable nameTable;
+		private readonly TokenPipe pipe;
+		private readonly BufferWriter writer;
+		private readonly ScopeManager scope;
+		private Thread thread;
 
-	    private readonly bool multiThread;
+		private readonly bool multiThread;
 
-	    private static readonly XmlReaderSettings readerSettings;
+		private static readonly XmlReaderSettings readerSettings;
 		static XslReader()
 		{
-		    readerSettings = new XmlReaderSettings {DtdProcessing = DtdProcessing.Prohibit};
-		    //ReaderSettings.ProhibitDtd = true;
+			readerSettings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Prohibit };
+			//ReaderSettings.ProhibitDtd = true;
 
 		}
 
-        // Transform Parameters
-	    private XmlInput defaulDocument;
-	    private XsltArgumentList arguments;
+		// Transform Parameters
+		private XmlInput defaulDocument;
+		private XsltArgumentList arguments;
 
 		/// <summary>
 		/// Creates new XslReader instance with given <see cref="XslCompiledTransform"/>, 
@@ -198,6 +199,7 @@ namespace Mvp.Xml.Common.Xsl
 			SetUndefinedState(ReadState.Initial);
 			if (multiThread)
 			{
+				principal = Thread.CurrentPrincipal;
 				thread = new Thread(StartTransform);
 				thread.Start();
 			}
@@ -211,21 +213,23 @@ namespace Mvp.Xml.Common.Xsl
 		{
 			try
 			{
+				Thread.CurrentPrincipal = principal;
+
 				while (true)
 				{
-				    if (defaulDocument.Source is XmlReader xmlReader)
+					if (defaulDocument.Source is XmlReader xmlReader)
 					{
 						XslCompiledTransform.Transform(xmlReader, arguments, writer, defaulDocument.Resolver);
 						break;
 					}
 
-				    if (defaulDocument.Source is IXPathNavigable nav)
+					if (defaulDocument.Source is IXPathNavigable nav)
 					{
 						XslCompiledTransform.Transform(nav, arguments, writer);
 						break;
 					}
 
-				    if (defaulDocument.Source is string str)
+					if (defaulDocument.Source is string str)
 					{
 						using (XmlReader reader = Create(str, readerSettings))
 						{
@@ -234,7 +238,7 @@ namespace Mvp.Xml.Common.Xsl
 						break;
 					}
 
-				    if (defaulDocument.Source is Stream strm)
+					if (defaulDocument.Source is Stream strm)
 					{
 						using (XmlReader reader = Create(strm, readerSettings))
 						{
@@ -243,7 +247,7 @@ namespace Mvp.Xml.Common.Xsl
 						break;
 					}
 
-				    if (defaulDocument.Source is TextReader txtReader)
+					if (defaulDocument.Source is TextReader txtReader)
 					{
 						using (XmlReader reader = Create(txtReader, readerSettings))
 						{
@@ -277,22 +281,22 @@ namespace Mvp.Xml.Common.Xsl
 		/// </summary>
 		public XslCompiledTransform XslCompiledTransform { get; set; }
 
-	    /// <summary>
+		/// <summary>
 		/// Initial buffer size. The buffer will be
 		/// expanded if necessary to be able to store any element start tag with 
 		/// all its attributes.
 		/// </summary>
 		public int InitialBufferSize { get; set; }
 
-	    private int attOffset; // 0 - means reader is positioned on element, when reader potitionrd on the first attribute attOffset == 1
-	    private int attCount;
-	    private int depth;
-	    private XmlNodeType nodeType = XmlNodeType.None;
-	    private ReadState readState = ReadState.Initial;
-	    private QName qname;
-	    private string value;
+		private int attOffset; // 0 - means reader is positioned on element, when reader potitionrd on the first attribute attOffset == 1
+		private int attCount;
+		private int depth;
+		private XmlNodeType nodeType = XmlNodeType.None;
+		private ReadState readState = ReadState.Initial;
+		private QName qname;
+		private string value;
 
-	    private void SetUndefinedState(ReadState readState)
+		private void SetUndefinedState(ReadState readState)
 		{
 			qname = writer.QNameEmpty;
 			value = string.Empty;
@@ -301,7 +305,7 @@ namespace Mvp.Xml.Common.Xsl
 			this.readState = readState;
 		}
 
-	    private static bool IsWhitespace(string s)
+		private static bool IsWhitespace(string s)
 		{
 			// Because our xml is presumably valid only and all ws chars <= ' '
 			foreach (char c in s)
@@ -374,9 +378,9 @@ namespace Mvp.Xml.Common.Xsl
 			switch (nodeType)
 			{
 				case XmlNodeType.Element:
-					for (attCount = 0;; attCount++)
+					for (attCount = 0; ; attCount++)
 					{
-					    pipe.Read(out XmlNodeType attType, out QName attName, out string attText);
+						pipe.Read(out XmlNodeType attType, out QName attName, out string attText);
 						if (attType != XmlNodeType.Attribute)
 						{
 							break; // We are done with attributes for this element
@@ -410,45 +414,45 @@ namespace Mvp.Xml.Common.Xsl
 		/// <summary>See <see cref="XmlReader.AttributeCount"/>.</summary>
 		public override int AttributeCount => attCount;
 
-	    // issue: What should be BaseURI in XslReader? xslCompiledTransform.BaseURI ?
+		// issue: What should be BaseURI in XslReader? xslCompiledTransform.BaseURI ?
 		/// <summary>See <see cref="XmlReader.BaseURI"/>.</summary>
 		public override string BaseURI => string.Empty;
 
-	    /// <summary>See <see cref="XmlReader.NameTable"/>.</summary>
+		/// <summary>See <see cref="XmlReader.NameTable"/>.</summary>
 		public override XmlNameTable NameTable => nameTable;
 
-	    /// <summary>See <see cref="XmlReader.Depth"/>.</summary>
+		/// <summary>See <see cref="XmlReader.Depth"/>.</summary>
 		public override int Depth => depth;
 
-	    /// <summary>See <see cref="XmlReader.EOF"/>.</summary>
+		/// <summary>See <see cref="XmlReader.EOF"/>.</summary>
 		public override bool EOF => ReadState == ReadState.EndOfFile;
 
-	    /// <summary>See <see cref="XmlReader.HasValue"/>.</summary>
+		/// <summary>See <see cref="XmlReader.HasValue"/>.</summary>
 		public override bool HasValue => 0 != (/*HasValueBitmap:*/0x2659C & (1 << (int)nodeType));
 
-	    /// <summary>See <see cref="XmlReader.NodeType"/>.</summary>
+		/// <summary>See <see cref="XmlReader.NodeType"/>.</summary>
 		public override XmlNodeType NodeType => nodeType;
 
-	    // issue: We may want return true if element doesn't have content. Iteresting to know what 
+		// issue: We may want return true if element doesn't have content. Iteresting to know what 
 		/// <summary>See <see cref="XmlReader.IsEmptyElement"/>.</summary>
 		public override bool IsEmptyElement => false;
 
-	    /// <summary>See <see cref="XmlReader.LocalName"/>.</summary>
+		/// <summary>See <see cref="XmlReader.LocalName"/>.</summary>
 		public override string LocalName => qname.Local;
 
-	    /// <summary>See <see cref="XmlReader.NamespaceURI"/>.</summary>
+		/// <summary>See <see cref="XmlReader.NamespaceURI"/>.</summary>
 		public override string NamespaceURI => qname.NsUri;
 
-	    /// <summary>See <see cref="XmlReader.Prefix"/>.</summary>
+		/// <summary>See <see cref="XmlReader.Prefix"/>.</summary>
 		public override string Prefix => qname.Prefix;
 
-	    /// <summary>See <see cref="XmlReader.Value"/>.</summary>
+		/// <summary>See <see cref="XmlReader.Value"/>.</summary>
 		public override string Value => value;
 
-	    /// <summary>See <see cref="XmlReader.ReadState"/>.</summary>
+		/// <summary>See <see cref="XmlReader.ReadState"/>.</summary>
 		public override ReadState ReadState => readState;
 
-	    /// <summary>See <see cref="XmlReader.Close()"/>.</summary>
+		/// <summary>See <see cref="XmlReader.Close()"/>.</summary>
 		public override void Close()
 		{
 			SetUndefinedState(ReadState.Closed);
@@ -460,14 +464,16 @@ namespace Mvp.Xml.Common.Xsl
 			{
 				if (0 <= i && i < attCount)
 				{
-				    pipe.GetToken(i + 1, out _, out string attValue);
+					pipe.GetToken(i + 1, out _, out string attValue);
 					return attValue;
 				}
 			}
 			throw new ArgumentOutOfRangeException("i");
 		}
 
-	    private static readonly char[] qnameSeparator = { ':' };
+		private static readonly char[] qnameSeparator = { ':' };
+		private IPrincipal principal;
+
 		private int FindAttribute(string name)
 		{
 			if (IsInsideElement())
@@ -493,7 +499,7 @@ namespace Mvp.Xml.Common.Xsl
 				}
 				for (int i = 1; i <= attCount; i++)
 				{
-				    pipe.GetToken(i, out QName attName, out _);
+					pipe.GetToken(i, out QName attName, out _);
 					if (attName.Local == local && attName.Prefix == prefix)
 					{
 						return i;
@@ -519,7 +525,7 @@ namespace Mvp.Xml.Common.Xsl
 			{
 				for (int i = 1; i <= attCount; i++)
 				{
-				    pipe.GetToken(i, out QName attName, out string attValue);
+					pipe.GetToken(i, out QName attName, out string attValue);
 					if (attName.Local == name && attName.NsUri == ns)
 					{
 						return attValue;
@@ -553,7 +559,7 @@ namespace Mvp.Xml.Common.Xsl
 					depth++;
 					pipe.GetToken(attOffset, out qname, out value);
 					nodeType = XmlNodeType.Attribute;
-                    return;
+					return;
 				}
 			}
 			throw new ArgumentOutOfRangeException("i");
@@ -565,7 +571,7 @@ namespace Mvp.Xml.Common.Xsl
 			{
 				for (int i = 1; i <= attCount; i++)
 				{
-				    pipe.GetToken(i, out QName attName, out string attValue);
+					pipe.GetToken(i, out QName attName, out string attValue);
 					if (attName.Local == name && attName.NsUri == ns)
 					{
 						ChangeDepthToElement();
@@ -656,26 +662,26 @@ namespace Mvp.Xml.Common.Xsl
 		/// <summary>See <see cref="XmlReader.XmlLang"/>.</summary>
 		public override string XmlLang => scope.Lang;
 
-	    /// <summary>See <see cref="XmlReader.XmlSpace"/>.</summary>
+		/// <summary>See <see cref="XmlReader.XmlSpace"/>.</summary>
 		public override XmlSpace XmlSpace => scope.Space;
 
-	    private static bool RefEquals(string strA, string strB)
+		private static bool RefEquals(string strA, string strB)
 		{
 			Debug.Assert(
-			    ReferenceEquals(strA, strB) || !string.Equals(strA, strB),
+				ReferenceEquals(strA, strB) || !string.Equals(strA, strB),
 				"String atomization Failure: '" + strA + "'"
 			);
-		    return ReferenceEquals(strA, strB);
+			return ReferenceEquals(strA, strB);
 		}
 
 		private static bool RefEquals(QName qnA, QName qnB)
 		{
 			Debug.Assert(
-			    ReferenceEquals(qnA, qnB) || qnA.Local != qnB.Local || qnA.NsUri != qnB.NsUri || qnA.Prefix != qnB.Prefix,
+				ReferenceEquals(qnA, qnB) || qnA.Local != qnB.Local || qnA.NsUri != qnB.NsUri || qnA.Prefix != qnB.Prefix,
 				"QName atomization Failure: '" + qnA + "'"
 			);
 			return ReferenceEquals(qnA, qnB);
-		}		
+		}
 
 		// BufferWriter records information written to it in sequence of WriterEvents: 
 		[DebuggerDisplay("{NodeType}: name={Name}, Value={Value}")]
@@ -703,11 +709,11 @@ namespace Mvp.Xml.Common.Xsl
 
 		private class BufferWriter : XmlWriter
 		{
-		    private readonly QNameTable qnameTable;
-		    private readonly TokenPipe pipe;
-		    private string firstText;
-		    private readonly StringBuilder sbuilder;
-		    private QName curAttribute;
+			private readonly QNameTable qnameTable;
+			private readonly TokenPipe pipe;
+			private string firstText;
+			private readonly StringBuilder sbuilder;
+			private QName curAttribute;
 
 			public readonly QName QNameXmlSpace;
 			public readonly QName QNameXmlLang;
@@ -837,14 +843,14 @@ namespace Mvp.Xml.Common.Xsl
 			public override void WriteCData(string text) { throw new NotSupportedException(); }
 			public override string LookupPrefix(string ns) { throw new NotSupportedException(); }
 			public override WriteState WriteState => throw new NotSupportedException();
-		    public override XmlSpace XmlSpace => throw new NotSupportedException();
-		    public override string XmlLang => throw new NotSupportedException();
+			public override XmlSpace XmlSpace => throw new NotSupportedException();
+			public override string XmlLang => throw new NotSupportedException();
 
-		    private class QNameTable
+			private class QNameTable
 			{
 				// This class atomizes QNames.
-			    private readonly XmlNameTable nameTable;
-			    private readonly Dictionary<string, List<QName>> qnames = new Dictionary<string, List<QName>>();
+				private readonly XmlNameTable nameTable;
+				private readonly Dictionary<string, List<QName>> qnames = new Dictionary<string, List<QName>>();
 
 				public QNameTable(XmlNameTable nameTable)
 				{
@@ -855,7 +861,7 @@ namespace Mvp.Xml.Common.Xsl
 				{
 					nsUri = nameTable.Add(nsUri);
 					prefix = nameTable.Add(prefix);
-				    if (!qnames.TryGetValue(local, out List<QName> list))
+					if (!qnames.TryGetValue(local, out List<QName> list))
 					{
 						list = new List<QName>();
 						qnames.Add(local, list);
@@ -898,14 +904,14 @@ namespace Mvp.Xml.Common.Xsl
 			// 4. Keep scope of xml:space     (null , space, "space")
 			// On each StartElement we adding record(s) to the scope, 
 			// Its convinient to add QName last becuase in this case it will be directly available for EndElement
-		    private static readonly string atomLang = new string("lang".ToCharArray());
-		    private static readonly string atomSpace = new string("space".ToCharArray());
-		    private readonly XmlNameTable nameTable;
-		    private readonly string stringEmpty;
-		    private QName[] records = new QName[32];
-		    private int lastRecord;
+			private static readonly string atomLang = new string("lang".ToCharArray());
+			private static readonly string atomSpace = new string("space".ToCharArray());
+			private readonly XmlNameTable nameTable;
+			private readonly string stringEmpty;
+			private QName[] records = new QName[32];
+			private int lastRecord;
 
-		    public ScopeManager(XmlNameTable nameTable)
+			public ScopeManager(XmlNameTable nameTable)
 			{
 				this.nameTable = nameTable;
 				stringEmpty = nameTable.Add(string.Empty);
@@ -1039,9 +1045,9 @@ namespace Mvp.Xml.Common.Xsl
 			}
 			public string Lang { get; private set; }
 
-		    public XmlSpace Space { get; private set; }
+			public XmlSpace Space { get; private set; }
 
-		    public QName Name
+			public QName Name
 			{
 				get
 				{
@@ -1123,14 +1129,14 @@ namespace Mvp.Xml.Common.Xsl
 			public virtual void GetToken(int attNum, out QName name, out string value)
 			{
 				Debug.Assert(0 <= attNum && attNum < ReadEndPos - ReadStartPos - 1);
-			    XmlToken.Get(ref Buffer[ReadStartPos + attNum], out XmlNodeType nodeType, out name, out value);
+				XmlToken.Get(ref Buffer[ReadStartPos + attNum], out XmlNodeType nodeType, out name, out value);
 				Debug.Assert(nodeType == (attNum == 0 ? XmlNodeType.Element : XmlNodeType.Attribute), "We use GetToken() only to access parts of start element tag.");
 			}
 		}
 
 		private class TokenPipeMultiThread : TokenPipe
 		{
-		    private Exception exception;
+			private Exception exception;
 
 			public TokenPipeMultiThread(int bufferSize) : base(bufferSize) { }
 
@@ -1242,7 +1248,7 @@ namespace Mvp.Xml.Common.Xsl
 			public override void GetToken(int attNum, out QName name, out string value)
 			{
 				Debug.Assert(0 <= attNum && attNum < ReadEndPos - ReadStartPos - 1);
-			    XmlToken.Get(ref Buffer[(ReadStartPos + attNum) & Mask], out XmlNodeType nodeType, out name, out value);
+				XmlToken.Get(ref Buffer[(ReadStartPos + attNum) & Mask], out XmlNodeType nodeType, out name, out value);
 				Debug.Assert(nodeType == (attNum == 0 ? XmlNodeType.Element : XmlNodeType.Attribute), "We use GetToken() only to access parts of start element tag.");
 			}
 		}
