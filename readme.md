@@ -32,5 +32,8 @@ I will fix this as soon as pdb support is added to ilasm.
 I needed the XIncludingReader in a .NET core project.
 
 ## Release Notes ##
+### Release 1.0.1 ###
+- Fixed an ExsltDateTime bug: DateTime part was not set in constructor. Thanks to [Jindrich Susen](https://github.com/JindrichSusen).
+- Fixed an XslReader bug: CurrentPrincipal of worker threads was not set. Thanks to [Jindrich Susen](https://github.com/JindrichSusen). 
 ### Release 1.0.0 ###
 - Mvp.Xml library targeting .NET Standard 2.0
