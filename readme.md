@@ -31,7 +31,7 @@ I needed the XIncludingReader in a .NET core project.
 
 ## Release Notes ##
 ### Release 1.1.1 ###
-- Made sure the final assembly is signed properly after round-trip compiling with ildasm/ilasm in build.bat.
+- Made sure the final assembly is signed properly after round-trip compiling with ildasm/ilasm in postbuild.bat.
 ### Release 1.1.0 ###
 - Strongly signed the assembly. Thanks to [Jakub Míšek](https://github.com/jakubmisek).
 ### Release 1.0.1 ###
