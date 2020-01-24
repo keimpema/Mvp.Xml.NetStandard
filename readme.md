@@ -11,7 +11,7 @@ and tools making XML programming in .NET platform easier, more productive and ef
 [![Mvp.Xml Codeplex Archive](codeplex-archive.png "Mvp.Xml Codeplex Archive")](https://archive.codeplex.com/?p=mvpxml)
 
 ## Getting Started ##
-Install [Nuget](https://www.nuget.org/packages/Usenet) package:
+Install [Nuget](https://www.nuget.org/packages/Mvp.Xml.NetStandard) package:
 ```
 PM> Install-Package Mvp.Xml.NetStandard
 ```
