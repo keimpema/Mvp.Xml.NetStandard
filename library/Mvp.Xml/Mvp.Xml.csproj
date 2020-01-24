@@ -11,13 +11,10 @@
     <RepositoryUrl>https://github.com/keimpema/Mvp.Xml.NetStandard</RepositoryUrl>
     <RepositoryType />
     <PackageTags>xml;xslt;exslt;xinclude;xpointer;xmlbase</PackageTags>
-    <Version Condition="'$(Version)'==''">1.1.0</Version>
+    <Version Condition="'$(Version)'==''">1.1.1</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version).0</FileVersion>
     <InformationalVersion>$(Version).0</InformationalVersion>
-    <SignAssembly>true</SignAssembly>
-    <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>Mvp.Xml.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
