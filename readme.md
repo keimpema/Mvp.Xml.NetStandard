@@ -10,10 +10,8 @@ and tools making XML programming in .NET platform easier, more productive and ef
 
 [![Mvp.Xml Codeplex Archive](codeplex-archive.png "Mvp.Xml Codeplex Archive")](https://archive.codeplex.com/?p=mvpxml)
 
-[![keimpema MyGet Build Status](https://www.myget.org/BuildSource/Badge/keimpema?identifier=2c5e8089-9397-4568-8630-147bc0aa88ef)](https://www.myget.org/)
-
 ## Getting Started ##
-Install [Nuget](https://www.nuget.org/packages/Usenet) package:
+Install [Nuget](https://www.nuget.org/packages/Mvp.Xml.NetStandard) package:
 ```
 PM> Install-Package Mvp.Xml.NetStandard
 ```
@@ -32,6 +30,8 @@ I will fix this as soon as pdb support is added to ilasm.
 I needed the XIncludingReader in a .NET core project.
 
 ## Release Notes ##
+### Release 1.1.0 ###
+- Strongly signed the assembly. Thanks to [Jakub Míšek](https://github.com/jakubmisek).
 ### Release 1.0.1 ###
 - Fixed an ExsltDateTime bug: DateTime part was not set in constructor. Thanks to [Jindrich Susen](https://github.com/JindrichSusen).
 - Fixed an XslReader bug: CurrentPrincipal of worker threads was not set. Thanks to [Jindrich Susen](https://github.com/JindrichSusen). 
