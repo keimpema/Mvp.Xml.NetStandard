@@ -10,8 +10,6 @@ and tools making XML programming in .NET platform easier, more productive and ef
 
 [![Mvp.Xml Codeplex Archive](codeplex-archive.png "Mvp.Xml Codeplex Archive")](https://archive.codeplex.com/?p=mvpxml)
 
-[![keimpema MyGet Build Status](https://www.myget.org/BuildSource/Badge/keimpema?identifier=2c5e8089-9397-4568-8630-147bc0aa88ef)](https://www.myget.org/)
-
 ## Getting Started ##
 Install [Nuget](https://www.nuget.org/packages/Usenet) package:
 ```
