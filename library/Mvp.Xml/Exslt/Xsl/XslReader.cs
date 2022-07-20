@@ -295,6 +295,7 @@ namespace Mvp.Xml.Common.Xsl
 		private ReadState readState = ReadState.Initial;
 		private QName qname;
 		private string value;
+		private bool isEmptyElement;
 
 		private void SetUndefinedState(ReadState readState)
 		{
@@ -338,8 +339,19 @@ namespace Mvp.Xml.Common.Xsl
 					depth--;
 					goto case XmlNodeType.Element;
 				case XmlNodeType.Element:
-					pipe.FreeTokens(1 + attCount);
-					depth++;
+					if (isEmptyElement)
+					{
+						// empty elements don't get request for end element,
+						// so we skip the end element in the pipe as well
+						// and change the scope
+						pipe.FreeTokens(2 + attCount);
+						scope.PopScope();
+					}
+					else
+					{
+						pipe.FreeTokens(1 + attCount);
+						depth++;
+					}
 					break;
 				case XmlNodeType.EndElement:
 					scope.PopScope();
@@ -367,6 +379,7 @@ namespace Mvp.Xml.Common.Xsl
 			Debug.Assert(attOffset == 0);
 			Debug.Assert(readState == ReadState.Interactive);
 			attCount = 0;
+			isEmptyElement = false;
 			// Step on next node
 			pipe.Read(out nodeType, out qname, out value);
 			if (nodeType == XmlNodeType.None)
@@ -383,6 +396,11 @@ namespace Mvp.Xml.Common.Xsl
 						pipe.Read(out XmlNodeType attType, out QName attName, out string attText);
 						if (attType != XmlNodeType.Attribute)
 						{
+							if (attType == XmlNodeType.EndElement)
+							{
+								// If the next node type is EndElement, it is safe to assume that the element is empty
+								isEmptyElement = true;
+							}
 							break; // We are done with attributes for this element
 						}
 						if (RefEquals(attName.Prefix, "xmlns")) { scope.AddNamespace(attName.Local, attText); }
@@ -433,9 +451,8 @@ namespace Mvp.Xml.Common.Xsl
 		/// <summary>See <see cref="XmlReader.NodeType"/>.</summary>
 		public override XmlNodeType NodeType => nodeType;
 
-		// issue: We may want return true if element doesn't have content. Iteresting to know what 
 		/// <summary>See <see cref="XmlReader.IsEmptyElement"/>.</summary>
-		public override bool IsEmptyElement => false;
+		public override bool IsEmptyElement => isEmptyElement;
 
 		/// <summary>See <see cref="XmlReader.LocalName"/>.</summary>
 		public override string LocalName => qname.Local;

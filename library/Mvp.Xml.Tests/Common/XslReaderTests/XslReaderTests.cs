@@ -252,7 +252,7 @@ namespace Mvp.Xml.Tests.XslReaderTests
             xslReader.MoveToContent();
             Assert.IsTrue(xslReader.NodeType == XmlNodeType.Element);
             Assert.IsTrue(xslReader.Name == "empty");
-            Assert.IsFalse(xslReader.IsEmptyElement);
+            Assert.IsTrue(xslReader.IsEmptyElement);
         }
     }
 }
