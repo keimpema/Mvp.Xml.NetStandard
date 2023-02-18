@@ -1597,7 +1597,9 @@ namespace Mvp.Xml.XInclude
 				object resource;
 				try
 				{
-					resource = xmlResolver.GetEntity(includeLocation, null, null);
+					resource = xmlResolver.GetEntity(includeLocation, null, typeof(Stream))
+						?? xmlResolver.GetEntity(includeLocation, null, typeof(TextReader))
+						?? xmlResolver.GetEntity(includeLocation, null, typeof(XmlReader));
 				}
 				catch (Exception e)
 				{
